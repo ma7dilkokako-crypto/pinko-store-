@@ -2,217 +2,465 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>PINKO STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PINKO STORE - Ultimate Gaming Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#080912;color:#fff}
-button,input{font:inherit}
-button{cursor:pointer}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:#08090d;
+  color:white;
+}
+
+button,input{
+  font:inherit;
+}
 
 header{
-height:70px;background:#10121c;border-bottom:1px solid #292c3b;
-display:flex;align-items:center;gap:12px;padding:0 18px;
-position:sticky;top:0;z-index:1000
+  height:72px;
+  background:#10121a;
+  border-bottom:1px solid #292d39;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:0 25px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-.logo{font-size:24px;font-weight:900;color:#ff2990;min-width:145px}
-.logo small{display:block;color:#fff;font-size:8px;letter-spacing:5px;text-align:center}
+.logo{
+  font-size:27px;
+  font-weight:900;
+  color:#ffb000;
+  white-space:nowrap;
+}
 
 .search{
-flex:1;max-width:600px;background:#191c28;border:1px solid #34384a;
-border-radius:9px;padding:12px 15px;color:#fff;outline:none
+  flex:1;
+  max-width:650px;
+  padding:13px 18px;
+  border-radius:10px;
+  border:1px solid #303544;
+  background:#191c25;
+  color:white;
+  outline:none;
 }
 
-.search:focus{border-color:#ff2990}
-
-.headbtn{
-background:#191c28;color:#fff;border:1px solid #34384a;
-border-radius:8px;padding:11px 13px
+.header-btn,
+.icon-btn{
+  background:#191c25;
+  border:1px solid #303544;
+  color:white;
+  padding:11px 14px;
+  border-radius:9px;
+  cursor:pointer;
 }
 
-.headbtn:hover{border-color:#ff2990}
-
-.cartcount{
-background:#ff2990;border-radius:50%;padding:3px 6px;
-font-size:10px;margin-left:3px
+.header-btn:hover,
+.icon-btn:hover{
+  border-color:#ffb000;
+  color:#ffb000;
 }
-
-.layout{display:flex}
 
 .sidebar{
-width:220px;min-width:220px;background:#0d0f17;
-border-right:1px solid #292c3b;min-height:calc(100vh - 70px);
-padding:15px;position:sticky;top:70px;height:calc(100vh - 70px);
-overflow:auto
+  position:fixed;
+  left:0;
+  top:72px;
+  bottom:0;
+  width:245px;
+  background:#0e1017;
+  border-right:1px solid #292d39;
+  padding:18px 12px;
+  overflow-y:auto;
 }
 
-.side-title{
-color:#6e7485;font-size:10px;margin:17px 5px 7px;
-text-transform:uppercase
+.sidebar h4{
+  color:#73798a;
+  font-size:11px;
+  margin:18px 10px 8px;
 }
 
-.sidebtn{
-display:block;width:100%;padding:10px;border:0;border-radius:7px;
-background:transparent;color:#c5c8d2;text-align:left;margin:2px 0
+.nav-btn{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#cbd0dc;
+  text-align:left;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-bottom:3px;
 }
 
-.sidebtn:hover,.sidebtn.active{
-background:#291125;color:#ff2990
+.nav-btn:hover,
+.nav-btn.active{
+  background:#1d222c;
+  color:#ffb000;
 }
 
-main{flex:1;padding:18px;min-width:0}
+main{
+  margin-left:245px;
+  padding:28px;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
 
 .hero{
-min-height:330px;border-radius:15px;padding:35px;
-display:flex;align-items:center;
-background:
-linear-gradient(90deg,rgba(3,3,8,.95),rgba(3,3,8,.2)),
-url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=85")
-center/cover
+  min-height:390px;
+  border-radius:20px;
+  padding:50px;
+  display:flex;
+  align-items:center;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.25)),
+  url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=85")
+  center/cover;
 }
 
-.hero small{color:#ff2990;letter-spacing:3px;font-weight:bold}
-.hero h1{font-size:48px;margin:12px 0}
-.hero h1 span{color:#ff2990}
-.hero p{color:#bbb;max-width:520px;line-height:1.6}
+.hero h1{
+  font-size:52px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  color:#d1d4dc;
+  max-width:570px;
+  line-height:1.7;
+}
 
 .primary{
-border:0;background:#ff2990;color:white;padding:12px 22px;
-border-radius:7px;font-weight:bold;margin-top:18px
+  margin-top:25px;
+  padding:14px 25px;
+  border:0;
+  border-radius:9px;
+  background:#ffb000;
+  color:#111;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.primary:hover{background:#ff4ca4}
-
-.section{margin-top:25px}
-.title{
-display:flex;justify-content:space-between;align-items:center;margin-bottom:13px
+.primary:hover{
+  transform:scale(1.03);
 }
-.title h2{font-size:19px}
-.view{border:0;background:none;color:#ff2990}
+
+.section{
+  margin-top:35px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.section-title h2{
+  font-size:25px;
+}
+
+.view{
+  color:#ffb000;
+  cursor:pointer;
+}
 
 .categories{
-display:grid;grid-template-columns:repeat(8,1fr);gap:9px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:14px;
 }
 
 .category{
-background:#11131d;border:1px solid #292d3d;border-radius:9px;
-padding:15px 5px;text-align:center;color:#bbb;cursor:pointer
+  background:#151821;
+  border:1px solid #292d39;
+  padding:22px 10px;
+  border-radius:13px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
 }
-.category:hover{border-color:#ff2990;transform:translateY(-2px)}
-.category b{display:block;font-size:27px;margin-bottom:7px}
-.category span{font-size:9px}
+
+.category:hover{
+  transform:translateY(-5px);
+  border-color:#ffb000;
+}
+
+.category-icon{
+  font-size:35px;
+  margin-bottom:8px;
+}
 
 .products{
-display:grid;grid-template-columns:repeat(5,1fr);gap:13px
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(205px,1fr));
+  gap:18px;
 }
 
 .product{
-background:#11131c;border:1px solid #292d3d;border-radius:10px;
-overflow:hidden;transition:.2s
+  background:#151821;
+  border:1px solid #292d39;
+  border-radius:14px;
+  overflow:hidden;
+  transition:.2s;
 }
-.product:hover{border-color:#ff2990;transform:translateY(-3px)}
 
-.product img{width:100%;height:150px;object-fit:cover;display:block}
+.product:hover{
+  transform:translateY(-5px);
+  border-color:#ffb000;
+}
 
-.info{padding:11px}
-.name{font-size:13px;font-weight:bold}
-.stars{color:#ffd23f;font-size:11px;margin-top:5px}
-.price{color:#ff2990;font-size:17px;font-weight:bold;margin:8px 0}
-.old{text-decoration:line-through;color:#666;font-size:10px}
+.product img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
 
-.actions{display:flex;gap:5px}
+.product-info{
+  padding:14px;
+}
+
+.product-name{
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.rating{
+  color:#ffc400;
+  font-size:13px;
+}
+
+.price{
+  color:#ffb000;
+  font-size:20px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.old{
+  color:#777;
+  font-size:12px;
+  text-decoration:line-through;
+}
+
 .buy{
-flex:1;border:0;background:#ff2990;color:#fff;
-padding:9px;border-radius:6px;font-weight:bold
+  width:100%;
+  border:0;
+  background:#ffb000;
+  color:#111;
+  padding:10px;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
 }
-.fav{
-width:38px;background:#191b27;color:white;
-border:1px solid #34384a;border-radius:6px
+
+.buy:hover{
+  background:#ffc22e;
 }
-.fav.liked{color:#ff2990}
 
 .offer{
-border:1px solid #53223f;border-radius:12px;padding:22px;
-display:flex;justify-content:space-between;align-items:center;
-background:
-linear-gradient(90deg,rgba(15,4,13,.95),rgba(15,4,13,.3)),
-url("https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=85")
-center/cover
+  background:linear-gradient(135deg,#211720,#171a28);
+  border:1px solid #493144;
+  padding:25px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.offer h2{color:#ff2990;margin:8px 0}
-.timer{display:flex;gap:6px;margin-top:12px}
-.time{background:#090a10;padding:7px 10px;border-radius:5px;text-align:center}
-.time b{display:block;color:#ff2990}
+.badge{
+  display:inline-block;
+  background:#e63838;
+  padding:7px 10px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
 
 .features{
-display:grid;grid-template-columns:repeat(4,1fr);gap:10px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
 }
+
 .feature{
-background:#11131c;border:1px solid #292d3d;
-border-radius:9px;padding:18px
-}
-.feature b{font-size:27px}
-.feature h3{margin:8px 0;font-size:14px}
-.feature p{color:#777;font-size:11px}
-
-.modalbg{
-position:fixed;inset:0;background:rgba(0,0,0,.8);
-display:none;align-items:center;justify-content:center;z-index:5000
+  background:#151821;
+  border:1px solid #292d39;
+  padding:22px;
+  border-radius:12px;
 }
 
-.modal{
-width:min(440px,92%);max-height:90vh;overflow:auto;
-background:#11131d;border:1px solid #ff2990;
-border-radius:12px;padding:22px
+.feature-icon{
+  font-size:30px;
+  margin-bottom:10px;
 }
 
-.close{
-float:right;background:none;border:0;color:#aaa;font-size:24px
+.panel{
+  background:#11141c;
+  border:1px solid #292d39;
+  border-radius:15px;
+  padding:25px;
 }
 
-.modal h2{color:#ff2990;margin-bottom:15px}
-.modal input{
-width:100%;background:#080a11;border:1px solid #34384a;
-color:#fff;padding:12px;border-radius:7px;margin:5px 0;outline:none
+.panel h1{
+  color:#ffb000;
+  margin-bottom:15px;
 }
-.modal .primary{width:100%}
 
-.cartitem{
-display:flex;justify-content:space-between;align-items:center;
-background:#090b12;padding:10px;border-radius:6px;margin:6px 0
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:15px 0;
+  border-bottom:1px solid #292d39;
 }
 
 .remove{
-background:#d92768;color:#fff;border:0;border-radius:5px;padding:5px 8px
+  background:#e63838;
+  color:white;
+  border:0;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.toast{
-position:fixed;right:20px;bottom:20px;background:#ff2990;
-padding:13px 18px;border-radius:8px;display:none;z-index:9000
+.empty{
+  text-align:center;
+  padding:50px;
+  color:#777;
 }
 
-@media(max-width:1200px){
-.products{grid-template-columns:repeat(4,1fr)}
+.profile{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:25px;
+  align-items:center;
 }
-@media(max-width:900px){
-.sidebar{display:none}
-.categories{grid-template-columns:repeat(4,1fr)}
-.products{grid-template-columns:repeat(3,1fr)}
-.features{grid-template-columns:repeat(2,1fr)}
+
+.avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ffb000,#ff4f81);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:55px;
 }
-@media(max-width:600px){
-.logo{min-width:80px;font-size:17px}
-.logo small{font-size:6px}
-header{padding:0 8px}
-.hero{padding:22px;min-height:290px}
-.hero h1{font-size:34px}
-.products{grid-template-columns:repeat(2,1fr);gap:8px}
-.product img{height:120px}
-.categories{grid-template-columns:repeat(4,1fr)}
-.offer{flex-direction:column;align-items:flex-start;gap:10px}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+
+.stat{
+  background:#191c25;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  color:#ffb000;
+  font-size:25px;
+  margin-bottom:5px;
+}
+
+footer{
+  margin-top:60px;
+  padding:35px;
+  background:#0e1017;
+  border-top:1px solid #292d39;
+  text-align:center;
+  color:#777;
+}
+
+.floating-cart{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#ffb000;
+  color:#111;
+  border:0;
+  font-size:23px;
+  cursor:pointer;
+  z-index:2000;
+  box-shadow:0 5px 25px #000;
+}
+
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:#e63838;
+  color:white;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  font-size:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+@media(max-width:850px){
+
+  header{
+    padding:0 12px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .header-btn{
+    display:none;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  main{
+    margin-left:0;
+    padding:15px;
+  }
+
+  .hero{
+    min-height:330px;
+    padding:25px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .profile{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -221,537 +469,871 @@ header{padding:0 8px}
 
 <header>
 
-<div class="logo">
-PINKO
-<small>STORE</small>
-</div>
+  <div class="logo">PINKO STORE</div>
 
-<input id="search" class="search"
-placeholder="🔍 Search skins, emotes, bundles..."
-oninput="searchProducts()">
+  <input
+    id="search"
+    class="search"
+    placeholder="Search skins, emotes, weapons..."
+    oninput="searchProducts()"
+  >
 
-<button class="headbtn" onclick="openNotifications()">🔔</button>
+  <button class="header-btn" onclick="showPage('account')">
+    👤 Account
+  </button>
 
-<button class="headbtn" onclick="openCart()">
-🛒 <span id="cartCount" class="cartcount">0</span>
-</button>
-
-<button class="headbtn" onclick="openLogin()">👤 Login</button>
+  <button class="header-btn" onclick="showPage('orders')">
+    📋 Orders
+  </button>
 
 </header>
 
 
-<div class="layout">
-
 <aside class="sidebar">
 
-<div class="side-title">Main</div>
+  <h4>MAIN</h4>
 
-<button class="sidebtn active" onclick="home()">🏠 Home</button>
-<button class="sidebtn" onclick="showAll()">🛍️ Store</button>
-<button class="sidebtn" onclick="showToast('💎 Diamonds section opened')">💎 Diamonds</button>
-<button class="sidebtn" onclick="scrollToId('offers')">🔥 Promotions</button>
-<button class="sidebtn" onclick="scrollToId('offers')">🎁 Special Offers</button>
+  <button class="nav-btn active" onclick="showPage('home')">🏠 Home</button>
+  <button class="nav-btn" onclick="showPage('store')">🛍️ Store</button>
+  <button class="nav-btn" onclick="showPage('offers')">🔥 Promotions</button>
 
-<div class="side-title">Products</div>
 
-<button class="sidebtn" onclick="filterProducts('skins')">👕 Skins</button>
-<button class="sidebtn" onclick="filterProducts('weapons')">🔫 Weapon Skins</button>
-<button class="sidebtn" onclick="filterProducts('characters')">🧑 Characters</button>
-<button class="sidebtn" onclick="filterProducts('emotes')">💃 Emotes</button>
-<button class="sidebtn" onclick="filterProducts('vehicles')">🚗 Vehicles</button>
-<button class="sidebtn" onclick="filterProducts('backpacks')">🎒 Backpacks</button>
-<button class="sidebtn" onclick="filterProducts('bundles')">📦 Bundles</button>
-<button class="sidebtn" onclick="filterProducts('codes')">🎟️ Gift Codes</button>
+  <h4>PRODUCTS</h4>
 
-<div class="side-title">Discover</div>
+  <button class="nav-btn" onclick="filterCategory('Skins')">👕 Skins</button>
+  <button class="nav-btn" onclick="filterCategory('Weapons')">🔫 Weapons</button>
+  <button class="nav-btn" onclick="filterCategory('Emotes')">💃 Emotes</button>
+  <button class="nav-btn" onclick="filterCategory('Bundles')">📦 Bundles</button>
+  <button class="nav-btn" onclick="filterCategory('Pets')">🐾 Pets</button>
+  <button class="nav-btn" onclick="filterCategory('Vehicles')">🚗 Vehicles</button>
 
-<button class="sidebtn" onclick="scrollToId('best')">⭐ Best Sellers</button>
-<button class="sidebtn" onclick="scrollToId('new')">🆕 New Arrivals</button>
-<button class="sidebtn" onclick="showToast('🎰 Lucky Draw opened!')">🎰 Lucky Draw</button>
-<button class="sidebtn" onclick="showToast('🎁 Chests opened!')">🎁 Chests</button>
-<button class="sidebtn" onclick="showToast('🏆 Events opened!')">🏆 Events</button>
 
-<div class="side-title">Account</div>
+  <h4>ACCOUNT</h4>
 
-<button class="sidebtn" onclick="openLogin()">👤 My Account</button>
-<button class="sidebtn" onclick="showFavorites()">❤️ Favorites</button>
-<button class="sidebtn" onclick="openCart()">🛒 My Cart</button>
-<button class="sidebtn" onclick="showOrders()">📋 My Orders</button>
-<button class="sidebtn" onclick="showToast('💳 Payment page opened')">💳 Payment</button>
-<button class="sidebtn" onclick="showToast('🎟️ Coupons opened')">🎟️ Coupons</button>
+  <button class="nav-btn" onclick="showPage('account')">👤 My Account</button>
+  <button class="nav-btn" onclick="showPage('favorites')">❤️ Favorites</button>
+  <button class="nav-btn" onclick="showPage('cart')">🛒 My Cart</button>
+  <button class="nav-btn" onclick="showPage('orders')">📋 My Orders</button>
 
-<div class="side-title">Help</div>
 
-<button class="sidebtn" onclick="showToast('💬 Support opened')">💬 Support</button>
-<button class="sidebtn" onclick="showToast('❓ FAQ opened')">❓ FAQ</button>
-<button class="sidebtn" onclick="showToast('📞 Contact: support@pinkostore.com')">📞 Contact</button>
-<button class="sidebtn" onclick="showToast('⚙️ Settings opened')">⚙️ Settings</button>
+  <h4>HELP</h4>
+
+  <button class="nav-btn" onclick="showPage('support')">💬 Support</button>
+  <button class="nav-btn" onclick="showPage('faq')">❓ FAQ</button>
+  <button class="nav-btn" onclick="showPage('settings')">⚙️ Settings</button>
 
 </aside>
 
 
 <main>
 
-<section class="hero">
 
-<div>
-<small>WELCOME TO PINKO STORE</small>
+<!-- HOME -->
 
-<h1>
-LEVEL UP<br>
-<span>YOUR GAME</span>
-</h1>
+<section id="home" class="page active">
 
-<p>
-Discover premium skins, emotes, weapon skins,
-characters, bundles and exclusive digital items.
-</p>
+  <section class="hero">
 
-<button class="primary" onclick="scrollToId('best')">
-🛍️ SHOP NOW
-</button>
+    <div>
 
-</div>
+      <h1>LEVEL UP YOUR GAME</h1>
+
+      <p>
+        Welcome to PINKO STORE.
+        Discover skins, emotes, bundles, weapons,
+        pets, vehicles and exclusive gaming collections.
+      </p>
+
+      <button class="primary" onclick="showPage('store')">
+        🛍️ Explore Store
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Shop By Category</h2>
+      <span class="view" onclick="showPage('store')">
+        View All →
+      </span>
+    </div>
+
+
+    <div class="categories">
+
+      <div class="category" onclick="filterCategory('Skins')">
+        <div class="category-icon">👕</div>
+        Skins
+      </div>
+
+      <div class="category" onclick="filterCategory('Weapons')">
+        <div class="category-icon">🔫</div>
+        Weapons
+      </div>
+
+      <div class="category" onclick="filterCategory('Emotes')">
+        <div class="category-icon">💃</div>
+        Emotes
+      </div>
+
+      <div class="category" onclick="filterCategory('Bundles')">
+        <div class="category-icon">📦</div>
+        Bundles
+      </div>
+
+      <div class="category" onclick="filterCategory('Pets')">
+        <div class="category-icon">🐾</div>
+        Pets
+      </div>
+
+      <div class="category" onclick="filterCategory('Vehicles')">
+        <div class="category-icon">🚗</div>
+        Vehicles
+      </div>
+
+      <div class="category" onclick="filterCategory('Diamonds')">
+        <div class="category-icon">💎</div>
+        Diamonds
+      </div>
+
+      <div class="category" onclick="showPage('offers')">
+        <div class="category-icon">🎁</div>
+        Offers
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="offer">
+
+      <div>
+
+        <span class="badge">LIMITED OFFER</span>
+
+        <h2>🔥 MEGA GAMING BUNDLE</h2>
+
+        <p>Exclusive collection with special discount.</p>
+
+      </div>
+
+      <button class="primary"
+        onclick="addProduct('Mega Gaming Bundle',9.99)">
+        Get Offer
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>🔥 Special Offers</h2>
+
+      <span class="view"
+        onclick="showPage('offers')">
+        View All →
+      </span>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=85">
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Premium Skin
+          </div>
+
+          <div class="rating">★★★★★</div>
+
+          <div class="price">
+            $4.99
+            <span class="old">$9.99</span>
+          </div>
+
+          <button class="buy"
+            onclick="addProduct('Premium Skin',4.99)">
+            Add To Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=700&q=85">
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Legendary Bundle
+          </div>
+
+          <div class="rating">★★★★★</div>
+
+          <div class="price">
+            $7.99
+            <span class="old">$14.99</span>
+          </div>
+
+          <button class="buy"
+            onclick="addProduct('Legendary Bundle',7.99)">
+            Add To Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=700&q=85">
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Diamond Pack
+          </div>
+
+          <div class="rating">★★★★★</div>
+
+          <div class="price">$2.99</div>
+
+          <button class="buy"
+            onclick="addProduct('Diamond Pack',2.99)">
+            Add To Cart
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 
 </section>
 
 
-<section class="section">
 
-<div class="title">
-<h2>🛍️ SHOP BY CATEGORY</h2>
-<button class="view" onclick="showAll()">VIEW ALL →</button>
-</div>
+<!-- STORE -->
 
-<div class="categories">
+<section id="store" class="page">
 
-<div class="category" onclick="filterProducts('skins')">
-<b>👕</b><span>SKINS</span>
-</div>
+  <div class="section-title">
 
-<div class="category" onclick="filterProducts('emotes')">
-<b>💃</b><span>EMOTES</span>
-</div>
+    <h2>🛍️ PINKO STORE</h2>
 
-<div class="category" onclick="filterProducts('weapons')">
-<b>🔫</b><span>WEAPONS</span>
-</div>
+    <button class="icon-btn"
+      onclick="showPage('home')">
+      ← Home
+    </button>
 
-<div class="category" onclick="filterProducts('characters')">
-<b>🧑</b><span>CHARACTERS</span>
-</div>
+  </div>
 
-<div class="category" onclick="filterProducts('vehicles')">
-<b>🚗</b><span>VEHICLES</span>
-</div>
 
-<div class="category" onclick="filterProducts('backpacks')">
-<b>🎒</b><span>BACKPACKS</span>
-</div>
+  <div id="productGrid" class="products">
 
-<div class="category" onclick="filterProducts('bundles')">
-<b>📦</b><span>BUNDLES</span>
-</div>
 
-<div class="category" onclick="showToast('💎 Diamond shop opened')">
-<b>💎</b><span>DIAMONDS</span>
-</div>
+    <div class="product" data-category="Skins">
 
-</div>
+      <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=700&q=85">
+
+      <div class="product-info">
+
+        <div class="product-name">Shadow Skin</div>
+
+        <div class="rating">★★★★★</div>
+
+        <div class="price">$8.99</div>
+
+        <button class="buy"
+          onclick="addProduct('Shadow Skin',8.99)">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Weapons">
+
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=85">
+
+      <div class="product-info">
+
+        <div class="product-name">Elite Weapon</div>
+
+        <div class="rating">★★★★★</div>
+
+        <div class="price">$10.99</div>
+
+        <button class="buy"
+          onclick="addProduct('Elite Weapon',10.99)">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Emotes">
+
+      <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=700&q=85">
+
+      <div class="product-info">
+
+        <div class="product-name">Victory Dance</div>
+
+        <div class="rating">★★★★★</div>
+
+        <div class="price">$3.99</div>
+
+        <button class="buy"
+          onclick="addProduct('Victory Dance',3.99)">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Bundles">
+
+      <img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=700&q=85">
+
+      <div class="product-info">
+
+        <div class="product-name">Legendary Bundle</div>
+
+        <div class="rating">★★★★★</div>
+
+        <div class="price">$12.99</div>
+
+        <button class="buy"
+          onclick="addProduct('Legendary Bundle',12.99)">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Pets">
+
+      <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=85">
+
+      <div class="product-info">
+
+        <div class="product-name">Mystic Pet</div>
+
+        <div class="rating">★★★★☆</div>
+
+        <div class="price">$6.99</div>
+
+        <button class="buy"
+          onclick="addProduct('Mystic Pet',6.99)">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Vehicles">
+
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=700&q=85">
+
+      <div class="product-info">
+
+        <div class="product-name">Elite Vehicle</div>
+
+        <div class="rating">★★★★★</div>
+
+        <div class="price">$14.99</div>
+
+        <button class="buy"
+          onclick="addProduct('Elite Vehicle',14.99)">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
 </section>
 
 
-<section class="section" id="offers">
 
-<div class="offer">
+<!-- OFFERS -->
 
-<div>
-<small style="color:#ff2990">LIMITED OFFER</small>
-<h2>🔥 MEGA GAMING BUNDLE</h2>
-<p style="color:#aaa">Exclusive items with a special discount.</p>
+<section id="offers" class="page">
 
-<div class="timer">
-<div class="time"><b id="h">03</b><small>HRS</small></div>
-<div class="time"><b id="m">24</b><small>MIN</small></div>
-<div class="time"><b id="s">59</b><small>SEC</small></div>
-</div>
-</div>
+  <div class="panel">
 
-<button class="primary" onclick="buy('Mega Gaming Bundle')">
-BUY NOW
-</button>
+    <h1>🔥 Special Offers</h1>
 
-</div>
+    <div class="products">
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=85">
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Mega Bundle
+          </div>
+
+          <div class="price">$9.99</div>
+
+          <button class="buy"
+            onclick="addProduct('Mega Bundle',9.99)">
+            Claim Offer
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=700&q=85">
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Pro Skin Pack
+          </div>
+
+          <div class="price">$5.99</div>
+
+          <button class="buy"
+            onclick="addProduct('Pro Skin Pack',5.99)">
+            Claim Offer
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 
-<section class="section" id="best">
 
-<div class="title">
-<h2>⭐ BEST SELLERS</h2>
-<button class="view" onclick="showAll()">VIEW ALL →</button>
-</div>
+<!-- CART -->
 
-<div class="products" id="productList">
+<section id="cart" class="page">
 
-<div class="product" data-category="skins" data-name="Neon Shadow Skin">
-<img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Neon Shadow Skin</div>
-<div class="stars">★★★★★</div>
-<div class="price">$8.99 <span class="old">$15.99</span></div>
-<div class="actions">
-<button class="buy" onclick="buy('Neon Shadow Skin')">BUY</button>
-<button class="fav" onclick="favorite(this,'Neon Shadow Skin')">♡</button>
-</div>
-</div>
-</div>
+  <div class="panel">
 
-<div class="product" data-category="emotes" data-name="Victory Dance">
-<img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Victory Dance</div>
-<div class="stars">★★★★★</div>
-<div class="price">$4.99</div>
-<div class="actions">
-<button class="buy" onclick="buy('Victory Dance')">BUY</button>
-<button class="fav" onclick="favorite(this,'Victory Dance')">♡</button>
-</div>
-</div>
-</div>
+    <h1>🛒 My Cart</h1>
 
-<div class="product" data-category="weapons" data-name="Cyber Weapon Skin">
-<img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Cyber Weapon Skin</div>
-<div class="stars">★★★★★</div>
-<div class="price">$7.49</div>
-<div class="actions">
-<button class="buy" onclick="buy('Cyber Weapon Skin')">BUY</button>
-<button class="fav" onclick="favorite(this,'Cyber Weapon Skin')">♡</button>
-</div>
-</div>
-</div>
+    <div id="cartItems"></div>
 
-<div class="product" data-category="characters" data-name="Shadow Character">
-<img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Shadow Character</div>
-<div class="stars">★★★★☆</div>
-<div class="price">$9.99</div>
-<div class="actions">
-<button class="buy" onclick="buy('Shadow Character')">BUY</button>
-<button class="fav" onclick="favorite(this,'Shadow Character')">♡</button>
-</div>
-</div>
-</div>
+    <h2 id="total">
+      Total: $0.00
+    </h2>
 
-<div class="product" data-category="bundles" data-name="Ultimate Bundle">
-<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Ultimate Bundle</div>
-<div class="stars">★★★★★</div>
-<div class="price">$14.99 <span class="old">$29.99</span></div>
-<div class="actions">
-<button class="buy" onclick="buy('Ultimate Bundle')">BUY</button>
-<button class="fav" onclick="favorite(this,'Ultimate Bundle')">♡</button>
-</div>
-</div>
-</div>
+    <button class="primary"
+      onclick="checkout()">
+      💳 Checkout
+    </button>
 
-</div>
+  </div>
+
 </section>
 
 
-<section class="section" id="new">
 
-<div class="title">
-<h2>🆕 NEW ARRIVALS</h2>
-<button class="view" onclick="showAll()">VIEW ALL →</button>
-</div>
+<!-- ACCOUNT -->
 
-<div class="products">
+<section id="account" class="page">
 
-<div class="product" data-category="vehicles" data-name="Cyber Vehicle">
-<img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Cyber Vehicle</div>
-<div class="stars">★★★★★</div>
-<div class="price">$11.99</div>
-<div class="actions">
-<button class="buy" onclick="buy('Cyber Vehicle')">BUY</button>
-<button class="fav" onclick="favorite(this,'Cyber Vehicle')">♡</button>
-</div>
-</div>
-</div>
+  <div class="panel">
 
-<div class="product" data-category="backpacks" data-name="Elite Backpack">
-<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Elite Backpack</div>
-<div class="stars">★★★★☆</div>
-<div class="price">$5.99</div>
-<div class="actions">
-<button class="buy" onclick="buy('Elite Backpack')">BUY</button>
-<button class="fav" onclick="favorite(this,'Elite Backpack')">♡</button>
-</div>
-</div>
-</div>
+    <div class="profile">
 
-<div class="product" data-category="codes" data-name="Premium Gift Code">
-<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=85">
-<div class="info">
-<div class="name">Premium Gift Code</div>
-<div class="stars">★★★★★</div>
-<div class="price">$3.99</div>
-<div class="actions">
-<button class="buy" onclick="buy('Premium Gift Code')">BUY</button>
-<button class="fav" onclick="favorite(this,'Premium Gift Code')">♡</button>
-</div>
-</div>
-</div>
+      <div class="avatar">👤</div>
 
-</div>
+      <div>
+
+        <h1>My Account</h1>
+
+        <p>Welcome to your PINKO STORE account.</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="stat-grid">
+
+      <div class="stat">
+        <strong id="orderStat">0</strong>
+        Orders
+      </div>
+
+      <div class="stat">
+        <strong id="cartStat">0</strong>
+        Cart Items
+      </div>
+
+      <div class="stat">
+        <strong>24/7</strong>
+        Support
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 
-<section class="section">
 
-<div class="title">
-<h2>⚡ WHY PINKO STORE?</h2>
-</div>
+<!-- ORDERS -->
 
-<div class="features">
+<section id="orders" class="page">
 
-<div class="feature">
-<b>⚡</b>
-<h3>Fast Delivery</h3>
-<p>Digital products delivered quickly.</p>
-</div>
+  <div class="panel">
 
-<div class="feature">
-<b>🔒</b>
-<h3>Secure</h3>
-<p>Your account and orders are protected.</p>
-</div>
+    <h1>📋 My Orders</h1>
 
-<div class="feature">
-<b>💬</b>
-<h3>Support</h3>
-<p>Our support team is ready to help.</p>
-</div>
+    <div id="ordersList">
 
-<div class="feature">
-<b>🎁</b>
-<h3>Rewards</h3>
-<p>Get special offers and rewards.</p>
-</div>
+      <div class="empty">
+        No orders yet.
+      </div>
 
-</div>
+    </div>
+
+  </div>
+
 </section>
+
+
+
+<!-- FAVORITES -->
+
+<section id="favorites" class="page">
+
+  <div class="panel">
+
+    <h1>❤️ Favorites</h1>
+
+    <div class="empty">
+      Your favorite products will appear here.
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- SUPPORT -->
+
+<section id="support" class="page">
+
+  <div class="panel">
+
+    <h1>💬 Support</h1>
+
+    <p>
+      Need help? Send us a message.
+    </p>
+
+    <br>
+
+    <button class="primary"
+      onclick="contactSupport()">
+      Contact Support
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- FAQ -->
+
+<section id="faq" class="page">
+
+  <div class="panel">
+
+    <h1>❓ FAQ</h1>
+
+    <br>
+
+    <h3>How do I add a product?</h3>
+    <p>Open the store and press Add To Cart.</p>
+
+    <br>
+
+    <h3>Where can I see my cart?</h3>
+    <p>Press the 🛒 button.</p>
+
+    <br>
+
+    <h3>How do I checkout?</h3>
+    <p>Open your cart and press Checkout.</p>
+
+  </div>
+
+</section>
+
+
+
+<!-- SETTINGS -->
+
+<section id="settings" class="page">
+
+  <div class="panel">
+
+    <h1>⚙️ Settings</h1>
+
+    <br>
+
+    <button class="primary"
+      onclick="toggleTheme()">
+      🌙 Change Theme
+    </button>
+
+    <button class="primary"
+      onclick="clearCart()">
+      🗑️ Clear Cart
+    </button>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <p>
+    © 2026 PINKO STORE — Fan-made gaming store.
+  </p>
+
+</footer>
 
 </main>
-</div>
 
 
-<!-- MODAL -->
 
-<div class="modalbg" id="modalBg">
+<button class="floating-cart"
+  onclick="showPage('cart')">
 
-<div class="modal">
+  🛒
 
-<button class="close" onclick="closeModal()">×</button>
+  <span id="cartCount" class="cart-count">
+    0
+  </span>
 
-<div id="modalContent"></div>
+</button>
 
-</div>
-</div>
-
-
-<div class="toast" id="toast"></div>
 
 
 <script>
 
-let cart=[];
-let favorites=[];
-let orders=[];
+let cart = [];
+let orders = [];
 
 
-/* TOAST */
+/* PAGE SYSTEM */
 
-function showToast(message){
+function showPage(page){
 
-let toast=document.getElementById("toast");
+  document.querySelectorAll(".page")
+  .forEach(p => p.classList.remove("active"));
 
-toast.innerText=message;
-toast.style.display="block";
+  const target = document.getElementById(page);
 
-clearTimeout(window.toastTimer);
-
-window.toastTimer=setTimeout(()=>{
-toast.style.display="none";
-},2200);
+  if(target){
+    target.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
 
 }
 
 
-/* MODAL */
+/* ADD PRODUCT */
 
-function openModal(html){
+function addProduct(name,price){
 
-document.getElementById("modalContent").innerHTML=html;
-document.getElementById("modalBg").style.display="flex";
+  cart.push({
+    name:name,
+    price:price
+  });
 
-}
+  updateCart();
 
-function closeModal(){
-
-document.getElementById("modalBg").style.display="none";
-
-}
-
-
-/* BUY */
-
-function buy(product){
-
-cart.push(product);
-
-updateCart();
-
-showToast("✅ "+product+" added to cart");
+  alert(name + " added to your cart!");
 
 }
 
 
-/* CART */
+/* UPDATE CART */
 
 function updateCart(){
 
-document.getElementById("cartCount").innerText=cart.length;
+  const box =
+    document.getElementById("cartItems");
+
+  const count =
+    document.getElementById("cartCount");
+
+  const stat =
+    document.getElementById("cartStat");
+
+  count.innerText = cart.length;
+
+  if(stat){
+    stat.innerText = cart.length;
+  }
+
+  if(cart.length === 0){
+
+    box.innerHTML =
+      '<div class="empty">Your cart is empty.</div>';
+
+    document.getElementById("total").innerText =
+      "Total: $0.00";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+  box.innerHTML = "";
+
+  cart.forEach((item,index)=>{
+
+    total += item.price;
+
+    box.innerHTML += `
+
+      <div class="cart-item">
+
+        <div>
+          <strong>${item.name}</strong>
+          <br>
+          <span>$${item.price.toFixed(2)}</span>
+        </div>
+
+        <button
+          class="remove"
+          onclick="removeItem(${index})">
+          Remove
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+
+  document.getElementById("total").innerText =
+    "Total: $" + total.toFixed(2);
 
 }
 
-function openCart(){
 
-let html="<h2>🛒 Your Cart</h2>";
+/* REMOVE */
 
-if(cart.length===0){
+function removeItem(index){
 
-html+="<p style='color:#aaa'>Your cart is empty.</p>";
+  cart.splice(index,1);
 
-}else{
-
-cart.forEach((item,index)=>{
-
-html+=`
-<div class="cartitem">
-<span>${item}</span>
-<button class="remove" onclick="removeCart(${index})">Remove</button>
-</div>
-`;
-
-});
-
-html+=`
-<hr style="border-color:#292d3d;margin:15px 0">
-<button class="primary" style="width:100%" onclick="checkout()">
-💳 CHECKOUT
-</button>
-`;
+  updateCart();
 
 }
 
-openModal(html);
 
-}
-
-function removeCart(index){
-
-cart.splice(index,1);
-
-updateCart();
-
-openCart();
-
-showToast("Item removed");
-
-}
+/* CHECKOUT */
 
 function checkout(){
 
-if(cart.length===0){
+  if(cart.length === 0){
 
-showToast("Your cart is empty");
+    alert("Your cart is empty!");
 
-return;
+    return;
 
-}
+  }
 
-orders.push(...cart);
+  let total =
+    cart.reduce((sum,item)=>sum+item.price,0);
 
-cart=[];
+  orders.push({
+    id:"PK"+Date.now(),
+    total:total,
+    date:new Date().toLocaleDateString()
+  });
 
-updateCart();
+  document.getElementById("orderStat").innerText =
+    orders.length;
 
-openModal(`
-<h2>✅ Order Confirmed</h2>
-<p style="color:#aaa">
-Your demo order has been placed successfully.
-</p>
-<button class="primary" style="width:100%" onclick="closeModal()">
-CONTINUE SHOPPING
-</button>
-`);
+  document.getElementById("ordersList").innerHTML =
+    orders.map(order=>`
 
-}
+      <div class="cart-item">
 
+        <div>
+          <strong>Order ${order.id}</strong>
+          <br>
+          Date: ${order.date}
+        </div>
 
-/* FAVORITES */
+        <strong>
+          $${order.total.toFixed(2)}
+        </strong>
 
-function favorite(button,name){
+      </div>
 
-if(favorites.includes(name)){
+    `).join("");
 
-favorites=favorites.filter(x=>x!==name);
+  cart = [];
 
-button.classList.remove("liked");
-button.innerText="♡";
+  updateCart();
 
-showToast("Removed from favorites");
+  alert("Order created successfully!");
 
-}else{
-
-favorites.push(name);
-
-button.classList.add("liked");
-button.innerText="♥";
-
-showToast("❤️ Added to favorites");
-
-}
-
-}
-
-function showFavorites(){
-
-let html="<h2>❤️ Favorites</h2>";
-
-if(favorites.length===0){
-
-html+="<p style='color:#aaa'>No favorite products yet.</p>";
-
-}else{
-
-favorites.forEach(x=>{
-html+=`<div class="cartitem">${x}</div>`;
-});
-
-}
-
-openModal(html);
+  showPage("orders");
 
 }
 
@@ -760,232 +1342,104 @@ openModal(html);
 
 function searchProducts(){
 
-let value=document.getElementById("search").value.toLowerCase();
+  let text =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
 
-document.querySelectorAll(".product").forEach(product=>{
+  showPage("store");
 
-let name=product.dataset.name.toLowerCase();
+  document
+    .querySelectorAll("#productGrid .product")
+    .forEach(product=>{
 
-product.style.display=name.includes(value)?"":"none";
+      let name =
+        product
+        .querySelector(".product-name")
+        .innerText
+        .toLowerCase();
 
-});
+      product.style.display =
+        name.includes(text) ? "" : "none";
 
-}
-
-
-/* FILTER */
-
-function filterProducts(category){
-
-document.querySelectorAll(".product").forEach(product=>{
-
-product.style.display=
-product.dataset.category===category?"":"none";
-
-});
-
-showToast("Showing "+category);
-
-window.scrollTo({
-top:document.getElementById("best").offsetTop-80,
-behavior:"smooth"
-});
-
-}
-
-function showAll(){
-
-document.querySelectorAll(".product").forEach(product=>{
-product.style.display="";
-});
-
-showToast("All products displayed");
+    });
 
 }
 
 
-/* HOME */
+/* CATEGORY */
 
-function home(){
+function filterCategory(category){
 
-showAll();
+  showPage("store");
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+  document
+    .querySelectorAll("#productGrid .product")
+    .forEach(product=>{
 
-}
+      let productCategory =
+        product.dataset.category;
 
+      product.style.display =
+        productCategory === category ? "" : "none";
 
-/* LOGIN */
-
-function openLogin(){
-
-openModal(`
-
-<h2>👤 PINKO ACCOUNT</h2>
-
-<input id="email" type="email" placeholder="Email">
-
-<input id="password" type="password" placeholder="Password">
-
-<button class="primary" onclick="login()" >
-LOGIN
-</button>
-
-<button
-style="width:100%;margin-top:8px;padding:10px;background:#191b27;color:#fff;border:1px solid #34384a;border-radius:7px"
-onclick="register()">
-CREATE ACCOUNT
-</button>
-
-`);
-
-}
-
-function login(){
-
-let email=document.getElementById("email").value;
-let password=document.getElementById("password").value;
-
-if(!email||!password){
-
-showToast("⚠️ Enter email and password");
-
-return;
-
-}
-
-localStorage.setItem("pinkoUser",email);
-
-closeModal();
-
-showToast("✅ Login successful");
-
-}
-
-function register(){
-
-let email=document.getElementById("email").value;
-let password=document.getElementById("password").value;
-
-if(!email||!password){
-
-showToast("⚠️ Complete all fields");
-
-return;
-
-}
-
-localStorage.setItem("pinkoUser",email);
-
-closeModal();
-
-showToast("🎉 Account created");
+    });
 
 }
 
 
-/* ORDERS */
+/* SUPPORT */
 
-function showOrders(){
+function contactSupport(){
 
-let html="<h2>📋 My Orders</h2>";
-
-if(orders.length===0){
-
-html+="<p style='color:#aaa'>You have no orders yet.</p>";
-
-}else{
-
-orders.forEach((x,i)=>{
-html+=`
-<div class="cartitem">
-<span>#${i+1} — ${x}</span>
-<span style="color:#53dfaa">PAID</span>
-</div>
-`;
-});
-
-}
-
-openModal(html);
+  alert(
+    "PINKO SUPPORT\n\n" +
+    "Support is ready to help you.\n" +
+    "Email: support@pinkostore.example"
+  );
 
 }
 
 
-/* NOTIFICATIONS */
+/* CLEAR CART */
 
-function openNotifications(){
+function clearCart(){
 
-openModal(`
+  cart = [];
 
-<h2>🔔 Notifications</h2>
+  updateCart();
 
-<div class="cartitem">🔥 New special offer available!</div>
-<div class="cartitem">🎁 You received a reward!</div>
-<div class="cartitem">🆕 New skins have arrived!</div>
-
-`);
+  alert("Cart cleared!");
 
 }
 
 
-/* SCROLL */
+/* THEME */
 
-function scrollToId(id){
+function toggleTheme(){
 
-let element=document.getElementById(id);
+  document.body.classList.toggle("light");
 
-if(element){
+  if(document.body.classList.contains("light")){
 
-element.scrollIntoView({
-behavior:"smooth"
-});
+    document.body.style.background="#f2f3f5";
+    document.body.style.color="#111";
+
+  }else{
+
+    document.body.style.background="#08090d";
+    document.body.style.color="white";
+
+  }
 
 }
 
-}
 
-
-/* OFFER TIMER */
-
-let totalSeconds=3*3600+24*60+59;
-
-setInterval(()=>{
-
-if(totalSeconds<=0)return;
-
-totalSeconds--;
-
-let h=Math.floor(totalSeconds/3600);
-let m=Math.floor((totalSeconds%3600)/60);
-let s=totalSeconds%60;
-
-document.getElementById("h").innerText=String(h).padStart(2,"0");
-document.getElementById("m").innerText=String(m).padStart(2,"0");
-document.getElementById("s").innerText=String(s).padStart(2,"0");
-
-},1000);
-
-
-/* CLOSE MODAL WHEN CLICKING OUTSIDE */
-
-document.getElementById("modalBg").addEventListener("click",function(e){
-
-if(e.target===this){
-closeModal();
-}
-
-});
-
-
-/* START */
+/* INITIALIZE */
 
 updateCart();
 
 </script>
 
 </body>
-  </html>
+        </html>
