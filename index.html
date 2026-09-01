@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZER0X Gaming Store</title>
+
+<title>PINKO STORE - Gaming Store</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -13,71 +15,88 @@
   font-family:Arial,sans-serif;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  background:#090b12;
+  background:#080808;
   color:white;
 }
 
+/* HEADER */
+
 header{
   height:70px;
-  background:#10131d;
+  background:#111;
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:15px;
   padding:0 25px;
   position:sticky;
   top:0;
   z-index:100;
-  border-bottom:1px solid #252a38;
+  border-bottom:1px solid #292929;
 }
 
 .logo{
-  font-size:25px;
+  font-size:24px;
   font-weight:bold;
-  color:#ffb000;
+  color:#ff1493;
+  white-space:nowrap;
 }
 
 .search{
   flex:1;
   max-width:600px;
-  background:#191d28;
-  border:1px solid #303544;
+  background:#1a1a1a;
+  border:1px solid #333;
   border-radius:10px;
   padding:13px 18px;
   color:white;
   outline:none;
 }
 
+.search:focus{
+  border-color:#ff1493;
+}
+
 .header-btn{
-  background:#191d28;
-  border:1px solid #303544;
+  background:#1a1a1a;
+  border:1px solid #333;
   color:white;
   padding:11px 15px;
   border-radius:9px;
   cursor:pointer;
 }
 
+.header-btn:hover{
+  border-color:#ff1493;
+}
+
 .account-btn{
-  background:#ffb000;
-  color:#111;
+  background:#ff1493;
+  color:white;
   border:none;
   font-weight:bold;
 }
 
+/* SIDE MENU */
+
 .menu{
   width:240px;
-  background:#0e1119;
+  background:#0e0e0e;
   position:fixed;
   top:70px;
   left:0;
   bottom:0;
   padding:20px 12px;
   overflow-y:auto;
-  border-right:1px solid #252a38;
+  border-right:1px solid #292929;
 }
 
 .menu h3{
-  color:#777f91;
+  color:#777;
   font-size:12px;
   margin:18px 12px 8px;
   text-transform:uppercase;
@@ -86,7 +105,7 @@ header{
 .menu a{
   display:block;
   padding:12px;
-  color:#c9ceda;
+  color:#ccc;
   text-decoration:none;
   border-radius:8px;
   margin-bottom:3px;
@@ -94,14 +113,26 @@ header{
 }
 
 .menu a:hover{
-  background:#1d222e;
-  color:#ffb000;
+  background:#21121b;
+  color:#ff1493;
 }
+
+/* MAIN */
 
 main{
   margin-left:240px;
   padding:30px;
 }
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+/* HERO */
 
 .hero{
   min-height:330px;
@@ -109,8 +140,14 @@ main{
   padding:45px;
   display:flex;
   align-items:center;
+
   background:
-    linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.25)),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.92),
+      rgba(0,0,0,.25)
+    ),
+
     url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1400&q=80")
     center/cover;
 }
@@ -121,7 +158,7 @@ main{
 }
 
 .hero p{
-  color:#c8cbd3;
+  color:#ccc;
   max-width:500px;
   line-height:1.6;
 }
@@ -131,11 +168,17 @@ main{
   padding:14px 25px;
   border:0;
   border-radius:8px;
-  background:#ffb000;
-  color:#111;
+  background:#ff1493;
+  color:white;
   font-weight:bold;
   cursor:pointer;
 }
+
+.hero button:hover{
+  background:#ff4bad;
+}
+
+/* SECTION */
 
 .section{
   margin-top:35px;
@@ -153,19 +196,22 @@ main{
 }
 
 .view{
-  color:#ffb000;
+  color:#ff1493;
   cursor:pointer;
 }
 
+/* CATEGORIES */
+
 .categories{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  grid-template-columns:
+  repeat(auto-fit,minmax(140px,1fr));
   gap:12px;
 }
 
 .category{
-  background:#151923;
-  border:1px solid #252a38;
+  background:#151515;
+  border:1px solid #292929;
   padding:20px 10px;
   text-align:center;
   border-radius:12px;
@@ -175,7 +221,7 @@ main{
 
 .category:hover{
   transform:translateY(-3px);
-  border-color:#ffb000;
+  border-color:#ff1493;
 }
 
 .category .icon{
@@ -183,15 +229,18 @@ main{
   margin-bottom:8px;
 }
 
+/* PRODUCTS */
+
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+  grid-template-columns:
+  repeat(auto-fill,minmax(190px,1fr));
   gap:18px;
 }
 
 .product{
-  background:#151923;
-  border:1px solid #252a38;
+  background:#151515;
+  border:1px solid #292929;
   border-radius:14px;
   overflow:hidden;
   transition:.2s;
@@ -199,7 +248,7 @@ main{
 
 .product:hover{
   transform:translateY(-5px);
-  border-color:#ffb000;
+  border-color:#ff1493;
 }
 
 .product img{
@@ -218,7 +267,7 @@ main{
 }
 
 .rating{
-  color:#ffc400;
+  color:#ff1493;
   font-size:13px;
 }
 
@@ -226,7 +275,7 @@ main{
   margin:10px 0;
   font-size:19px;
   font-weight:bold;
-  color:#ffb000;
+  color:#ff1493;
 }
 
 .old{
@@ -241,44 +290,58 @@ main{
   padding:10px;
   border:0;
   border-radius:7px;
-  background:#ffb000;
+  background:#ff1493;
+  color:white;
   font-weight:bold;
   cursor:pointer;
 }
 
+.buy:hover{
+  background:#ff4bad;
+}
+
+/* OFFER */
+
 .offer{
-  background:linear-gradient(135deg,#1d1720,#171b28);
-  border:1px solid #403044;
+  background:
+    linear-gradient(135deg,#24101b,#151515);
+
+  border:1px solid #51233a;
   padding:22px;
   border-radius:14px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   gap:20px;
 }
 
 .offer h2{
-  color:#ffb000;
-  margin-bottom:8px;
+  color:#ff1493;
+  margin:10px 0;
 }
 
 .badge{
-  background:#e93636;
+  background:#e91e63;
   padding:7px 10px;
   border-radius:6px;
   font-size:12px;
   font-weight:bold;
 }
 
+/* FEATURES */
+
 .features{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:
+  repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
 }
 
 .feature{
-  background:#151923;
-  border:1px solid #252a38;
+  background:#151515;
+  border:1px solid #292929;
   padding:22px;
   border-radius:12px;
 }
@@ -288,42 +351,108 @@ main{
   margin-bottom:10px;
 }
 
-footer{
-  margin-top:60px;
-  padding:35px;
-  background:#0e1119;
-  border-top:1px solid #252a38;
+/* EMPTY */
+
+.empty{
+  background:#151515;
+  border:1px solid #292929;
+  border-radius:14px;
+  padding:40px;
   text-align:center;
-  color:#777f91;
+  color:#777;
 }
+
+/* CART */
 
 .cart{
   position:fixed;
   right:20px;
   bottom:20px;
-  background:#ffb000;
-  color:#111;
-  width:55px;
-  height:55px;
+
+  background:#ff1493;
+  color:white;
+
+  width:58px;
+  height:58px;
+
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:23px;
   cursor:pointer;
+
   box-shadow:0 5px 25px #000;
+
+  z-index:200;
 }
 
-/* LOGIN */
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+
+  background:#fff;
+  color:#ff1493;
+
+  width:22px;
+  height:22px;
+
+  border-radius:50%;
+
+  font-size:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:bold;
+}
+
+.cart-list{
+  display:grid;
+  gap:12px;
+}
+
+.cart-item{
+  background:#151515;
+  border:1px solid #292929;
+
+  padding:15px;
+
+  border-radius:10px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.remove{
+  background:#e91e63;
+  color:white;
+  border:0;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* ACCOUNT */
 
 .modal{
   display:none;
+
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+
+  background:rgba(0,0,0,.85);
+
   z-index:999;
+
   align-items:center;
   justify-content:center;
+
   padding:20px;
 }
 
@@ -334,69 +463,28 @@ footer{
 .login-box{
   width:100%;
   max-width:420px;
-  background:#11151f;
-  border:1px solid #303544;
+
+  background:#111;
+
+  border:1px solid #333;
+
   border-radius:18px;
+
   padding:30px;
+
   box-shadow:0 20px 60px #000;
 }
 
 .login-box h2{
   text-align:center;
-  color:#ffb000;
+  color:#ff1493;
   margin-bottom:8px;
 }
 
 .login-subtitle{
   text-align:center;
-  color:#858c9d;
+  color:#777;
   margin-bottom:25px;
-}
-
-.input-group{
-  margin-bottom:15px;
-}
-
-.input-group label{
-  display:block;
-  margin-bottom:7px;
-  color:#c9ceda;
-}
-
-.input-group input{
-  width:100%;
-  padding:13px;
-  background:#191d28;
-  border:1px solid #303544;
-  border-radius:8px;
-  color:white;
-  outline:none;
-}
-
-.input-group input:focus{
-  border-color:#ffb000;
-}
-
-.login-submit{
-  width:100%;
-  padding:13px;
-  background:#ffb000;
-  border:none;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:5px;
-}
-
-.switch{
-  text-align:center;
-  margin-top:18px;
-  color:#858c9d;
-}
-
-.switch span{
-  color:#ffb000;
-  cursor:pointer;
 }
 
 .close{
@@ -406,50 +494,137 @@ footer{
   font-size:22px;
 }
 
-.account-panel{
+.input-group{
+  margin-bottom:15px;
+}
+
+.input-group label{
+  display:block;
+  margin-bottom:7px;
+  color:#ccc;
+}
+
+.input-group input{
+  width:100%;
+
+  padding:13px;
+
+  background:#1a1a1a;
+
+  border:1px solid #333;
+
+  border-radius:8px;
+
+  color:white;
+
+  outline:none;
+}
+
+.input-group input:focus{
+  border-color:#ff1493;
+}
+
+.login-submit{
+  width:100%;
+
+  padding:13px;
+
+  background:#ff1493;
+
+  color:white;
+
+  border:none;
+
+  border-radius:8px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+.login-submit:hover{
+  background:#ff4bad;
+}
+
+.switch{
+  text-align:center;
+  margin-top:18px;
+  color:#777;
+}
+
+.switch span{
+  color:#ff1493;
+  cursor:pointer;
+}
+
+.message{
+  text-align:center;
+  margin-top:10px;
+  color:#ff5555;
+  font-size:14px;
+}
+
+.account-card{
   text-align:center;
 }
 
 .account-avatar{
   width:75px;
   height:75px;
+
   border-radius:50%;
-  background:#ffb000;
-  color:#111;
+
+  background:#ff1493;
+
+  color:white;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
-  margin:10px auto 15px;
+
+  margin:0 auto 15px;
+
   font-size:35px;
 }
 
-.account-name{
-  font-size:22px;
-  font-weight:bold;
-  margin-bottom:5px;
-}
-
-.account-email{
-  color:#858c9d;
-  margin-bottom:25px;
-}
-
 .logout{
+  margin-top:20px;
+
   width:100%;
+
   padding:12px;
-  border:1px solid #e93636;
+
+  border:1px solid #e91e63;
+
   background:transparent;
-  color:#ff6666;
+
+  color:#ff4d91;
+
   border-radius:8px;
+
   cursor:pointer;
 }
 
-.message{
+/* FOOTER */
+
+footer{
+  margin-left:240px;
+
+  margin-top:60px;
+
+  padding:35px;
+
+  background:#0e0e0e;
+
+  border-top:1px solid #292929;
+
   text-align:center;
-  color:#ff6666;
-  margin-top:10px;
-  font-size:14px;
+
+  color:#777;
 }
+
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -458,7 +633,7 @@ footer{
   }
 
   .logo{
-    font-size:19px;
+    font-size:18px;
   }
 
   .menu{
@@ -470,6 +645,10 @@ footer{
     padding:15px;
   }
 
+  footer{
+    margin-left:0;
+  }
+
   .hero{
     padding:25px;
     min-height:280px;
@@ -479,190 +658,463 @@ footer{
     font-size:31px;
   }
 
-  .header-btn{
+  .header-btn:not(.account-btn){
     display:none;
   }
 
   .account-btn{
     display:block;
   }
+
+  .search{
+    max-width:none;
+  }
+
+  .offer{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
-  <div class="logo">ZER0X</div>
+  <div class="logo">
+    PINKO STORE
+  </div>
 
   <input
     class="search"
+    id="search"
     type="text"
     placeholder="Search products..."
     onkeyup="searchProducts()"
-    id="search"
   >
 
-  <button class="header-btn">🔔</button>
+  <button class="header-btn">
+    🔔
+  </button>
 
   <button
     class="header-btn account-btn"
     id="accountButton"
     onclick="openAccount()">
+
     👤 Login
+
   </button>
 
 </header>
 
+
+<!-- MENU -->
+
 <nav class="menu">
 
   <h3>Main</h3>
-  <a>🏠 Home</a>
-  <a>🛍️ Store</a>
-  <a>💎 Diamonds</a>
-  <a>🔥 Promotions</a>
-  <a>🎁 Special Offers</a>
+
+  <a onclick="showPage('home')">
+    🏠 Home
+  </a>
+
+  <a onclick="showPage('store')">
+    🛍️ Store
+  </a>
+
+  <a onclick="showPage('diamonds')">
+    💎 Diamonds
+  </a>
+
+  <a onclick="showPage('promotions')">
+    🔥 Promotions
+  </a>
+
+  <a onclick="showPage('offers')">
+    🎁 Special Offers
+  </a>
+
 
   <h3>Products</h3>
-  <a>👕 Skins</a>
-  <a>🔫 Weapon Skins</a>
-  <a>🧑 Characters</a>
-  <a>💃 Emotes</a>
-  <a>🚗 Vehicles</a>
-  <a>🎒 Backpacks</a>
-  <a>📦 Bundles</a>
-  <a>🎟️ Gift Codes</a>
-  <a>🎁 Rewards</a>
+
+  <a onclick="showPage('skins')">
+    👕 Skins
+  </a>
+
+  <a onclick="showPage('weapons')">
+    🔫 Weapon Skins
+  </a>
+
+  <a onclick="showPage('characters')">
+    🧑 Characters
+  </a>
+
+  <a onclick="showPage('emotes')">
+    💃 Emotes
+  </a>
+
+  <a onclick="showPage('vehicles')">
+    🚗 Vehicles
+  </a>
+
+  <a onclick="showPage('backpacks')">
+    🎒 Backpacks
+  </a>
+
+  <a onclick="showPage('bundles')">
+    📦 Bundles
+  </a>
+
+  <a onclick="showPage('codes')">
+    🎟️ Gift Codes
+  </a>
+
+  <a onclick="showPage('rewards')">
+    🎁 Rewards
+  </a>
+
 
   <h3>Discover</h3>
-  <a>⭐ Best Sellers</a>
-  <a>🆕 New Arrivals</a>
-  <a>🎰 Lucky Draw</a>
-  <a>🎁 Chests</a>
-  <a>🏆 Events</a>
+
+  <a onclick="showPage('best')">
+    ⭐ Best Sellers
+  </a>
+
+  <a onclick="showPage('new')">
+    🆕 New Arrivals
+  </a>
+
+  <a onclick="showPage('lucky')">
+    🎰 Lucky Draw
+  </a>
+
+  <a onclick="showPage('chests')">
+    🎁 Chests
+  </a>
+
+  <a onclick="showPage('events')">
+    🏆 Events
+  </a>
+
 
   <h3>Account</h3>
-  <a onclick="openAccount()">👤 My Account</a>
-  <a>❤️ Favorites</a>
-  <a onclick="showMessage('Your cart is currently empty.')">🛒 My Cart</a>
-  <a>📋 My Orders</a>
-  <a>💳 Payment</a>
-  <a>🎟️ Coupons</a>
+
+  <a onclick="openAccount()">
+    👤 My Account
+  </a>
+
+  <a onclick="showPage('favorites')">
+    ❤️ Favorites
+  </a>
+
+  <a onclick="showCart()">
+    🛒 My Cart
+  </a>
+
+  <a onclick="showPage('orders')">
+    📋 My Orders
+  </a>
+
+  <a onclick="showPage('payment')">
+    💳 Payment
+  </a>
+
+  <a onclick="showPage('coupons')">
+    🎟️ Coupons
+  </a>
+
 
   <h3>Help</h3>
-  <a>💬 Support</a>
-  <a>❓ FAQ</a>
-  <a>📞 Contact</a>
-  <a>⚙️ Settings</a>
+
+  <a onclick="showPage('support')">
+    💬 Support
+  </a>
+
+  <a onclick="showPage('faq')">
+    ❓ FAQ
+  </a>
+
+  <a onclick="showPage('contact')">
+    📞 Contact
+  </a>
+
+  <a onclick="showPage('settings')">
+    ⚙️ Settings
+  </a>
 
 </nav>
 
+
+<!-- MAIN -->
+
 <main>
 
-<section class="hero">
 
-  <div>
-    <h1>Level Up Your Game</h1>
+<!-- HOME -->
 
-    <p>
-      Discover premium gaming items, diamonds,
-      skins, bundles, rewards and exclusive offers.
-    </p>
+<section id="home" class="page active">
 
-    <button onclick="showMessage('Welcome to ZER0X!')">
-      Explore Store
-    </button>
-  </div>
-
-</section>
-
-<section class="section">
-
-  <div class="section-title">
-    <h2>Shop by Category</h2>
-    <span class="view">View All →</span>
-  </div>
-
-  <div class="categories">
-
-    <div class="category">
-      <div class="icon">💎</div>
-      Diamonds
-    </div>
-
-    <div class="category">
-      <div class="icon">👕</div>
-      Skins
-    </div>
-
-    <div class="category">
-      <div class="icon">🔫</div>
-      Weapons
-    </div>
-
-    <div class="category">
-      <div class="icon">🧑</div>
-      Characters
-    </div>
-
-    <div class="category">
-      <div class="icon">💃</div>
-      Emotes
-    </div>
-
-    <div class="category">
-      <div class="icon">📦</div>
-      Bundles
-    </div>
-
-    <div class="category">
-      <div class="icon">🎟️</div>
-      Codes
-    </div>
-
-    <div class="category">
-      <div class="icon">🎁</div>
-      Rewards
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section">
-
-  <div class="offer">
+  <section class="hero">
 
     <div>
-      <span class="badge">LIMITED OFFER</span>
 
-      <h2>🔥 Mega Gaming Bundle</h2>
+      <h1>
+        Welcome to PINKO STORE
+      </h1>
 
       <p>
-        Get exclusive items with a huge discount.
+        Discover premium gaming items,
+        diamonds, skins, bundles, rewards
+        and exclusive special offers.
       </p>
+
+      <button onclick="showPage('store')">
+        Explore Store
+      </button>
+
     </div>
 
-    <button
-      class="buy"
-      style="max-width:150px"
-      onclick="showMessage('Offer selected!')">
-      Get Offer
-    </button>
+  </section>
 
-  </div>
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        Shop by Category
+      </h2>
+
+    </div>
+
+
+    <div class="categories">
+
+      <div
+        class="category"
+        onclick="showPage('diamonds')">
+
+        <div class="icon">💎</div>
+        Diamonds
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('skins')">
+
+        <div class="icon">👕</div>
+        Skins
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('weapons')">
+
+        <div class="icon">🔫</div>
+        Weapons
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('characters')">
+
+        <div class="icon">🧑</div>
+        Characters
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('emotes')">
+
+        <div class="icon">💃</div>
+        Emotes
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('bundles')">
+
+        <div class="icon">📦</div>
+        Bundles
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('codes')">
+
+        <div class="icon">🎟️</div>
+        Codes
+
+      </div>
+
+
+      <div
+        class="category"
+        onclick="showPage('rewards')">
+
+        <div class="icon">🎁</div>
+        Rewards
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="offer">
+
+      <div>
+
+        <span class="badge">
+          LIMITED OFFER
+        </span>
+
+        <h2>
+          🔥 Mega Gaming Bundle
+        </h2>
+
+        <p>
+          Get exclusive items with a huge discount.
+        </p>
+
+      </div>
+
+
+      <button
+        class="buy"
+        style="max-width:150px"
+        onclick="showPage('offers')">
+
+        Get Offer
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        Why Choose PINKO STORE?
+      </h2>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <h3>
+          Fast Delivery
+        </h3>
+
+        <p>
+          Receive your digital items quickly.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🔒
+        </div>
+
+        <h3>
+          Secure Payment
+        </h3>
+
+        <p>
+          Your transactions are protected.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          💬
+        </div>
+
+        <h3>
+          24/7 Support
+        </h3>
+
+        <p>
+          Our support team is ready to help.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🎁
+        </div>
+
+        <h3>
+          Exclusive Rewards
+        </h3>
+
+        <p>
+          Get special rewards and promotions.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
 
 </section>
 
-<section class="section">
+
+<!-- STORE -->
+
+<section id="store" class="page">
 
   <div class="section-title">
-    <h2>🔥 Special Offers</h2>
-    <span class="view">View All →</span>
+    <h2>🛍️ PINKO STORE</h2>
   </div>
 
+
   <div class="products">
+
 
     <div class="product">
 
@@ -680,27 +1132,32 @@ footer{
 
         <div class="price">
           $4.99
-          <span class="old">$9.99</span>
+          <span class="old">
+            $9.99
+          </span>
         </div>
 
         <button
           class="buy"
-          onclick="addCart('Premium Bundle')">
+          onclick="addCart('Premium Bundle',4.99)">
+
           Add to Cart
+
         </button>
 
       </div>
 
     </div>
 
+
     <div class="product">
 
-      <img src="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80">
 
       <div class="product-info">
 
         <div class="product-name">
-          Legendary Skin
+          Elite Weapon Skin
         </div>
 
         <div class="rating">
@@ -708,19 +1165,24 @@ footer{
         </div>
 
         <div class="price">
-          $7.99
-          <span class="old">$14.99</span>
+          $6.49
+          <span class="old">
+            $11.99
+          </span>
         </div>
 
         <button
           class="buy"
-          onclick="addCart('Legendary Skin')">
+          onclick="addCart('Elite Weapon Skin',6.49)">
+
           Add to Cart
+
         </button>
 
       </div>
 
     </div>
+
 
     <div class="product">
 
@@ -738,324 +1200,599 @@ footer{
 
         <div class="price">
           $2.99
-          <span class="old">$5.99</span>
+          <span class="old">
+            $5.99
+          </span>
         </div>
 
         <button
           class="buy"
-          onclick="addCart('Diamond Pack')">
+          onclick="addCart('Diamond Pack',2.99)">
+
           Add to Cart
+
         </button>
 
       </div>
 
     </div>
 
+
     <div class="product">
 
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80">
+      <img src="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80">
 
       <div class="product-info">
 
         <div class="product-name">
-          Elite Weapon Skin
+          Legendary Skin
         </div>
 
         <div class="rating">
-          ★★★★☆
+          ★★★★★
         </div>
 
         <div class="price">
-          $6.49
-          <span class="old">$11.99</span>
+          $7.99
         </div>
 
         <button
           class="buy"
-          onclick="addCart('Elite Weapon Skin')">
+          onclick="addCart('Legendary Skin',7.99)">
+
           Add to Cart
+
         </button>
 
       </div>
 
     </div>
+
 
   </div>
 
 </section>
 
-<section class="section">
+
+<!-- DIAMONDS -->
+
+<section id="diamonds" class="page">
+
+  <div class="section-title">
+    <h2>💎 Diamonds</h2>
+  </div>
+
+
+  <div class="products">
+
+
+    <div class="product">
+
+      <div class="product-info">
+
+        <div class="product-name">
+          100 Diamonds
+        </div>
+
+        <div class="price">
+          $1.99
+        </div>
+
+        <button
+          class="buy"
+          onclick="addCart('100 Diamonds',1.99)">
+
+          Add to Cart
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-info">
+
+        <div class="product-name">
+          310 Diamonds
+        </div>
+
+        <div class="price">
+          $4.99
+        </div>
+
+        <button
+          class="buy"
+          onclick="addCart('310 Diamonds',4.99)">
+
+          Add to Cart
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-info">
+
+        <div class="product-name">
+          520 Diamonds
+        </div>
+
+        <div class="price">
+          $7.99
+        </div>
+
+        <button
+          class="buy"
+          onclick="addCart('520 Diamonds',7.99)">
+
+          Add to Cart
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- OTHER PAGES -->
+
+<section id="skins" class="page">
+
+  <div class="section-title">
+    <h2>👕 Skins</h2>
+  </div>
+
+  <div class="empty">
+    Skins collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="weapons" class="page">
+
+  <div class="section-title">
+    <h2>🔫 Weapon Skins</h2>
+  </div>
+
+  <div class="empty">
+    Weapon skins collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="characters" class="page">
+
+  <div class="section-title">
+    <h2>🧑 Characters</h2>
+  </div>
+
+  <div class="empty">
+    Characters collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="emotes" class="page">
+
+  <div class="section-title">
+    <h2>💃 Emotes</h2>
+  </div>
+
+  <div class="empty">
+    Emotes collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="vehicles" class="page">
+
+  <div class="section-title">
+    <h2>🚗 Vehicles</h2>
+  </div>
+
+  <div class="empty">
+    Vehicles collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="backpacks" class="page">
+
+  <div class="section-title">
+    <h2>🎒 Backpacks</h2>
+  </div>
+
+  <div class="empty">
+    Backpacks collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="bundles" class="page">
+
+  <div class="section-title">
+    <h2>📦 Bundles</h2>
+  </div>
+
+  <div class="empty">
+    Bundles collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="codes" class="page">
+
+  <div class="section-title">
+    <h2>🎟️ Gift Codes</h2>
+  </div>
+
+  <div class="empty">
+    Gift Codes collection will appear here.
+  </div>
+
+</section>
+
+
+<section id="rewards" class="page">
+
+  <div class="section-title">
+    <h2>🎁 Rewards</h2>
+  </div>
+
+  <div class="empty">
+    Rewards will appear here.
+  </div>
+
+</section>
+
+
+<section id="promotions" class="page">
+
+  <div class="section-title">
+    <h2>🔥 Promotions</h2>
+  </div>
+
+  <div class="empty">
+    Current promotions will appear here.
+  </div>
+
+</section>
+
+
+<section id="offers" class="page">
+
+  <div class="section-title">
+    <h2>🎁 Special Offers</h2>
+  </div>
+
+  <div class="empty">
+    Exclusive offers will appear here.
+  </div>
+
+</section>
+
+
+<section id="best" class="page">
 
   <div class="section-title">
     <h2>⭐ Best Sellers</h2>
-    <span class="view">View All →</span>
   </div>
 
-  <div class="products">
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Elite Bundle
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $9.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Elite Bundle')">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Pro Pack
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $12.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Pro Pack')">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Gaming Pack
-        </div>
-
-        <div class="rating">
-          ★★★★☆
-        </div>
-
-        <div class="price">
-          $5.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Gaming Pack')">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
-
+  <div class="empty">
+    Best sellers will appear here.
   </div>
 
 </section>
 
-<section class="section">
+
+<section id="new" class="page">
 
   <div class="section-title">
     <h2>🆕 New Arrivals</h2>
-    <span class="view">View All →</span>
   </div>
 
-  <div class="products">
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          New Character
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $8.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('New Character')">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          New Weapon
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $10.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('New Weapon')">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
-
+  <div class="empty">
+    New arrivals will appear here.
   </div>
 
 </section>
 
-<section class="section">
+
+<section id="lucky" class="page">
 
   <div class="section-title">
-    <h2>Why Choose ZER0X?</h2>
+    <h2>🎰 Lucky Draw</h2>
   </div>
 
-  <div class="features">
-
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <h3>Fast Delivery</h3>
-      <p>Receive your digital items quickly.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🔒</div>
-      <h3>Secure Payment</h3>
-      <p>Your transactions are protected.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">💬</div>
-      <h3>24/7 Support</h3>
-      <p>Our support team is ready to help.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🎁</div>
-      <h3>Exclusive Rewards</h3>
-      <p>Get special rewards and promotions.</p>
-    </div>
-
+  <div class="empty">
+    Lucky Draw will appear here.
   </div>
 
 </section>
+
+
+<section id="chests" class="page">
+
+  <div class="section-title">
+    <h2>🎁 Chests</h2>
+  </div>
+
+  <div class="empty">
+    Chests will appear here.
+  </div>
+
+</section>
+
+
+<section id="events" class="page">
+
+  <div class="section-title">
+    <h2>🏆 Events</h2>
+  </div>
+
+  <div class="empty">
+    Events will appear here.
+  </div>
+
+</section>
+
+
+<section id="favorites" class="page">
+
+  <div class="section-title">
+    <h2>❤️ Favorites</h2>
+  </div>
+
+  <div class="empty">
+    Your favorite products will appear here.
+  </div>
+
+</section>
+
+
+<section id="orders" class="page">
+
+  <div class="section-title">
+    <h2>📋 My Orders</h2>
+  </div>
+
+  <div class="empty">
+    Your orders will appear here.
+  </div>
+
+</section>
+
+
+<section id="payment" class="page">
+
+  <div class="section-title">
+    <h2>💳 Payment</h2>
+  </div>
+
+  <div class="empty">
+    Payment options will appear here.
+  </div>
+
+</section>
+
+
+<section id="coupons" class="page">
+
+  <div class="section-title">
+    <h2>🎟️ Coupons</h2>
+  </div>
+
+  <div class="empty">
+    Your coupons will appear here.
+  </div>
+
+</section>
+
+
+<section id="support" class="page">
+
+  <div class="section-title">
+    <h2>💬 Support</h2>
+  </div>
+
+  <div class="empty">
+    PINKO STORE Support is available here.
+  </div>
+
+</section>
+
+
+<section id="faq" class="page">
+
+  <div class="section-title">
+    <h2>❓ FAQ</h2>
+  </div>
+
+  <div class="empty">
+    Frequently Asked Questions will appear here.
+  </div>
+
+</section>
+
+
+<section id="contact" class="page">
+
+  <div class="section-title">
+    <h2>📞 Contact</h2>
+  </div>
+
+  <div class="empty">
+    Contact PINKO STORE here.
+  </div>
+
+</section>
+
+
+<section id="settings" class="page">
+
+  <div class="section-title">
+    <h2>⚙️ Settings</h2>
+  </div>
+
+  <div class="empty">
+    Store settings will appear here.
+  </div>
+
+</section>
+
+
+<!-- CART PAGE -->
+
+<section id="cartPage" class="page">
+
+  <div class="section-title">
+
+    <h2>
+      🛒 My Cart
+    </h2>
+
+  </div>
+
+  <div
+    id="cartItems"
+    class="cart-list">
+  </div>
+
+</section>
+
 
 </main>
 
+
+<!-- FLOATING CART -->
+
 <div
   class="cart"
-  onclick="showMessage('Your cart is currently empty.')">
+  onclick="showCart()">
+
   🛒
+
+  <span
+    id="cartCount"
+    class="cart-count">
+
+    0
+
+  </span>
+
 </div>
 
+
+<!-- FOOTER -->
+
 <footer>
-  <p>
-    © 2026 ZER0X Gaming Store. All rights reserved.
-  </p>
+
+  © 2026 PINKO STORE.
+  All rights reserved.
+
 </footer>
 
 
-<!-- LOGIN / SIGN UP MODAL -->
+<!-- LOGIN MODAL -->
 
-<div class="modal" id="accountModal">
+<div
+  class="modal"
+  id="accountModal">
 
   <div class="login-box">
 
-    <span class="close" onclick="closeAccount()">
+    <span
+      class="close"
+      onclick="closeAccount()">
+
       ×
+
     </span>
+
 
     <!-- LOGIN -->
 
     <div id="loginForm">
 
-      <h2>Welcome Back</h2>
+      <h2>
+        Welcome Back
+      </h2>
 
       <p class="login-subtitle">
-        Login to your ZER0X account
+        Login to your PINKO STORE account
       </p>
+
 
       <div class="input-group">
 
-        <label>Email</label>
+        <label>
+          Email
+        </label>
 
         <input
-          type="email"
           id="loginEmail"
+          type="email"
           placeholder="Enter your email">
 
       </div>
 
+
       <div class="input-group">
 
-        <label>Password</label>
+        <label>
+          Password
+        </label>
 
         <input
-          type="password"
           id="loginPassword"
+          type="password"
           placeholder="Enter your password">
 
       </div>
 
+
       <button
         class="login-submit"
         onclick="login()">
+
         Login
+
       </button>
 
-      <div class="message" id="loginMessage"></div>
+
+      <div
+        id="loginMessage"
+        class="message">
+      </div>
+
 
       <div class="switch">
+
         Don't have an account?
+
         <span onclick="showSignup()">
           Create Account
         </span>
+
       </div>
 
     </div>
@@ -1063,60 +1800,84 @@ footer{
 
     <!-- SIGN UP -->
 
-    <div id="signupForm" style="display:none">
+    <div
+      id="signupForm"
+      style="display:none">
 
-      <h2>Create Account</h2>
+      <h2>
+        Create Account
+      </h2>
 
       <p class="login-subtitle">
-        Join ZER0X Gaming Store
+        Join PINKO STORE
       </p>
+
 
       <div class="input-group">
 
-        <label>Username</label>
+        <label>
+          Username
+        </label>
 
         <input
-          type="text"
           id="signupName"
+          type="text"
           placeholder="Choose a username">
 
       </div>
 
+
       <div class="input-group">
 
-        <label>Email</label>
+        <label>
+          Email
+        </label>
 
         <input
-          type="email"
           id="signupEmail"
+          type="email"
           placeholder="Enter your email">
 
       </div>
 
+
       <div class="input-group">
 
-        <label>Password</label>
+        <label>
+          Password
+        </label>
 
         <input
-          type="password"
           id="signupPassword"
+          type="password"
           placeholder="Create a password">
 
       </div>
 
+
       <button
         class="login-submit"
         onclick="signup()">
+
         Create Account
+
       </button>
 
-      <div class="message" id="signupMessage"></div>
+
+      <div
+        id="signupMessage"
+        class="message">
+      </div>
+
 
       <div class="switch">
+
         Already have an account?
+
         <span onclick="showLogin()">
           Login
         </span>
+
       </div>
 
     </div>
@@ -1124,33 +1885,36 @@ footer{
 
     <!-- ACCOUNT -->
 
-    <div id="accountPanel" style="display:none">
+    <div
+      id="accountPanel"
+      style="display:none">
 
-      <div class="account-panel">
+      <div class="account-card">
 
         <div class="account-avatar">
           👤
         </div>
 
-        <div
-          class="account-name"
-          id="accountName">
-        </div>
+        <h2 id="accountName"></h2>
 
-        <div
-          class="account-email"
-          id="accountEmail">
-        </div>
+        <p
+          id="accountEmail"
+          style="color:#777;margin-top:7px">
+        </p>
+
 
         <button
           class="logout"
           onclick="logout()">
+
           Logout
+
         </button>
 
       </div>
 
     </div>
+
 
   </div>
 
@@ -1159,28 +1923,166 @@ footer{
 
 <script>
 
-let cartCount = 0;
+/* PAGE SYSTEM */
+
+function showPage(pageId){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(page => {
+
+      page.classList.remove("active");
+
+    });
 
 
-/* CART */
+  const page =
+    document.getElementById(pageId);
 
-function addCart(product){
 
-  cartCount++;
+  if(page){
+
+    page.classList.add("active");
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+/* CART SYSTEM */
+
+let cart =
+  JSON.parse(
+    localStorage.getItem("pinkoCart")
+  ) || [];
+
+
+function saveCart(){
+
+  localStorage.setItem(
+    "pinkoCart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+function updateCartCount(){
+
+  document
+    .getElementById("cartCount")
+    .innerText = cart.length;
+
+}
+
+
+function addCart(name,price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+
+  saveCart();
+
+  updateCartCount();
 
   alert(
-    product +
+    name +
     " added to your cart!"
   );
 
 }
 
 
-/* GENERAL MESSAGE */
+function showCart(){
 
-function showMessage(message){
+  showPage("cartPage");
 
-  alert(message);
+  renderCart();
+
+}
+
+
+function renderCart(){
+
+  const container =
+    document.getElementById("cartItems");
+
+
+  if(cart.length === 0){
+
+    container.innerHTML =
+      '<div class="empty">Your cart is empty.</div>';
+
+    return;
+
+  }
+
+
+  container.innerHTML = "";
+
+
+  cart.forEach((item,index) => {
+
+    const div =
+      document.createElement("div");
+
+
+    div.className =
+      "cart-item";
+
+
+    div.innerHTML = `
+
+      <div>
+
+        <strong>
+          ${item.name}
+        </strong>
+
+        <br>
+
+        <span style="color:#ff1493">
+          $${item.price}
+        </span>
+
+      </div>
+
+
+      <button
+        class="remove"
+        onclick="removeCart(${index})">
+
+        Remove
+
+      </button>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+function removeCart(index){
+
+  cart.splice(index,1);
+
+  saveCart();
+
+  updateCartCount();
+
+  renderCart();
 
 }
 
@@ -1189,23 +2091,25 @@ function showMessage(message){
 
 function searchProducts(){
 
-  let input =
+  const input =
     document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+      .getElementById("search")
+      .value
+      .toLowerCase();
 
-  let products =
-    document
-    .querySelectorAll(".product");
+
+  const products =
+    document.querySelectorAll(".product");
+
 
   products.forEach(product => {
 
-    let name =
+    const name =
       product
-      .querySelector(".product-name")
-      .innerText
-      .toLowerCase();
+        .querySelector(".product-name")
+        .innerText
+        .toLowerCase();
+
 
     product.style.display =
       name.includes(input)
@@ -1217,16 +2121,17 @@ function searchProducts(){
 }
 
 
-/* ACCOUNT MODAL */
+/* ACCOUNT */
 
 function openAccount(){
 
   document
-  .getElementById("accountModal")
-  .classList
-  .add("active");
+    .getElementById("accountModal")
+    .classList
+    .add("active");
 
-  updateAccountPanel();
+
+  updateAccount();
 
 }
 
@@ -1234,57 +2139,86 @@ function openAccount(){
 function closeAccount(){
 
   document
-  .getElementById("accountModal")
-  .classList
-  .remove("active");
+    .getElementById("accountModal")
+    .classList
+    .remove("active");
+
+}
+
+
+function showSignup(){
+
+  document
+    .getElementById("loginForm")
+    .style.display="none";
+
+
+  document
+    .getElementById("signupForm")
+    .style.display="block";
+
+
+  document
+    .getElementById("accountPanel")
+    .style.display="none";
+
+}
+
+
+function showLogin(){
+
+  document
+    .getElementById("loginForm")
+    .style.display="block";
+
+
+  document
+    .getElementById("signupForm")
+    .style.display="none";
+
+
+  document
+    .getElementById("accountPanel")
+    .style.display="none";
 
 }
 
 
 /* SIGN UP */
 
-function showSignup(){
-
-  document
-  .getElementById("loginForm")
-  .style.display="none";
-
-  document
-  .getElementById("signupForm")
-  .style.display="block";
-
-  document
-  .getElementById("accountPanel")
-  .style.display="none";
-
-}
-
-
 function signup(){
 
-  let name =
+  const name =
     document
-    .getElementById("signupName")
-    .value
-    .trim();
+      .getElementById("signupName")
+      .value
+      .trim();
 
-  let email =
+
+  const email =
     document
-    .getElementById("signupEmail")
-    .value
-    .trim();
+      .getElementById("signupEmail")
+      .value
+      .trim();
 
-  let password =
+
+  const password =
     document
-    .getElementById("signupPassword")
-    .value;
-
-  let message =
-    document
-    .getElementById("signupMessage");
+      .getElementById("signupPassword")
+      .value;
 
 
-  if(!name || !email || !password){
+  const message =
+    document.getElementById(
+      "signupMessage"
+    );
+
+
+  if(
+    !name ||
+    !email ||
+    !password
+  ){
 
     message.innerText =
       "Please fill in all fields.";
@@ -1297,14 +2231,14 @@ function signup(){
   if(password.length < 6){
 
     message.innerText =
-      "Password must contain at least 6 characters.";
+      "Password must be at least 6 characters.";
 
     return;
 
   }
 
 
-  let user = {
+  const user = {
 
     name:name,
     email:email,
@@ -1314,85 +2248,74 @@ function signup(){
 
 
   localStorage.setItem(
-    "zeroxUser",
+    "pinkoUser",
     JSON.stringify(user)
   );
 
 
   localStorage.setItem(
-    "zeroxLoggedIn",
+    "pinkoLoggedIn",
     "true"
   );
 
 
-  message.style.color="#65ff7a";
+  message.style.color =
+    "#55ff88";
+
 
   message.innerText =
     "Account created successfully!";
 
 
-  setTimeout(() => {
-
-    updateAccountPanel();
-
-  },700);
+  setTimeout(
+    updateAccount,
+    500
+  );
 
 }
 
 
 /* LOGIN */
 
-function showLogin(){
-
-  document
-  .getElementById("loginForm")
-  .style.display="block";
-
-  document
-  .getElementById("signupForm")
-  .style.display="none";
-
-  document
-  .getElementById("accountPanel")
-  .style.display="none";
-
-}
-
-
 function login(){
 
-  let email =
+  const email =
     document
-    .getElementById("loginEmail")
-    .value
-    .trim();
+      .getElementById("loginEmail")
+      .value
+      .trim();
 
-  let password =
+
+  const password =
     document
-    .getElementById("loginPassword")
-    .value;
-
-  let message =
-    document
-    .getElementById("loginMessage");
+      .getElementById("loginPassword")
+      .value;
 
 
-  let savedUser =
-    localStorage.getItem("zeroxUser");
+  const message =
+    document.getElementById(
+      "loginMessage"
+    );
 
 
-  if(!savedUser){
+  const saved =
+    localStorage.getItem(
+      "pinkoUser"
+    );
+
+
+  if(!saved){
 
     message.innerText =
-      "No account found. Please create an account.";
+      "No account found. Create an account first.";
 
     return;
 
   }
 
 
-  let user =
-    JSON.parse(savedUser);
+  const user =
+    JSON.parse(saved);
 
 
   if(
@@ -1401,21 +2324,23 @@ function login(){
   ){
 
     localStorage.setItem(
-      "zeroxLoggedIn",
+      "pinkoLoggedIn",
       "true"
     );
 
-    message.style.color="#65ff7a";
+
+    message.style.color =
+      "#55ff88";
+
 
     message.innerText =
       "Login successful!";
 
 
-    setTimeout(() => {
-
-      updateAccountPanel();
-
-    },700);
+    setTimeout(
+      updateAccount,
+      500
+    );
 
   }else{
 
@@ -1427,63 +2352,71 @@ function login(){
 }
 
 
-/* ACCOUNT PANEL */
+/* ACCOUNT STATUS */
 
-function updateAccountPanel(){
+function updateAccount(){
 
-  let loggedIn =
-    localStorage.getItem("zeroxLoggedIn");
+  const loggedIn =
+    localStorage.getItem(
+      "pinkoLoggedIn"
+    );
 
-  let savedUser =
-    localStorage.getItem("zeroxUser");
+
+  const saved =
+    localStorage.getItem(
+      "pinkoUser"
+    );
 
 
   if(
     loggedIn === "true" &&
-    savedUser
+    saved
   ){
 
-    let user =
-      JSON.parse(savedUser);
+    const user =
+      JSON.parse(saved);
 
 
     document
-    .getElementById("loginForm")
-    .style.display="none";
-
-    document
-    .getElementById("signupForm")
-    .style.display="none";
-
-    document
-    .getElementById("accountPanel")
-    .style.display="block";
+      .getElementById("loginForm")
+      .style.display="none";
 
 
     document
-    .getElementById("accountName")
-    .innerText =
+      .getElementById("signupForm")
+      .style.display="none";
+
+
+    document
+      .getElementById("accountPanel")
+      .style.display="block";
+
+
+    document
+      .getElementById("accountName")
+      .innerText =
       user.name;
 
 
     document
-    .getElementById("accountEmail")
-    .innerText =
+      .getElementById("accountEmail")
+      .innerText =
       user.email;
 
 
     document
-    .getElementById("accountButton")
-    .innerText =
+      .getElementById("accountButton")
+      .innerText =
       "👤 " + user.name;
 
   }else{
 
     showLogin();
 
+
     document
-    .getElementById("accountButton")
-    .innerText =
+      .getElementById("accountButton")
+      .innerText =
       "👤 Login";
 
   }
@@ -1496,31 +2429,34 @@ function updateAccountPanel(){
 function logout(){
 
   localStorage.setItem(
-    "zeroxLoggedIn",
+    "pinkoLoggedIn",
     "false"
   );
 
+
   document
-  .getElementById("accountButton")
-  .innerText =
+    .getElementById("accountButton")
+    .innerText =
     "👤 Login";
+
 
   showLogin();
 
 }
 
 
-/* CHECK LOGIN WHEN PAGE OPENS */
+/* START */
 
 window.onload = function(){
 
-  updateAccountPanel();
+  updateCartCount();
+
+  updateAccount();
 
 };
 
 </script>
 
 </body>
-        </html>
-
-
+  </html>
+ 
