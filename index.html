@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,472 +7,727 @@
 <title>Pinko Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
 body{
-font-family:Arial,sans-serif;
-background:#07070d;
-color:#fff;
-min-height:100vh;
-}
-
-header{
-background:#101019;
-border-bottom:1px solid #292936;
-padding:18px 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-position:sticky;
-top:0;
-z-index:10;
-}
-
-.logo{
-font-size:25px;
-font-weight:bold;
-color:#ff2775;
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-margin:0 10px;
-}
-
-.login-btn,.buy-btn{
-background:#ff2775;
-color:white;
-border:0;
-border-radius:9px;
-padding:11px 18px;
-font-weight:bold;
-cursor:pointer;
-text-decoration:none;
-display:inline-block;
-}
-
-.hero{
-text-align:center;
-padding:75px 20px;
-background:radial-gradient(circle,#321027,#09090f 65%);
-}
-
-.hero h1{
-font-size:42px;
-margin-bottom:15px;
-}
-
-.hero h1 span{color:#ff2775}
-
-.hero p{
-color:#aaa;
-font-size:18px;
-}
-
-.container{
-max-width:1150px;
-margin:auto;
-padding:45px 20px;
-}
-
-.title{
-text-align:center;
-font-size:30px;
-margin-bottom:28px;
-}
-
-.title span{color:#ff2775}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:#12121b;
-border:1px solid #292936;
-border-radius:16px;
-padding:24px;
-text-align:center;
-transition:.25s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-border-color:#ff2775;
-}
-
-.product-icon{
-font-size:55px;
-margin-bottom:15px;
-}
-
-.card h3{
-margin-bottom:8px;
-}
-
-.card p{
-color:#999;
-margin-bottom:12px;
-}
-
-.price{
-color:#ff2775;
-font-size:22px;
-font-weight:bold;
-margin:15px;
-}
-
-.buy-btn{
-width:100%;
-text-align:center;
-}
-
-.buy-btn:hover,.login-btn:hover{
-background:#df1d63;
-}
-
-.cart{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#ff2775;
-padding:15px 20px;
-border-radius:12px;
-font-weight:bold;
-z-index:20;
-}
-
-footer{
-text-align:center;
-padding:30px;
-color:#777;
-background:#101019;
-margin-top:30px;
+  background:#08080e;
+  color:white;
 }
 
 /* LOGIN */
 
-.login-screen{
-position:fixed;
-inset:0;
-background:#07070d;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:100;
+.login-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle,#351027,#08080e 65%);
+  padding:20px;
 }
 
 .login-box{
-width:90%;
-max-width:390px;
-background:#13131d;
-border:1px solid #ff2775;
-border-radius:20px;
-padding:35px;
-text-align:center;
-box-shadow:0 0 40px rgba(255,39,117,.2);
+  width:100%;
+  max-width:400px;
+  background:#15151f;
+  padding:32px;
+  border-radius:20px;
+  border:1px solid #ff2775;
+  text-align:center;
 }
 
-.login-box h1{
-color:#ff2775;
-margin-bottom:8px;
-}
-
-.login-box p{
-color:#888;
-margin-bottom:25px;
+.logo{
+  color:#ff2775;
+  font-size:30px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
 
 .input{
-width:100%;
-padding:14px;
-margin-bottom:14px;
-border-radius:9px;
-border:1px solid #292936;
-background:#090910;
-color:#fff;
-outline:none;
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border-radius:9px;
+  border:1px solid #333;
+  background:#090910;
+  color:white;
+  outline:none;
 }
 
-.input:focus{
-border-color:#ff2775;
+.btn{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border:0;
+  border-radius:9px;
+  background:#ff2775;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.login-box button{
-width:100%;
-padding:14px;
-border:0;
-border-radius:9px;
-background:#ff2775;
-color:white;
-font-weight:bold;
-cursor:pointer;
+.link{
+  display:block;
+  margin-top:18px;
+  color:#ff2775;
+  cursor:pointer;
 }
 
-.demo{
-font-size:12px;
-color:#666;
-margin-top:15px;
+/* STORE */
+
+#store{
+  display:none;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#11111a;
+  padding:18px 5%;
+  border-bottom:1px solid #292936;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+nav button{
+  background:none;
+  border:0;
+  color:white;
+  margin:0 5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.logout{
+  background:#ff2775;
+  border:0;
+  color:white;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hero{
+  text-align:center;
+  padding:60px 20px;
+  background:radial-gradient(circle,#321027,#09090f 65%);
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+.hero span{
+  color:#ff2775;
+}
+
+/* PANELS */
+
+.panel{
+  display:none;
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.panel.active{
+  display:block;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.title span{
+  color:#ff2775;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#15151f;
+  border:1px solid #292936;
+  border-radius:16px;
+  padding:25px;
+  text-align:center;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#ff2775;
+}
+
+.icon{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.price{
+  color:#ff2775;
+  font-size:22px;
+  font-weight:bold;
+  margin:15px;
+}
+
+.buy{
+  width:100%;
+  padding:12px;
+  background:#ff2775;
+  border:0;
+  color:white;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ORDERS */
+
+.order{
+  background:#15151f;
+  border:1px solid #292936;
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:12px;
+}
+
+.order strong{
+  color:#ff2775;
+}
+
+.status{
+  display:inline-block;
+  margin-top:8px;
+  padding:5px 10px;
+  border-radius:20px;
+  background:#292936;
+  color:#ddd;
+}
+
+/* BUY */
+
+.buy-box{
+  max-width:500px;
+  margin:auto;
+  background:#15151f;
+  padding:30px;
+  border-radius:18px;
+  border:1px solid #292936;
+}
+
+.buy-box h2{
+  color:#ff2775;
+  margin-bottom:15px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#777;
+  background:#11111a;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<!-- ================= LOGIN ================= -->
 
-<div class="login-screen" id="loginScreen">
+<div class="login-page" id="loginPage">
 
-<div class="login-box">
+  <div class="login-box">
 
-<h1>🔥 PINKO STORE</h1>
+    <div class="logo">🔥 PINKO STORE</div>
 
-<p>Connectez-vous à votre boutique</p>
+    <p style="color:#999;margin-bottom:20px">
+      Connectez-vous à votre compte
+    </p>
 
-<form onsubmit="login(event)">
+    <input
+      id="email"
+      class="input"
+      type="email"
+      placeholder="Adresse e-mail"
+    >
 
-<input
-class="input"
-type="email"
-placeholder="Adresse e-mail"
-required>
+    <input
+      id="password"
+      class="input"
+      type="password"
+      placeholder="Mot de passe"
+    >
 
-<input
-class="input"
-type="password"
-placeholder="Mot de passe"
-required>
+    <button class="btn" onclick="login()">
+      Se connecter
+    </button>
 
-<button type="submit">
-Se connecter
-</button>
+    <span class="link" onclick="register()">
+      Créer un compte
+    </span>
 
-</form>
+    <p id="loginMessage"
+       style="color:#ff2775;margin-top:15px">
+    </p>
 
-<div class="demo">
-Connexion de démonstration — aucune donnée n'est enregistrée.
+  </div>
+
 </div>
 
-</div>
-</div>
 
-<!-- HEADER -->
+<!-- ================= STORE ================= -->
+
+<div id="store">
 
 <header>
 
-<div class="logo">🔥 PINKO STORE</div>
+  <div class="logo">
+    🔥 PINKO STORE
+  </div>
 
-<nav>
-<a href="#skins">Skins</a>
-<a href="#diamants">Diamants</a>
-<a href="#packs">Packs</a>
-</nav>
+  <nav>
 
-<button class="login-btn" onclick="logout()">
-Déconnexion
-</button>
+    <button onclick="showPanel('shop')">
+      🛒 Acheter
+    </button>
+
+    <button onclick="showPanel('orders')">
+      📦 Mes commandes
+    </button>
+
+  </nav>
+
+  <button class="logout" onclick="logout()">
+    Déconnexion
+  </button>
 
 </header>
 
-<!-- HERO -->
 
 <section class="hero">
 
-<h1>Bienvenue sur <span>Pinko Store</span></h1>
+  <h1>
+    Bienvenue sur <span>Pinko Store</span>
+  </h1>
 
-<p>Votre boutique Gaming — rapide, simple et moderne.</p>
+  <p style="color:#aaa;margin-top:10px">
+    Votre boutique Gaming
+  </p>
 
 </section>
 
-<!-- SKINS -->
 
-<section class="container" id="skins">
+<!-- ================= SHOP ================= -->
 
-<h2 class="title">🔥 <span>Skins</span></h2>
+<section class="panel active" id="shop">
 
-<div class="products">
+  <h2 class="title">
+    🛒 <span>Boutique</span>
+  </h2>
 
-<div class="card">
-<div class="product-icon">🥷</div>
-<h3>Skin Ninja</h3>
-<p>Skin Gaming</p>
-<div class="price">20 DH</div>
+  <div class="products">
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20le%20Skin%20Ninja%20-%2020%20DH"
-target="_blank">
-Acheter
-</a>
+    <!-- SKIN -->
 
-</div>
+    <div class="card">
 
-<div class="card">
-<div class="product-icon">⚡</div>
-<h3>Skin Lightning</h3>
-<p>Skin Premium</p>
-<div class="price">35 DH</div>
+      <div class="icon">🥷</div>
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20le%20Skin%20Lightning%20-%2035%20DH"
-target="_blank">
-Acheter
-</a>
+      <h3>Skin Ninja</h3>
 
-</div>
+      <p style="color:#999">
+        Skin Gaming
+      </p>
 
-<div class="card">
-<div class="product-icon">👑</div>
-<h3>Skin Royal</h3>
-<p>Skin Premium</p>
-<div class="price">50 DH</div>
+      <div class="price">
+        20 DH
+      </div>
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20le%20Skin%20Royal%20-%2050%20DH"
-target="_blank">
-Acheter
-</a>
+      <button class="buy"
+        onclick="buyProduct('Skin Ninja',20)">
+        Acheter
+      </button>
 
-</div>
+    </div>
 
-</div>
+
+    <!-- DIAMANTS -->
+
+    <div class="card">
+
+      <div class="icon">💎</div>
+
+      <h3>100 Diamants</h3>
+
+      <p style="color:#999">
+        Pack Diamants
+      </p>
+
+      <div class="price">
+        10 DH
+      </div>
+
+      <button class="buy"
+        onclick="buyProduct('100 Diamants',10)">
+        Acheter
+      </button>
+
+    </div>
+
+
+    <!-- PACK -->
+
+    <div class="card">
+
+      <div class="icon">🎁</div>
+
+      <h3>Pack Premium</h3>
+
+      <p style="color:#999">
+        Offre Premium
+      </p>
+
+      <div class="price">
+        50 DH
+      </div>
+
+      <button class="buy"
+        onclick="buyProduct('Pack Premium',50)">
+        Acheter
+      </button>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- DIAMANTS -->
 
-<section class="container" id="diamants">
+<!-- ================= BUY PANEL ================= -->
 
-<h2 class="title">💎 <span>Diamants</span></h2>
+<section class="panel" id="buy">
 
-<div class="products">
+  <div class="buy-box">
 
-<div class="card">
-<div class="product-icon">💎</div>
-<h3>100 Diamants</h3>
-<p>Pack Diamants</p>
-<div class="price">10 DH</div>
+    <h2>🛒 Confirmer votre commande</h2>
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20100%20Diamants%20-%2010%20DH"
-target="_blank">
-Acheter
-</a>
+    <p id="selectedProduct"></p>
 
-</div>
+    <input
+      id="playerName"
+      class="input"
+      placeholder="Votre nom"
+    >
 
-<div class="card">
-<div class="product-icon">💎</div>
-<h3>310 Diamants</h3>
-<p>Pack Diamants</p>
-<div class="price">30 DH</div>
+    <input
+      id="playerId"
+      class="input"
+      placeholder="ID joueur (si nécessaire)"
+    >
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20310%20Diamants%20-%2030%20DH"
-target="_blank">
-Acheter
-</a>
+    <button class="btn" onclick="confirmOrder()">
+      Confirmer la commande
+    </button>
 
-</div>
+    <button
+      class="btn"
+      style="background:#292936"
+      onclick="showPanel('shop')">
+      Retour
+    </button>
 
-<div class="card">
-<div class="product-icon">💎</div>
-<h3>520 Diamants</h3>
-<p>Pack Diamants</p>
-<div class="price">50 DH</div>
+  </div>
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20520%20Diamants%20-%2050%20DH"
-target="_blank">
-Acheter
-</a>
-
-</div>
-
-</div>
 </section>
 
-<!-- PACKS -->
 
-<section class="container" id="packs">
+<!-- ================= ORDERS ================= -->
 
-<h2 class="title">🎁 <span>Packs</span></h2>
+<section class="panel" id="orders">
 
-<div class="products">
+  <h2 class="title">
+    📦 <span>Mes commandes</span>
+  </h2>
 
-<div class="card">
-<div class="product-icon">🎁</div>
-<h3>Pack Basic</h3>
-<p>Offre spéciale</p>
-<div class="price">25 DH</div>
+  <div id="ordersList"></div>
 
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20le%20Pack%20Basic%20-%2025%20DH"
-target="_blank">
-Acheter
-</a>
-
-</div>
-
-<div class="card">
-<div class="product-icon">🔥</div>
-<h3>Pack Premium</h3>
-<p>Offre Premium</p>
-<div class="price">50 DH</div>
-
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20le%20Pack%20Premium%20-%2050%20DH"
-target="_blank">
-Acheter
-</a>
-
-</div>
-
-<div class="card">
-<div class="product-icon">👑</div>
-<h3>Pack VIP</h3>
-<p>Offre VIP</p>
-<div class="price">100 DH</div>
-
-<a class="buy-btn"
-href="https://wa.me/212755758895?text=Bonjour%2C%20je%20veux%20acheter%20le%20Pack%20VIP%20-%20100%20DH"
-target="_blank">
-Acheter
-</a>
-
-</div>
-
-</div>
 </section>
 
-<div class="cart">
-🛒 Boutique
-</div>
 
 <footer>
-© 2026 Pinko Store
+  © 2026 Pinko Store
 </footer>
+
+</div>
+
 
 <script>
 
-function login(event){
-event.preventDefault();
-document.getElementById("loginScreen").style.display="none";
-localStorage.setItem("pinkoLogin","true");
+let selectedName="";
+let selectedPrice=0;
+
+
+/* LOGIN */
+
+function login(){
+
+  const email =
+    document.getElementById("email").value;
+
+  const password =
+    document.getElementById("password").value;
+
+  if(!email || !password){
+
+    document.getElementById("loginMessage").innerText =
+      "Veuillez remplir tous les champs.";
+
+    return;
+  }
+
+  localStorage.setItem(
+    "pinkoUser",
+    email
+  );
+
+  openStore();
 }
+
+
+/* REGISTER */
+
+function register(){
+
+  const email =
+    document.getElementById("email").value;
+
+  const password =
+    document.getElementById("password").value;
+
+  if(!email || !password){
+
+    document.getElementById("loginMessage").innerText =
+      "Entrez votre e-mail et votre mot de passe.";
+
+    return;
+  }
+
+  localStorage.setItem(
+    "pinkoAccount",
+    email
+  );
+
+  localStorage.setItem(
+    "pinkoUser",
+    email
+  );
+
+  alert("Compte créé avec succès !");
+
+  openStore();
+}
+
+
+/* OPEN STORE */
+
+function openStore(){
+
+  document.getElementById("loginPage")
+    .style.display="none";
+
+  document.getElementById("store")
+    .style.display="block";
+
+}
+
+
+/* LOGOUT */
 
 function logout(){
-localStorage.removeItem("pinkoLogin");
-location.reload();
+
+  localStorage.removeItem("pinkoUser");
+
+  document.getElementById("store")
+    .style.display="none";
+
+  document.getElementById("loginPage")
+    .style.display="flex";
+
 }
 
-if(localStorage.getItem("pinkoLogin")==="true"){
-document.getElementById("loginScreen").style.display="none";
+
+/* PANELS */
+
+function showPanel(panel){
+
+  document
+    .querySelectorAll(".panel")
+    .forEach(p =>
+      p.classList.remove("active")
+    );
+
+  document
+    .getElementById(panel)
+    .classList.add("active");
+
+  if(panel==="orders"){
+    loadOrders();
+  }
+
+}
+
+
+/* BUY */
+
+function buyProduct(name,price){
+
+  selectedName=name;
+  selectedPrice=price;
+
+  document.getElementById("selectedProduct")
+    .innerHTML =
+    "<b>"+name+"</b><br>Prix : "+
+    price+" DH";
+
+  showPanel("buy");
+
+}
+
+
+/* CONFIRM ORDER */
+
+function confirmOrder(){
+
+  const name =
+    document.getElementById("playerName").value;
+
+  const playerId =
+    document.getElementById("playerId").value;
+
+  if(!name){
+
+    alert("Entrez votre nom.");
+
+    return;
+  }
+
+  const order={
+
+    product:selectedName,
+    price:selectedPrice,
+    customer:name,
+    playerId:playerId,
+    status:"En attente",
+    date:new Date().toLocaleString("fr-FR")
+
+  };
+
+  let orders =
+    JSON.parse(
+      localStorage.getItem("pinkoOrders") || "[]"
+    );
+
+  orders.push(order);
+
+  localStorage.setItem(
+    "pinkoOrders",
+    JSON.stringify(orders)
+  );
+
+  const message =
+    "Bonjour, je veux commander : "+
+    selectedName+
+    " - "+
+    selectedPrice+
+    " DH. Nom : "+
+    name+
+    (playerId
+      ? " - ID : "+playerId
+      : "");
+
+  window.open(
+    "https://wa.me/212755758895?text="+
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+  alert("Commande enregistrée !");
+
+  showPanel("orders");
+
+}
+
+
+/* ORDERS */
+
+function loadOrders(){
+
+  const list =
+    document.getElementById("ordersList");
+
+  let orders =
+    JSON.parse(
+      localStorage.getItem("pinkoOrders") || "[]"
+    );
+
+  if(orders.length===0){
+
+    list.innerHTML =
+      "<p style='text-align:center;color:#888'>"+
+      "Aucune commande pour le moment."+
+      "</p>";
+
+    return;
+  }
+
+  list.innerHTML="";
+
+  orders.forEach((order,index)=>{
+
+    list.innerHTML += `
+
+      <div class="order">
+
+        <strong>${order.product}</strong>
+
+        <p>Prix : ${order.price} DH</p>
+
+        <p>Nom : ${order.customer}</p>
+
+        <p>Date : ${order.date}</p>
+
+        <span class="status">
+          ${order.status}
+        </span>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* AUTO LOGIN */
+
+if(localStorage.getItem("pinkoUser")){
+
+  openStore();
+
 }
 
 </script>
 
 </body>
 </html>
-
