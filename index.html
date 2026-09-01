@@ -1,229 +1,158 @@
-<!DOCTYPE html>
+<!      
+      <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pinko Store</title>
+
+<title>Pinko Store - Connexion</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
 body{
-  font-family:Arial,sans-serif;
-  background:#090912;
-  color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at top,#35102a 0%,#0b0710 45%,#050507 100%);
+    color:white;
 }
-header{
-  background:#151522;
-  padding:22px;
-  text-align:center;
-  border-bottom:2px solid #ff2673;
+
+.login-box{
+    width:90%;
+    max-width:400px;
+    padding:35px 30px;
+    background:rgba(20,20,28,.95);
+    border:1px solid #ff2775;
+    border-radius:20px;
+    box-shadow:0 0 35px rgba(255,39,117,.25);
+    text-align:center;
 }
+
 .logo{
-  font-size:32px;
-  font-weight:bold;
-  color:#ff2673;
+    font-size:32px;
+    font-weight:bold;
+    color:#ff2775;
+    margin-bottom:8px;
 }
-nav{
-  margin-top:15px;
+
+.subtitle{
+    color:#999;
+    margin-bottom:30px;
 }
-nav a{
-  color:white;
-  text-decoration:none;
-  margin:0 10px;
-  font-weight:bold;
+
+.input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#0d0d15;
+    color:white;
+    border:1px solid #292936;
 }
-.hero{
-  text-align:center;
-  padding:55px 20px;
-  background:linear-gradient(135deg,#120916,#191324);
+
+.input:focus{
+    border-color:#ff2775;
 }
-.hero h1{
-  font-size:40px;
-  margin-bottom:12px;
-}
-.hero span{color:#ff2673}
-.hero p{color:#bbb;font-size:18px}
-.section{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
-}
-.section h2{
-  text-align:center;
-  margin-bottom:25px;
-  font-size:28px;
-}
-.section h2 span{color:#ff2673}
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-.card{
-  background:#151520;
-  border:1px solid #292938;
-  border-radius:16px;
-  padding:25px;
-  text-align:center;
-}
-.card:hover{
-  border-color:#ff2673;
-  transform:translateY(-4px);
-}
-.emoji{
-  font-size:55px;
-  margin-bottom:15px;
-}
-.card h3{
-  margin-bottom:10px;
-}
-.card p{
-  color:#aaa;
-  margin-bottom:12px;
-}
-.price{
-  color:#ff2673;
-  font-size:23px;
-  font-weight:bold;
-  margin:15px;
-}
+
 .btn{
-  display:inline-block;
-  background:#ff2673;
-  color:white;
-  padding:12px 25px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:bold;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#ff2775;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:5px;
 }
-.btn:hover{background:#d91b5d}
-footer{
-  background:#151522;
-  text-align:center;
-  padding:30px;
-  color:#888;
+
+.btn:hover{
+    background:#e91e67;
+}
+
+.links{
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+}
+
+.links a{
+    color:#ff2775;
+    text-decoration:none;
+}
+
+.footer{
+    margin-top:25px;
+    color:#666;
+    font-size:12px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">🔥 PINKO STORE</div>
-  <nav>
-    <a href="#skins">Skins</a>
-    <a href="#diamants">Diamants</a>
-    <a href="#packs">Packs</a>
-  </nav>
-</header>
+<div class="login-box">
 
-<section class="hero">
-  <h1>Bienvenue sur <span>Pinko Store</span></h1>
-  <p>Votre boutique Free Fire</p>
-</section>
+    <div class="logo">🔥 PINKO STORE</div>
 
-<!-- SKINS -->
-<section class="section" id="skins">
-  <h2>🔥 <span>Skins</span></h2>
-
-  <div class="products">
-
-    <div class="card">
-      <div class="emoji">🥷</div>
-      <h3>Skin Ninja</h3>
-      <p>Skin Free Fire</p>
-      <div class="price">20 DH</div>
-      <a class="btn" href="#">Acheter</a>
+    <div class="subtitle">
+        Bienvenue dans votre boutique
     </div>
 
-    <div class="card">
-      <div class="emoji">🦸</div>
-      <h3>Skin Hero</h3>
-      <p>Skin Premium</p>
-      <div class="price">30 DH</div>
-      <a class="btn" href="#">Acheter</a>
+    <form onsubmit="login(event)">
+
+        <input
+            class="input"
+            type="email"
+            placeholder="Adresse e-mail"
+            required
+        >
+
+        <input
+            class="input"
+            type="password"
+            placeholder="Mot de passe"
+            required
+        >
+
+        <button class="btn" type="submit">
+            Se connecter
+        </button>
+
+    </form>
+
+    <div class="links">
+        <a href="#">Créer un compte</a>
+        <a href="#">Mot de passe oublié ?</a>
     </div>
 
-    <div class="card">
-      <div class="emoji">⚡</div>
-      <h3>Skin Lightning</h3>
-      <p>Skin spécial</p>
-      <div class="price">40 DH</div>
-      <a class="btn" href="#">Acheter</a>
+    <div class="footer">
+        © 2026 Pinko Store
     </div>
 
-  </div>
-</section>
+</div>
 
-<!-- DIAMANTS -->
-<section class="section" id="diamants">
-  <h2>💎 <span>Diamants</span></h2>
+<script>
+function login(event){
+    event.preventDefault();
 
-  <div class="products">
+    alert("Connexion de démonstration réussie !");
 
-    <div class="card">
-      <div class="emoji">💎</div>
-      <h3>100 Diamants</h3>
-      <p>Pack Diamants</p>
-      <div class="price">10 DH</div>
-      <a class="btn" href="#">Acheter</a>
-    </div>
-
-    <div class="card">
-      <div class="emoji">💎</div>
-      <h3>310 Diamants</h3>
-      <p>Pack Diamants</p>
-      <div class="price">30 DH</div>
-      <a class="btn" href="#">Acheter</a>
-    </div>
-
-    <div class="card">
-      <div class="emoji">💎</div>
-      <h3>520 Diamants</h3>
-      <p>Pack Diamants</p>
-      <div class="price">50 DH</div>
-      <a class="btn" href="#">Acheter</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- PACKS -->
-<section class="section" id="packs">
-  <h2>🎁 <span>Packs</span></h2>
-
-  <div class="products">
-
-    <div class="card">
-      <div class="emoji">🎁</div>
-      <h3>Pack Basic</h3>
-      <p>Offre spéciale</p>
-      <div class="price">25 DH</div>
-      <a class="btn" href="#">Acheter</a>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🔥</div>
-      <h3>Pack Premium</h3>
-      <p>Offre Premium</p>
-      <div class="price">50 DH</div>
-      <a class="btn" href="#">Acheter</a>
-    </div>
-
-    <div class="card">
-      <div class="emoji">👑</div>
-      <h3>Pack VIP</h3>
-      <p>Offre VIP</p>
-      <div class="price">100 DH</div>
-      <a class="btn" href="#">Acheter</a>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  © 2026 Pinko Store — Tous droits réservés
-</footer>
+    window.location.href = "store.html";
+}
+</script>
 
 </body>
 </html>
