@@ -3,1085 +3,943 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PINKO STORE PRO</title>
+<title>PINKO STORE - Gaming Marketplace</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
-
-html{scroll-behavior:smooth}
 
 body{
-    background:#07080d;
-    color:#fff;
+  background:#070811;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-button,input,select{
-    font:inherit;
+button,input{
+  font:inherit;
 }
 
 button{
-    cursor:pointer;
+  cursor:pointer;
 }
 
-:root{
-    --pink:#ff1687;
-    --pink2:#ff4da6;
-    --dark:#0d0f16;
-    --card:#12141d;
-    --border:#292d39;
-    --muted:#858a99;
-    --blue:#4fc3ff;
-}
-
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
-    height:72px;
-    background:#0b0d13;
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:0 18px;
-    position:sticky;
-    top:0;
-    z-index:1000;
+  height:72px;
+  background:#0c0d16;
+  border-bottom:1px solid #292c3b;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:0 18px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
-    min-width:170px;
-    color:var(--pink);
-    font-size:28px;
-    font-weight:900;
-    letter-spacing:2px;
+  width:145px;
+  color:#ff238b;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
 }
 
-.logo small{
-    display:block;
-    color:white;
-    font-size:9px;
-    letter-spacing:5px;
-    text-align:center;
-    margin-top:-3px;
+.logo span{
+  display:block;
+  color:#fff;
+  font-size:9px;
+  letter-spacing:6px;
+  text-align:center;
 }
 
-.menuBtn{
-    width:43px;
-    height:43px;
-    border:1px solid var(--border);
-    background:#151821;
-    color:#fff;
-    border-radius:7px;
-    font-size:22px;
+.search{
+  flex:1;
+  max-width:550px;
+  background:#171923;
+  border:1px solid #303446;
+  color:white;
+  border-radius:9px;
+  padding:13px 16px;
+  outline:none;
 }
 
-.searchBox{
-    flex:1;
-    display:flex;
-    max-width:650px;
+.search:focus{
+  border-color:#ff238b;
 }
 
-.searchBox input{
-    width:100%;
-    height:43px;
-    background:#151821;
-    border:1px solid var(--border);
-    color:#fff;
-    padding:0 15px;
-    outline:none;
-    border-radius:7px 0 0 7px;
+.balance{
+  display:flex;
+  gap:14px;
+  align-items:center;
 }
 
-.searchBox input:focus{
-    border-color:var(--pink);
+.balance-item{
+  background:#151722;
+  border:1px solid #292d3e;
+  padding:8px 11px;
+  border-radius:7px;
+  font-size:12px;
 }
 
-.searchBox button{
-    width:48px;
-    border:0;
-    background:var(--pink);
-    color:white;
-    border-radius:0 7px 7px 0;
+.gold{
+  color:#ffd348;
 }
 
-.headerCoins{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:#17111a;
-    border:1px solid #382031;
-    border-radius:7px;
-    padding:7px 9px;
-    min-width:160px;
+.blue{
+  color:#54dfff;
 }
 
-.headerCoins b{
-    font-size:13px;
+.icon-btn{
+  width:42px;
+  height:42px;
+  background:#151722;
+  border:1px solid #303446;
+  color:white;
+  border-radius:8px;
+  position:relative;
 }
 
-.headerCoins small{
-    display:block;
-    color:#777;
-    font-size:9px;
-}
-
-.plus{
-    margin-left:auto;
-    width:29px;
-    height:29px;
-    border:0;
-    border-radius:5px;
-    background:var(--pink);
-    color:white;
-}
-
-.headIcon{
-    position:relative;
-    width:40px;
-    height:40px;
-    border:0;
-    background:none;
-    color:white;
-    font-size:22px;
+.icon-btn:hover{
+  border-color:#ff238b;
 }
 
 .badge{
-    position:absolute;
-    top:-1px;
-    right:0;
-    min-width:18px;
-    height:18px;
-    border-radius:50%;
-    background:var(--pink);
-    color:white;
-    font-size:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  position:absolute;
+  right:-5px;
+  top:-6px;
+  background:#ff238b;
+  color:white;
+  font-size:9px;
+  padding:4px 6px;
+  border-radius:20px;
+}
+
+.account{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
 }
 
 .avatar{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--pink),#641eff);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:2px solid var(--pink);
-    cursor:pointer;
+  width:40px;
+  height:40px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #ff238b;
 }
 
-/* ================= SIDEBAR ================= */
+/* TOP NAV */
+
+.topnav{
+  height:45px;
+  background:#0d0f18;
+  border-bottom:1px solid #242737;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  overflow-x:auto;
+  white-space:nowrap;
+  padding:0 12px;
+}
+
+.topnav button{
+  border:0;
+  background:transparent;
+  color:#aeb2c0;
+  padding:12px 15px;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.topnav button:hover,
+.topnav button.active{
+  background:#ff238b;
+  color:#fff;
+}
+
+/* LAYOUT */
+
+.layout{
+  display:flex;
+}
 
 .sidebar{
-    position:fixed;
-    left:0;
-    top:72px;
-    bottom:0;
-    width:225px;
-    background:#090b11;
-    border-right:1px solid var(--border);
-    padding:14px 10px;
-    overflow-y:auto;
-    z-index:900;
+  width:225px;
+  min-width:225px;
+  background:#0a0b13;
+  border-right:1px solid #252838;
+  min-height:calc(100vh - 117px);
+  padding:14px 10px;
+  position:sticky;
+  top:117px;
+  height:calc(100vh - 117px);
+  overflow-y:auto;
 }
 
-.sidebar h4{
-    color:#555c6e;
-    font-size:10px;
-    margin:17px 9px 7px;
-    text-transform:uppercase;
+.side-title{
+  color:#666d80;
+  font-size:10px;
+  margin:18px 8px 7px;
+  text-transform:uppercase;
 }
 
-.nav{
-    padding:10px 12px;
-    color:#c7cad4;
-    border-radius:6px;
-    margin:2px 0;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-size:13px;
+.side-btn{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#c9ccd6;
+  text-align:left;
+  padding:10px;
+  border-radius:7px;
+  margin-bottom:2px;
 }
 
-.nav:hover{
-    background:#19121a;
-    color:var(--pink);
+.side-btn:hover,
+.side-btn.active{
+  background:#291126;
+  color:#ff3995;
 }
 
-.nav.active{
-    background:linear-gradient(90deg,#b71360,#5b1235);
-    color:white;
+.login-btn{
+  width:100%;
+  border:0;
+  background:#ff238b;
+  color:white;
+  padding:12px;
+  border-radius:7px;
+  font-weight:bold;
+  margin-top:15px;
 }
-
-.navCount{
-    margin-left:auto;
-    background:var(--pink);
-    padding:2px 6px;
-    border-radius:10px;
-    font-size:9px;
-}
-
-.loginSide{
-    width:100%;
-    padding:11px;
-    margin-top:15px;
-    background:#180b13;
-    color:var(--pink2);
-    border:1px solid var(--pink);
-    border-radius:6px;
-}
-
-/* ================= MAIN ================= */
 
 main{
-    margin-left:225px;
-    padding:18px;
+  flex:1;
+  min-width:0;
+  padding:18px;
 }
 
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-    min-height:315px;
-    border-radius:8px;
-    border:1px solid #342333;
-    overflow:hidden;
-    position:relative;
-    background:
-    linear-gradient(90deg,rgba(4,4,9,.94),rgba(8,5,13,.2)),
-    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1500&q=85")
-    center/cover;
+  min-height:350px;
+  border-radius:15px;
+  border:1px solid #412039;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:38px;
+  background:
+  linear-gradient(90deg,#05050a 5%,rgba(5,5,10,.83) 38%,rgba(5,5,10,.15)),
+  url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=85")
+  center/cover;
 }
 
-.heroContent{
-    padding:55px;
+.hero-content{
+  max-width:600px;
 }
 
-.heroContent small{
-    color:var(--pink2);
-    letter-spacing:4px;
-    font-weight:bold;
+.pink-text{
+  color:#ff238b;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:3px;
 }
 
 .hero h1{
-    font-size:54px;
-    line-height:.95;
-    margin:13px 0;
+  font-size:52px;
+  line-height:1;
+  margin:13px 0;
+  text-transform:uppercase;
 }
 
 .hero h1 span{
-    color:var(--pink);
+  color:#ff238b;
 }
 
 .hero p{
-    color:#bbb;
-    max-width:500px;
-    line-height:1.5;
+  color:#b7bbc8;
+  line-height:1.6;
+  max-width:520px;
 }
 
 .primary{
-    margin-top:22px;
-    padding:12px 25px;
-    background:var(--pink);
-    color:white;
-    border:0;
-    border-radius:5px;
-    font-weight:bold;
+  margin-top:20px;
+  border:0;
+  background:#ff238b;
+  color:white;
+  padding:13px 23px;
+  border-radius:7px;
+  font-weight:bold;
 }
 
 .primary:hover{
-    background:var(--pink2);
+  background:#ff4ba0;
 }
 
-/* ================= QUICK FEATURES ================= */
-
-.quick{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    background:var(--dark);
-    border:1px solid var(--border);
-    margin-top:15px;
-    border-radius:7px;
-}
-
-.quickItem{
-    padding:16px;
-    text-align:center;
-    border-right:1px solid var(--border);
-}
-
-.quickItem:last-child{
-    border:0;
-}
-
-.quickItem b{
-    display:block;
-    font-size:12px;
-}
-
-.quickItem span{
-    color:var(--pink);
-    font-size:23px;
-    display:block;
-    margin-bottom:5px;
-}
-
-/* ================= SECTION ================= */
+/* SECTIONS */
 
 .section{
-    margin-top:16px;
-    background:var(--dark);
-    border:1px solid var(--border);
-    border-radius:7px;
-    padding:16px;
+  margin-top:24px;
 }
 
-.sectionTitle{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:13px;
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:13px;
 }
 
-.sectionTitle h2{
-    color:var(--pink);
-    font-size:18px;
+.section-head h2{
+  font-size:19px;
 }
 
-.viewBtn{
-    background:#141720;
-    color:var(--pink);
-    border:1px solid var(--border);
-    padding:7px 12px;
-    border-radius:5px;
-    font-size:10px;
+.view{
+  background:none;
+  border:0;
+  color:#ff3995;
 }
 
-/* ================= CATEGORIES ================= */
+/* CATEGORIES */
 
 .categories{
-    display:grid;
-    grid-template-columns:repeat(8,1fr);
-    gap:9px;
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:9px;
 }
 
 .category{
-    background:#12141c;
-    border:1px solid var(--border);
-    border-radius:7px;
-    padding:14px 5px;
-    text-align:center;
-    cursor:pointer;
+  background:#11131d;
+  border:1px solid #292d3e;
+  border-radius:9px;
+  text-align:center;
+  padding:15px 5px;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .category:hover{
-    border-color:var(--pink);
-    transform:translateY(-2px);
+  transform:translateY(-3px);
+  border-color:#ff238b;
 }
 
-.categoryIcon{
-    font-size:26px;
-    display:block;
-    margin-bottom:7px;
+.category-icon{
+  display:block;
+  font-size:27px;
+  margin-bottom:7px;
 }
 
-.category span{
-    font-size:9px;
+.category small{
+  color:#c9ccd6;
+  font-size:9px;
 }
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .products{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:13px;
 }
 
 .product{
-    background:#11131b;
-    border:1px solid var(--border);
-    border-radius:7px;
-    overflow:hidden;
-    transition:.2s;
+  position:relative;
+  background:#10121b;
+  border:1px solid #292d3e;
+  border-radius:10px;
+  overflow:hidden;
+  transition:.2s;
 }
 
 .product:hover{
-    border-color:var(--pink);
-    transform:translateY(-2px);
+  transform:translateY(-4px);
+  border-color:#ff238b;
 }
 
-.productImg{
-    height:145px;
-    position:relative;
+.product-image{
+  position:relative;
 }
 
-.productImg img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.product img{
+  width:100%;
+  height:155px;
+  object-fit:cover;
+  display:block;
 }
 
 .discount{
-    position:absolute;
-    right:6px;
-    top:6px;
-    background:var(--pink);
-    padding:5px;
-    border-radius:4px;
-    font-size:9px;
+  position:absolute;
+  top:7px;
+  left:7px;
+  background:#ff176f;
+  padding:5px 7px;
+  border-radius:4px;
+  font-size:9px;
+  font-weight:bold;
 }
 
-.favorite{
-    position:absolute;
-    left:6px;
-    top:6px;
-    width:30px;
-    height:30px;
-    border:0;
-    border-radius:50%;
-    background:rgba(0,0,0,.7);
-    color:white;
+.product-body{
+  padding:11px;
 }
 
-.favorite.active{
-    color:var(--pink);
+.product-name{
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:5px;
 }
 
-.productInfo{
-    padding:10px;
-}
-
-.productInfo h3{
-    font-size:12px;
-    margin-bottom:5px;
-}
-
-.stars{
-    color:#ffc400;
-    font-size:10px;
+.rating{
+  color:#ffd33f;
+  font-size:11px;
 }
 
 .price{
-    color:var(--blue);
-    font-size:15px;
-    font-weight:bold;
-    margin:8px 0;
+  color:#ff3995;
+  font-weight:bold;
+  margin:8px 0;
 }
 
 .old{
-    color:#777;
-    text-decoration:line-through;
-    font-size:10px;
-    margin-left:5px;
+  color:#626878;
+  text-decoration:line-through;
+  font-size:10px;
+  margin-left:4px;
+}
+
+.product-actions{
+  display:flex;
+  gap:5px;
 }
 
 .buy{
-    width:100%;
-    padding:9px;
-    background:var(--pink);
-    color:white;
-    border:0;
-    border-radius:4px;
-    font-size:10px;
-    font-weight:bold;
+  flex:1;
+  border:0;
+  background:#ff238b;
+  color:white;
+  padding:8px;
+  border-radius:5px;
+  font-size:11px;
+  font-weight:bold;
 }
 
-.buy:hover{
-    background:var(--pink2);
+.favorite{
+  width:36px;
+  border:1px solid #343849;
+  background:#181a25;
+  color:white;
+  border-radius:5px;
 }
 
-/* ================= DEAL ================= */
-
-.deal{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+.favorite:hover{
+  color:#ff238b;
 }
 
-.dealCard{
-    min-height:160px;
-    padding:25px;
-    border:1px solid #392333;
-    border-radius:7px;
-    background:
-    linear-gradient(90deg,rgba(8,4,10,.95),rgba(8,4,10,.25)),
-    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80")
-    center/cover;
+/* OFFER */
+
+.offer{
+  min-height:175px;
+  border:1px solid #4c2144;
+  border-radius:12px;
+  padding:25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:
+  linear-gradient(90deg,rgba(15,5,20,.96),rgba(15,5,20,.3)),
+  url("https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=85")
+  center/cover;
 }
 
-.dealCard h2{
-    color:var(--pink);
+.offer h2{
+  color:#ff3995;
+  margin:8px 0;
+}
+
+.offer p{
+  color:#aaa;
+  font-size:13px;
 }
 
 .timer{
-    margin:10px 0;
-    color:#fff;
-    font-size:20px;
-    font-weight:bold;
+  display:flex;
+  gap:7px;
+  margin-top:12px;
 }
 
-/* ================= DIAMONDS ================= */
-
-.diamonds{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:10px;
+.time{
+  background:#090a10;
+  border:1px solid #54203f;
+  padding:7px 11px;
+  text-align:center;
+  border-radius:5px;
 }
 
-.diamond{
-    background:#10131b;
-    border:1px solid var(--border);
-    padding:16px 8px;
-    text-align:center;
-    border-radius:7px;
+.time b{
+  display:block;
+  color:#ff3995;
 }
 
-.diamond:hover{
-    border-color:var(--pink);
+/* DIAMONDS */
+
+.diamond-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:9px;
 }
 
-.diamondIcon{
-    font-size:28px;
+.diamond-pack{
+  background:#11131d;
+  border:1px solid #292d3e;
+  border-radius:8px;
+  padding:14px 7px;
+  text-align:center;
+  cursor:pointer;
 }
 
-.diamond h3{
-    margin:7px;
+.diamond-pack:hover{
+  border-color:#54dfff;
+  transform:translateY(-2px);
 }
 
-.diamondPrice{
-    color:var(--pink);
-    font-weight:bold;
-    margin-bottom:8px;
+.diamond-pack strong{
+  display:block;
+  color:#54dfff;
+  margin-bottom:5px;
 }
 
-/* ================= ACCOUNT CARDS ================= */
-
-.accountGrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
+.diamond-pack span{
+  color:#ff3995;
+  font-size:12px;
 }
 
-.accountCard{
-    background:#11131b;
-    border:1px solid var(--border);
-    padding:22px;
-    border-radius:7px;
+/* FEATURES */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
 }
 
-.accountCard h3{
-    color:var(--pink);
-    margin-bottom:8px;
+.feature{
+  background:#10121b;
+  border:1px solid #292d3e;
+  padding:18px;
+  border-radius:9px;
 }
 
-.bigNumber{
-    font-size:27px;
-    font-weight:bold;
+.feature-icon{
+  font-size:26px;
+  margin-bottom:8px;
 }
 
-/* ================= CART ================= */
-
-.cartItem{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    background:#11131b;
-    border:1px solid var(--border);
-    padding:12px;
-    margin-bottom:8px;
-    border-radius:6px;
+.feature h3{
+  font-size:14px;
+  margin-bottom:5px;
 }
 
-.cartItem img{
-    width:75px;
-    height:55px;
-    object-fit:cover;
-    border-radius:5px;
+.feature p{
+  color:#777e90;
+  font-size:11px;
 }
 
-.cartItemInfo{
-    flex:1;
+/* RIGHT PANEL */
+
+.right{
+  width:285px;
+  min-width:285px;
+  background:#090a11;
+  border-left:1px solid #252838;
+  padding:15px;
 }
 
-.cartItemInfo b{
-    font-size:13px;
+.panel{
+  background:#10121b;
+  border:1px solid #292d3e;
+  border-radius:10px;
+  padding:14px;
+  margin-bottom:13px;
 }
 
-.cartItemInfo small{
-    display:block;
-    color:var(--blue);
-    margin-top:5px;
+.panel h3{
+  color:#ff3995;
+  font-size:14px;
+  margin-bottom:11px;
 }
 
-.quantity{
-    display:flex;
-    align-items:center;
-    gap:8px;
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
 }
 
-.quantity button{
-    width:25px;
-    height:25px;
-    background:#20232d;
-    border:0;
-    color:white;
-    border-radius:4px;
+.stat{
+  background:#0a0c13;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+  color:#aaa;
+  font-size:10px;
 }
 
-.remove{
-    background:#321322;
-    color:#ff5aaa;
-    border:0;
-    padding:7px;
-    border-radius:4px;
+.stat b{
+  display:block;
+  color:#ff3995;
+  font-size:15px;
+  margin:3px 0;
 }
 
-.totalBox{
-    border-top:1px solid var(--border);
-    padding-top:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:15px;
+.vip{
+  background:linear-gradient(135deg,#24160b,#151018);
+  border-color:#714b22;
 }
 
-.totalBox strong{
-    font-size:22px;
-    color:var(--pink);
+.vip h3{
+  color:#ffd34a;
 }
 
-/* ================= MODAL ================= */
+.vip button{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:0;
+  background:#ff238b;
+  color:white;
+  border-radius:6px;
+}
+
+/* MODALS */
+
+.modal-bg{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:5000;
+}
 
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.82);
-    z-index:5000;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
+  width:min(430px,92%);
+  max-height:90vh;
+  overflow:auto;
+  background:#10121c;
+  border:1px solid #ff238b;
+  border-radius:12px;
+  padding:23px;
+  box-shadow:0 0 45px rgba(255,35,139,.2);
 }
 
-.modal.show{
-    display:flex;
-}
-
-.modalBox{
-    width:100%;
-    max-width:420px;
-    background:#0e1017;
-    border:1px solid var(--pink);
-    border-radius:8px;
-    padding:25px;
+.modal h2{
+  color:#ff3995;
+  margin-bottom:15px;
 }
 
 .close{
-    float:right;
-    color:#aaa;
-    font-size:25px;
-    cursor:pointer;
+  float:right;
+  background:none;
+  border:0;
+  color:#aaa;
+  font-size:23px;
 }
 
-.modalBox h2{
-    text-align:center;
-    color:var(--pink);
-    margin-bottom:7px;
+.modal input{
+  width:100%;
+  background:#080a11;
+  border:1px solid #303548;
+  color:white;
+  padding:12px;
+  border-radius:7px;
+  margin:5px 0;
+  outline:none;
 }
 
-.modalBox p{
-    text-align:center;
-    color:#777;
-    font-size:12px;
-    margin-bottom:18px;
+.modal .primary{
+  width:100%;
 }
 
-.input{
-    width:100%;
-    padding:12px;
-    background:#171922;
-    border:1px solid var(--border);
-    color:white;
-    border-radius:5px;
-    outline:none;
-    margin-bottom:10px;
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#090b12;
+  padding:10px;
+  margin-bottom:6px;
+  border-radius:6px;
 }
 
-.full{
-    width:100%;
-    padding:12px;
-    background:var(--pink);
-    color:white;
-    border:0;
-    border-radius:5px;
-    font-weight:bold;
+.remove{
+  background:#ff238b;
+  color:white;
+  border:0;
+  border-radius:4px;
+  padding:4px 8px;
 }
-
-.modalLink{
-    color:var(--pink);
-    cursor:pointer;
-}
-
-/* ================= TOAST ================= */
 
 .toast{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    background:#15121a;
-    border:1px solid var(--pink);
-    padding:13px 18px;
-    border-radius:6px;
-    transform:translateX(150%);
-    transition:.3s;
-    z-index:7000;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#ff238b;
+  color:white;
+  padding:13px 18px;
+  border-radius:8px;
+  z-index:9000;
+  display:none;
+  box-shadow:0 5px 25px #000;
 }
 
-.toast.show{
-    transform:translateX(0);
+footer{
+  margin-top:30px;
+  background:#090a11;
+  border-top:1px solid #252838;
+  padding:25px;
+  text-align:center;
+  color:#686e7e;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
-@media(max-width:1200px){
-    .products{
-        grid-template-columns:repeat(4,1fr);
-    }
+@media(max-width:1400px){
+  .products{
+    grid-template-columns:repeat(4,1fr);
+  }
 
-    .categories{
-        grid-template-columns:repeat(6,1fr);
-    }
-
-    .diamonds{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .headerCoins{
-        display:none;
-    }
+  .right{
+    display:none;
+  }
 }
 
-@media(max-width:800px){
+@media(max-width:900px){
+  .sidebar{
+    display:none;
+  }
 
-    header{
-        padding:0 8px;
-    }
+  .categories{
+    grid-template-columns:repeat(4,1fr);
+  }
 
-    .logo{
-        min-width:auto;
-        font-size:18px;
-    }
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
 
-    .logo small{
-        font-size:6px;
-    }
+  .diamond-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
 
-    .headIcon{
-        display:none;
-    }
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    .sidebar{
-        left:-240px;
-        transition:.3s;
-    }
-
-    .sidebar.open{
-        left:0;
-    }
-
-    main{
-        margin-left:0;
-        padding:10px;
-    }
-
-    .heroContent{
-        padding:35px 25px;
-    }
-
-    .hero h1{
-        font-size:39px;
-    }
-
-    .quick{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .quickItem{
-        border-bottom:1px solid var(--border);
-    }
-
-    .categories{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .diamonds{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .deal{
-        grid-template-columns:1fr;
-    }
-
-    .accountGrid{
-        grid-template-columns:1fr;
-    }
+  .balance{
+    display:none;
+  }
 }
 
-@media(max-width:450px){
+@media(max-width:600px){
+  header{
+    height:62px;
+    padding:0 9px;
+  }
 
-    .searchBox{
-        max-width:150px;
-    }
+  .logo{
+    width:78px;
+    font-size:17px;
+  }
 
-    .searchBox input{
-        font-size:10px;
-    }
+  .logo span{
+    font-size:7px;
+  }
 
-    .searchBox button{
-        width:35px;
-    }
+  .account div{
+    display:none;
+  }
 
-    .avatar{
-        width:36px;
-        height:36px;
-    }
+  .search{
+    min-width:0;
+  }
 
-    .hero h1{
-        font-size:31px;
-    }
+  main{
+    padding:10px;
+  }
 
-    .categories{
-        grid-template-columns:repeat(4,1fr);
-    }
+  .hero{
+    min-height:300px;
+    padding:23px;
+  }
 
-    .productImg{
-        height:120px;
-    }
+  .hero h1{
+    font-size:34px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+  }
+
+  .product img{
+    height:125px;
+  }
+
+  .diamond-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .features{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .offer{
+    min-height:240px;
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
-<button class="menuBtn" onclick="toggleSidebar()">☰</button>
+  <div class="logo">
+    PINKO
+    <span>STORE</span>
+  </div>
 
-<div class="logo">
-PINKO
-<small>STORE</small>
-</div>
+  <input
+    id="search"
+    class="search"
+    type="text"
+    placeholder="🔍 Search products..."
+    oninput="searchProducts()"
+  >
 
-<div class="searchBox">
-<input
-id="searchInput"
-type="text"
-placeholder="Search products..."
-oninput="searchProducts()">
-<button onclick="searchProducts()">🔍</button>
-</div>
+  <div class="balance">
+    <div class="balance-item gold">🪙 <b>12,450</b></div>
+    <div class="balance-item blue">💎 <b>5,680</b></div>
+  </div>
 
-<div class="headerCoins">
-<span>💎</span>
-<div>
-<small>PINKO COINS</small>
-<b id="coinBalance">12,450</b>
-</div>
-<button class="plus" onclick="addCoins()">+</button>
-</div>
+  <button class="icon-btn" onclick="notifications()">
+    🔔
+    <span class="badge">3</span>
+  </button>
 
-<button class="headIcon" onclick="showPage('notifications')">
-🔔
-<span class="badge">3</span>
-</button>
+  <button class="icon-btn" onclick="openCart()">
+    🛒
+    <span class="badge" id="cartCount">0</span>
+  </button>
 
-<button class="headIcon" onclick="showPage('favorites')">
-❤️
-<span class="badge" id="favoriteCount">0</span>
-</button>
-
-<button class="headIcon" onclick="showPage('cart')">
-🛒
-<span class="badge" id="cartCount">0</span>
-</button>
-
-<div class="avatar" onclick="openLogin()">
-👤
-</div>
+  <div class="account" onclick="openLogin()">
+    <img
+      class="avatar"
+      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80"
+    >
+    <div>
+      <b>PINKO PLAYER</b><br>
+      <small style="color:#777">Level 25</small>
+    </div>
+  </div>
 
 </header>
 
+<!-- TOP NAV -->
 
-<!-- ================= SIDEBAR ================= -->
+<nav class="topnav">
 
-<aside class="sidebar" id="sidebar">
+<button class="active" onclick="home()">🏠 HOME</button>
+<button onclick="showAll()">🛍️ STORE</button>
+<button onclick="filterProducts('diamonds')">💎 DIAMONDS</button>
+<button onclick="filterProducts('skins')">👕 SKINS</button>
+<button onclick="filterProducts('weapons')">🔫 WEAPONS</button>
+<button onclick="filterProducts('characters')">🧑 CHARACTERS</button>
+<button onclick="filterProducts('emotes')">💃 EMOTES</button>
+<button onclick="filterProducts('vehicles')">🚗 VEHICLES</button>
+<button onclick="filterProducts('bundles')">📦 BUNDLES</button>
+<button onclick="filterProducts('codes')">🎟️ CODES</button>
+<button onclick="scrollToId('offers')">🔥 OFFERS</button>
+<button onclick="scrollToId('events')">🏆 EVENTS</button>
 
-<h4>Main</h4>
+</nav>
 
-<div class="nav active" onclick="showPage('home')">
-🏠 Home
-</div>
+<div class="layout">
 
-<div class="nav" onclick="showPage('store')">
-🛒 Store
-</div>
+<!-- SIDEBAR -->
 
-<div class="nav" onclick="showPage('diamonds')">
-💎 Diamonds
-</div>
+<aside class="sidebar">
 
-<div class="nav" onclick="showPage('promotions')">
-🔥 Promotions
-</div>
+<div class="side-title">Main</div>
 
-<div class="nav" onclick="showPage('offers')">
-🎁 Special Offers
-</div>
+<button class="side-btn active" onclick="home()">🏠 Home</button>
+<button class="side-btn" onclick="showAll()">🛍️ Store</button>
+<button class="side-btn" onclick="scrollToId('diamonds')">💎 Diamonds</button>
+<button class="side-btn" onclick="scrollToId('offers')">🔥 Promotions</button>
+<button class="side-btn" onclick="scrollToId('offers')">🎁 Special Offers</button>
 
+<div class="side-title">Products</div>
 
-<h4>Products</h4>
+<button class="side-btn" onclick="filterProducts('skins')">👕 Skins</button>
+<button class="side-btn" onclick="filterProducts('weapons')">🔫 Weapon Skins</button>
+<button class="side-btn" onclick="filterProducts('characters')">🧑 Characters</button>
+<button class="side-btn" onclick="filterProducts('emotes')">💃 Emotes</button>
+<button class="side-btn" onclick="filterProducts('vehicles')">🚗 Vehicles</button>
+<button class="side-btn" onclick="filterProducts('bundles')">📦 Bundles</button>
+<button class="side-btn" onclick="filterProducts('codes')">🎟️ Gift Codes</button>
+<button class="side-btn" onclick="showToast('🎁 Rewards opened!')">🎁 Rewards</button>
 
-<div class="nav" onclick="filterCategory('Skins')">
-👕 Skins
-</div>
+<div class="side-title">Discover</div>
 
-<div class="nav" onclick="filterCategory('Weapons')">
-🔫 Weapons
-</div>
+<button class="side-btn" onclick="scrollToId('bestsellers')">⭐ Best Sellers</button>
+<button class="side-btn" onclick="scrollToId('new')">🆕 New Arrivals</button>
+<button class="side-btn" onclick="showToast('🎰 Lucky Draw opened!')">🎰 Lucky Draw</button>
+<button class="side-btn" onclick="showToast('🎁 Chests opened!')">🎁 Chests</button>
+<button class="side-btn" onclick="scrollToId('events')">🏆 Events</button>
 
-<div class="nav" onclick="filterCategory('Characters')">
-🧑 Characters
-</div>
+<div class="side-title">Account</div>
 
-<div class="nav" onclick="filterCategory('Emotes')">
-💃 Emotes
-</div>
+<button class="side-btn" onclick="openLogin()">👤 My Account</button>
+<button class="side-btn" onclick="showFavorites()">❤️ Favorites</button>
+<button class="side-btn" onclick="openCart()">🛒 My Cart</button>
+<button class="side-btn" onclick="showOrders()">📋 My Orders</button>
+<button class="side-btn" onclick="showToast('💳 Wallet opened!')">💳 Wallet</button>
+<button class="side-btn" onclick="showToast('🎟️ Coupons opened!')">🎟️ Coupons</button>
 
-<div class="nav" onclick="filterCategory('Vehicles')">
-🚗 Vehicles
-</div>
+<div class="side-title">Help</div>
 
-<div class="nav" onclick="filterCategory('Bundles')">
-📦 Bundles
-</div>
+<button class="side-btn" onclick="showToast('💬 Support Center opened!')">💬 Support</button>
+<button class="side-btn" onclick="showToast('❓ FAQ opened!')">❓ FAQ</button>
+<button class="side-btn" onclick="showToast('📞 support@pinkostore.com')">📞 Contact</button>
+<button class="side-btn" onclick="showToast('⚙️ Settings opened!')">⚙️ Settings</button>
 
-<div class="nav" onclick="filterCategory('Codes')">
-🎟️ Gift Codes
-</div>
-
-
-<h4>Discover</h4>
-
-<div class="nav" onclick="showPage('best')">
-⭐ Best Sellers
-</div>
-
-<div class="nav" onclick="showPage('new')">
-🆕 New Arrivals
-</div>
-
-<div class="nav" onclick="showPage('flash')">
-⚡ Flash Deals
-</div>
-
-<div class="nav" onclick="showPage('rewards')">
-🎁 Daily Rewards
-</div>
-
-<div class="nav" onclick="showPage('events')">
-🏆 Events
-</div>
-
-
-<h4>Account</h4>
-
-<div class="nav" onclick="showPage('account')">
-👤 My Account
-</div>
-
-<div class="nav" onclick="showPage('favorites')">
-❤️ Favorites
-<span class="navCount" id="sideFav">0</span>
-</div>
-
-<div class="nav" onclick="showPage('cart')">
-🛒 My Cart
-<span class="navCount" id="sideCart">0</span>
-</div>
-
-<div class="nav" onclick="showPage('orders')">
-📋 My Orders
-</div>
-
-<div class="nav" onclick="showPage('wallet')">
-💰 My Wallet
-</div>
-
-<div class="nav" onclick="showPage('coupons')">
-🎟️ Coupons
-</div>
-
-
-<h4>Help</h4>
-
-<div class="nav" onclick="showPage('support')">
-💬 Support
-</div>
-
-<div class="nav" onclick="showPage('faq')">
-❓ FAQ
-</div>
-
-<div class="nav" onclick="showPage('contact')">
-📞 Contact
-</div>
-
-<div class="nav" onclick="showPage('settings')">
-⚙️ Settings
-</div>
-
-<button class="loginSide" onclick="openLogin()">
+<button class="login-btn" onclick="openLogin()">
 👤 LOGIN / REGISTER
 </button>
 
 </aside>
 
-
-<!-- ================= MAIN ================= -->
+<!-- MAIN -->
 
 <main>
 
+<!-- HERO -->
 
-<!-- ================= HOME ================= -->
+<section class="hero">
 
-<section id="home" class="page active">
+<div class="hero-content">
 
-<div class="hero">
-
-<div class="heroContent">
-
-<small>WELCOME TO PINKO STORE</small>
+<div class="pink-text">WELCOME TO PINKO STORE</div>
 
 <h1>
 LEVEL UP<br>
@@ -1089,1996 +947,167 @@ LEVEL UP<br>
 </h1>
 
 <p>
-Premium gaming items, diamonds, skins,
-bundles, exclusive rewards and special offers.
+Premium skins, diamonds, weapons, characters,
+emotes, bundles and exclusive gaming items.
+Everything you need in one place.
 </p>
 
-<button class="primary" onclick="showPage('store')">
-SHOP NOW →
+<button class="primary" onclick="scrollToId('bestsellers')">
+🛍️ SHOP NOW →
 </button>
 
 </div>
 
-</div>
+</section>
 
+<!-- CATEGORIES -->
 
-<div class="quick">
+<section class="section">
 
-<div class="quickItem">
-<span>⚡</span>
-<b>INSTANT DELIVERY</b>
-<small>Fast digital delivery</small>
-</div>
-
-<div class="quickItem">
-<span>🔒</span>
-<b>SECURE PAYMENT</b>
-<small>Safe checkout</small>
-</div>
-
-<div class="quickItem">
-<span>💎</span>
-<b>BEST PRICES</b>
-<small>Great gaming deals</small>
-</div>
-
-<div class="quickItem">
-<span>💬</span>
-<b>24/7 SUPPORT</b>
-<small>We are here to help</small>
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🎮 SHOP BY CATEGORY</h2>
-<button class="viewBtn" onclick="showPage('store')">
-VIEW ALL
-</button>
+<div class="section-head">
+<h2>🛍️ SHOP BY CATEGORY</h2>
+<button class="view" onclick="showAll()">VIEW ALL →</button>
 </div>
 
 <div class="categories">
 
-<div class="category" onclick="filterCategory('Diamonds')">
-<span class="categoryIcon">💎</span>
-<span>DIAMONDS</span>
+<div class="category" onclick="filterProducts('diamonds')">
+<span class="category-icon">💎</span>
+<small>DIAMONDS</small>
 </div>
 
-<div class="category" onclick="filterCategory('Skins')">
-<span class="categoryIcon">👕</span>
-<span>SKINS</span>
+<div class="category" onclick="filterProducts('skins')">
+<span class="category-icon">👕</span>
+<small>SKINS</small>
 </div>
 
-<div class="category" onclick="filterCategory('Weapons')">
-<span class="categoryIcon">🔫</span>
-<span>WEAPONS</span>
+<div class="category" onclick="filterProducts('weapons')">
+<span class="category-icon">🔫</span>
+<small>WEAPONS</small>
 </div>
 
-<div class="category" onclick="filterCategory('Bundles')">
-<span class="categoryIcon">📦</span>
-<span>BUNDLES</span>
+<div class="category" onclick="filterProducts('characters')">
+<span class="category-icon">🧑</span>
+<small>CHARACTERS</small>
 </div>
 
-<div class="category" onclick="filterCategory('Emotes')">
-<span class="categoryIcon">💃</span>
-<span>EMOTES</span>
+<div class="category" onclick="filterProducts('emotes')">
+<span class="category-icon">💃</span>
+<small>EMOTES</small>
 </div>
 
-<div class="category" onclick="filterCategory('Characters')">
-<span class="categoryIcon">🧑</span>
-<span>CHARACTERS</span>
+<div class="category" onclick="filterProducts('vehicles')">
+<span class="category-icon">🚗</span>
+<small>VEHICLES</small>
 </div>
 
-<div class="category" onclick="filterCategory('Vehicles')">
-<span class="categoryIcon">🚗</span>
-<span>VEHICLES</span>
+<div class="category" onclick="filterProducts('bundles')">
+<span class="category-icon">📦</span>
+<small>BUNDLES</small>
 </div>
 
-<div class="category" onclick="filterCategory('Codes')">
-<span class="categoryIcon">🎟️</span>
-<span>CODES</span>
-</div>
-
-</div>
-</div>
-
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🔥 SPECIAL OFFERS</h2>
-<button class="viewBtn" onclick="showPage('offers')">
-VIEW ALL
-</button>
-</div>
-
-<div class="deal">
-
-<div class="dealCard">
-
-<h2>⚡ FLASH DEAL</h2>
-
-<p>Limited time offer</p>
-
-<div class="timer" id="homeTimer">
-03:26:45
-</div>
-
-<button class="primary"
-onclick="showPage('flash')">
-GET DEAL
-</button>
-
-</div>
-
-<div class="dealCard">
-
-<h2>🎁 DAILY REWARD</h2>
-
-<p>Claim your daily free reward.</p>
-
-<button class="primary"
-onclick="showPage('rewards')">
-CLAIM REWARD
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>⭐ BEST SELLERS</h2>
-<button class="viewBtn" onclick="showPage('best')">
-VIEW ALL
-</button>
-</div>
-
-<div class="products" id="homeProducts"></div>
-
-</div>
-
-</section>
-
-
-<!-- ================= STORE ================= -->
-
-<section id="store" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🛒 PINKO STORE</h2>
-<button class="viewBtn" onclick="showPage('cart')">
-OPEN CART
-</button>
-</div>
-
-<div id="storeProducts" class="products"></div>
-
-</div>
-
-</section>
-
-
-<!-- ================= DIAMONDS ================= -->
-
-<section id="diamonds" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>💎 TOP UP DIAMONDS</h2>
-</div>
-
-<div class="diamonds">
-
-<div class="diamond">
-<div class="diamondIcon">💎</div>
-<h3>100</h3>
-<div class="diamondPrice">$1.00</div>
-<button class="buy" onclick="addToCart('100 Diamonds',1,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
-BUY
-</button>
-</div>
-
-<div class="diamond">
-<div class="diamondIcon">💎</div>
-<h3>310</h3>
-<div class="diamondPrice">$3.00</div>
-<button class="buy" onclick="addToCart('310 Diamonds',3,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
-BUY
-</button>
-</div>
-
-<div class="diamond">
-<div class="diamondIcon">💎</div>
-<h3>520</h3>
-<div class="diamondPrice">$5.00</div>
-<button class="buy" onclick="addToCart('520 Diamonds',5,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
-BUY
-</button>
-</div>
-
-<div class="diamond">
-<div class="diamondIcon">💎</div>
-<h3>1060</h3>
-<div class="diamondPrice">$10.00</div>
-<button class="buy" onclick="addToCart('1060 Diamonds',10,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
-BUY
-</button>
-</div>
-
-<div class="diamond">
-<div class="diamondIcon">💎</div>
-<h3>2180</h3>
-<div class="diamondPrice">$20.00</div>
-<button class="buy" onclick="addToCart('2180 Diamonds',20,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
-BUY
-</button>
-</div>
-
-<div class="diamond">
-<div class="diamondIcon">💎</div>
-<h3>5600</h3>
-<div class="diamondPrice">$50.00</div>
-<button class="buy" onclick="addToCart('5600 Diamonds',50,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
-BUY
-</button>
-</div>
-
-</div>
-</div>
-
-</section>
-
-
-<!-- ================= GENERIC PRODUCT PAGES ================= -->
-
-<section id="best" class="page">
-<div class="section">
-<div class="sectionTitle">
-<h2>⭐ BEST SELLERS</h2>
-</div>
-<div id="bestProducts" class="products"></div>
-</div>
-</section>
-
-
-<section id="new" class="page">
-<div class="section">
-<div class="sectionTitle">
-<h2>🆕 NEW ARRIVALS</h2>
-</div>
-<div id="newProducts" class="products"></div>
-</div>
-</section>
-
-
-<section id="promotions" class="page">
-<div class="section">
-<div class="sectionTitle">
-<h2>🔥 PROMOTIONS</h2>
-</div>
-<div id="promoProducts" class="products"></div>
-</div>
-</section>
-
-
-<section id="offers" class="page">
-<div class="section">
-<div class="sectionTitle">
-<h2>🎁 SPECIAL OFFERS</h2>
-</div>
-<div id="offerProducts" class="products"></div>
-</div>
-</section>
-
-
-<section id="flash" class="page">
-<div class="section">
-<div class="sectionTitle">
-<h2>⚡ FLASH DEALS</h2>
-</div>
-
-<div class="dealCard">
-<h2>🔥 MEGA FLASH SALE</h2>
-<p>Limited time gaming items.</p>
-<div class="timer" id="flashTimer">
-03:26:45
-</div>
-<button class="primary"
-onclick="addToCart('Mega Flash Bundle',4.99,'https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80')">
-BUY NOW
-</button>
-</div>
-
-</div>
-</section>
-
-
-<!-- ================= REWARDS ================= -->
-
-<section id="rewards" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🎁 DAILY REWARDS</h2>
-</div>
-
-<div class="accountGrid">
-
-<div class="accountCard">
-<h3>DAY 1</h3>
-<div class="bigNumber">💎 100</div>
-<button class="primary" onclick="claimReward(this,100)">
-CLAIM
-</button>
-</div>
-
-<div class="accountCard">
-<h3>DAY 2</h3>
-<div class="bigNumber">💎 200</div>
-<button class="primary" onclick="claimReward(this,200)">
-CLAIM
-</button>
-</div>
-
-<div class="accountCard">
-<h3>DAY 3</h3>
-<div class="bigNumber">💎 300</div>
-<button class="primary" onclick="claimReward(this,300)">
-CLAIM
-</button>
-</div>
-
-<div class="accountCard">
-<h3>DAY 4</h3>
-<div class="bigNumber">💎 500</div>
-<button class="primary" onclick="claimReward(this,500)">
-CLAIM
-</button>
-</div>
-
-<div class="accountCard">
-<h3>DAY 5</h3>
-<div class="bigNumber">💎 700</div>
-<button class="primary" onclick="claimReward(this,700)">
-CLAIM
-</button>
-</div>
-
-<div class="accountCard">
-<h3>DAY 7</h3>
-<div class="bigNumber">💎 1000</div>
-<button class="primary" onclick="claimReward(this,1000)">
-CLAIM
-</button>
-</div>
-
+<div class="category" onclick="filterProducts('codes')">
+<span class="category-icon">🎟️</span>
+<small>CODES</small>
 </div>
 
 </div>
 
 </section>
 
+<!-- OFFER -->
 
-<!-- ================= CART ================= -->
+<section class="section" id="offers">
 
-<section id="cart" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🛒 MY CART</h2>
-<button class="viewBtn" onclick="clearCart()">
-CLEAR CART
-</button>
-</div>
-
-<div id="cartList"></div>
-
-<div class="totalBox">
+<div class="offer">
 
 <div>
-TOTAL
-</div>
 
-<strong id="cartTotal">$0.00</strong>
+<div class="pink-text">LIMITED TIME OFFER</div>
 
-<button class="primary"
-onclick="checkout()">
-CHECKOUT
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= FAVORITES ================= -->
-
-<section id="favorites" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>❤️ MY FAVORITES</h2>
-</div>
-
-<div id="favoriteProducts" class="products"></div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ORDERS ================= -->
-
-<section id="orders" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>📋 MY ORDERS</h2>
-</div>
-
-<div id="ordersList"></div>
-
-</div>
-
-</section>
-
-
-<!-- ================= WALLET ================= -->
-
-<section id="wallet" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>💰 MY WALLET</h2>
-</div>
-
-<div class="accountGrid">
-
-<div class="accountCard">
-<h3>💎 Diamonds</h3>
-<div class="bigNumber" id="diamondBalance">
-0
-</div>
-</div>
-
-<div class="accountCard">
-<h3>🪙 PINKO Coins</h3>
-<div class="bigNumber" id="walletCoins">
-12,450
-</div>
-</div>
-
-<div class="accountCard">
-<h3>🎁 Rewards</h3>
-<div class="bigNumber">7</div>
-</div>
-
-</div>
-
-<button class="primary"
-onclick="addCoins()">
-+ ADD 1,000 COINS
-</button>
-
-</div>
-
-</section>
-
-
-<!-- ================= COUPONS ================= -->
-
-<section id="coupons" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🎟️ COUPONS</h2>
-</div>
-
-<p style="color:#888;margin-bottom:15px">
-Enter your coupon code below.
-</p>
-
-<input
-class="input"
-id="couponInput"
-placeholder="Example: PINKO20">
-
-<button
-class="primary"
-onclick="applyCoupon()">
-APPLY COUPON
-</button>
-
-<div id="couponResult"
-style="margin-top:15px;color:#ff4da6">
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ACCOUNT ================= -->
-
-<section id="account" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>👤 MY ACCOUNT</h2>
-</div>
-
-<div class="accountGrid">
-
-<div class="accountCard">
-<h3>Profile</h3>
-<p id="accountName">Guest User</p>
-<br>
-<button class="primary" onclick="openLogin()">
-LOGIN
-</button>
-</div>
-
-<div class="accountCard">
-<h3>Level</h3>
-<div class="bigNumber">25</div>
-</div>
-
-<div class="accountCard">
-<h3>Orders</h3>
-<div class="bigNumber" id="accountOrders">0</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= NOTIFICATIONS ================= -->
-
-<section id="notifications" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🔔 NOTIFICATIONS</h2>
-</div>
-
-<div class="accountCard">
-<h3>🔥 New Offer</h3>
-<p style="color:#888;margin-top:7px">
-Mega Bundle is now 60% OFF.
-</p>
-</div>
-
-<br>
-
-<div class="accountCard">
-<h3>🎁 Daily Reward</h3>
-<p style="color:#888;margin-top:7px">
-Your daily reward is ready.
-</p>
-</div>
-
-<br>
-
-<div class="accountCard">
-<h3>🆕 New Product</h3>
-<p style="color:#888;margin-top:7px">
-New gaming items have arrived.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= EVENTS ================= -->
-
-<section id="events" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>🏆 EVENTS</h2>
-</div>
-
-<div class="accountGrid">
-
-<div class="accountCard">
-<h3>🔥 Weekend Event</h3>
-<p style="color:#888">
-Get extra rewards this weekend.
-</p>
-<button class="primary"
-onclick="showToast('You joined the event!')">
-JOIN EVENT
-</button>
-</div>
-
-<div class="accountCard">
-<h3>🎁 Lucky Event</h3>
-<p style="color:#888">
-Try your luck and win rewards.
-</p>
-<button class="primary"
-onclick="showToast('Event opened!')">
-OPEN
-</button>
-</div>
-
-<div class="accountCard">
-<h3>👑 VIP Event</h3>
-<p style="color:#888">
-Exclusive VIP rewards.
-</p>
-<button class="primary"
-onclick="showToast('VIP event selected!')">
-VIEW
-</button>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SUPPORT ================= -->
-
-<section id="support" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>💬 SUPPORT</h2>
-</div>
-
-<input
-class="input"
-id="supportName"
-placeholder="Your name">
-
-<input
-class="input"
-id="supportEmail"
-placeholder="Your email">
-
-<textarea
-class="input"
-id="supportMessage"
-placeholder="How can we help?"
-style="height:120px;resize:none">
-</textarea>
-
-<button class="primary"
-onclick="sendSupport()">
-SEND MESSAGE
-</button>
-
-</div>
-
-</section>
-
-
-<!-- ================= FAQ ================= -->
-
-<section id="faq" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>❓ FAQ</h2>
-</div>
-
-<div class="accountCard">
-<h3>How fast is delivery?</h3>
-<p style="color:#888;margin-top:7px">
-Digital products are delivered after the order is processed.
-</p>
-</div>
-
-<br>
-
-<div class="accountCard">
-<h3>How can I contact support?</h3>
-<p style="color:#888;margin-top:7px">
-Open the Support section and send us a message.
-</p>
-</div>
-
-<br>
-
-<div class="accountCard">
-<h3>Can I use coupons?</h3>
-<p style="color:#888;margin-top:7px">
-Yes. Enter an active coupon in the Coupons section.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>📞 CONTACT</h2>
-</div>
-
-<div class="accountGrid">
-
-<div class="accountCard">
-<h3>💬 Live Support</h3>
-<p style="color:#888">Available 24/7</p>
-<button class="primary"
-onclick="showPage('support')">
-CONTACT
-</button>
-</div>
-
-<div class="accountCard">
-<h3>📧 Email</h3>
-<p style="color:#888">support@pinkostore.example</p>
-</div>
-
-<div class="accountCard">
-<h3>🌐 Social</h3>
-<p style="color:#888">Follow PINKO STORE</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SETTINGS ================= -->
-
-<section id="settings" class="page">
-
-<div class="section">
-
-<div class="sectionTitle">
-<h2>⚙️ SETTINGS</h2>
-</div>
-
-<div class="accountCard">
-
-<h3>Notifications</h3>
-
-<button class="primary"
-onclick="toggleSetting(this)">
-ON
-</button>
-
-</div>
-
-<br>
-
-<div class="accountCard">
-
-<h3>Dark Mode</h3>
-
-<button class="primary"
-onclick="showToast('Dark mode is already enabled')">
-ENABLED
-</button>
-
-</div>
-
-<br>
-
-<div class="accountCard">
-
-<h3>Language</h3>
-
-<select class="input"
-onchange="changeLanguage(this.value)">
-
-<option value="English">English</option>
-<option value="French">French</option>
-<option value="Arabic">Arabic</option>
-
-</select>
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-<!-- ================= LOGIN MODAL ================= -->
-
-<div class="modal" id="loginModal">
-
-<div class="modalBox">
-
-<span class="close" onclick="closeLogin()">×</span>
-
-<h2>PINKO STORE</h2>
-
-<p>Login to your account</p>
-
-<input
-class="input"
-id="loginEmail"
-type="email"
-placeholder="Email">
-
-<input
-class="input"
-id="loginPassword"
-type="password"
-placeholder="Password">
-
-<button class="full"
-onclick="login()">
-LOGIN
-</button>
-
-<p style="margin-top:15px">
-Don't have an account?
-<span
-class="modalLink"
-onclick="register()">
-Create Account
-</span>
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ================= CHECKOUT MODAL ================= -->
-
-<div class="modal" id="checkoutModal">
-
-<div class="modalBox">
-
-<span class="close"
-onclick="closeCheckout()">
-×
-</span>
-
-<h2>CHECKOUT</h2>
-
-<p>Complete your order</p>
-
-<input
-class="input"
-id="playerId"
-placeholder="Player ID">
-
-<select class="input" id="paymentMethod">
-
-<option>Card</option>
-<option>PayPal</option>
-<option>Wallet</option>
-</select>
-
-<button class="full"
-onclick="placeOrder()">
-PLACE ORDER
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TOAST -->
-
-<div class="toast" id="toast"></div>
-
-
-<script>
-
-/* ================= DATA ================= */
-
-const products=[
-
-{
-id:1,
-name:"Pink Devil Bundle",
-category:"Bundles",
-price:4.99,
-old:9.99,
-discount:"-50%",
-best:true,
-new:true,
-image:"https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:2,
-name:"Legendary Skin",
-category:"Skins",
-price:7.99,
-old:14.99,
-discount:"-45%",
-best:true,
-image:"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:3,
-name:"AK47 Evo Weapon",
-category:"Weapons",
-price:6.99,
-old:12.99,
-discount:"-40%",
-best:true,
-image:"https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:4,
-name:"Elite Character",
-category:"Characters",
-price:8.99,
-old:15.99,
-discount:"-35%",
-new:true,
-image:"https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:5,
-name:"Dance Emote",
-category:"Emotes",
-price:3.99,
-old:6.99,
-discount:"-40%",
-new:true,
-image:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:6,
-name:"Speed Vehicle",
-category:"Vehicles",
-price:5.99,
-old:10.99,
-discount:"-45%",
-image:"https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:7,
-name:"Pro Bundle",
-category:"Bundles",
-price:9.99,
-old:17.99,
-discount:"-44%",
-best:true,
-image:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:8,
-name:"Dragon Skin",
-category:"Skins",
-price:5.49,
-old:9.99,
-discount:"-45%",
-new:true,
-image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:9,
-name:"Mystery Code",
-category:"Codes",
-price:2.99,
-old:5.99,
-discount:"-50%",
-image:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:10,
-name:"Royal Weapon",
-category:"Weapons",
-price:10.99,
-old:18.99,
-discount:"-42%",
-best:true,
-image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
-}
-
-];
-
-let cart=[];
-let favorites=[];
-let orders=[];
-let coins=12450;
-let diamonds=0;
-
-let couponDiscount=0;
-
-
-/* ================= PAGE SYSTEM ================= */
-
-function showPage(page){
-
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
-
-const target=document.getElementById(page);
-
-if(target){
-target.classList.add("active");
-}
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-if(page==="cart") renderCart();
-if(page==="favorites") renderFavorites();
-if(page==="orders") renderOrders();
-
-}
-
-
-/* ================= PRODUCT CARD ================= */
-
-function productCard(product){
-
-const fav=favorites.includes(product.id);
-
-return `
-
-<div class="product">
-
-<div class="productImg">
-
-<img src="${product.image}">
-
-<span class="discount">
-${product.discount}
-</span>
-
-<button
-class="favorite ${fav?'active':''}"
-onclick="toggleFavorite(${product.id})">
-
-${fav?'♥':'♡'}
-
-</button>
-
-</div>
-
-<div class="productInfo">
-
-<h3>${product.name}</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<div class="price">
-$${product.price.toFixed(2)}
-
-<span class="old">
-$${product.old.toFixed(2)}
-</span>
-
-</div>
-
-<button
-class="buy"
-onclick="addToCartById(${product.id})">
-
-ADD TO CART
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* ================= RENDER PRODUCTS ================= */
-
-function renderProducts(list,target){
-
-const box=document.getElementById(target);
-
-if(!box)return;
-
-if(list.length===0){
-
-box.innerHTML=
-`<p style="color:#777">No products found.</p>`;
-
-return;
-
-}
-
-box.innerHTML=
-list.map(productCard).join("");
-
-}
-
-
-/* ================= INITIAL PRODUCTS ================= */
-
-function renderAll(){
-
-renderProducts(
-products.filter(p=>p.best),
-"homeProducts"
-);
-
-renderProducts(
-products,
-"storeProducts"
-);
-
-renderProducts(
-products.filter(p=>p.best),
-"bestProducts"
-);
-
-renderProducts(
-products.filter(p=>p.new),
-"newProducts"
-);
-
-renderProducts(
-products.filter(p=>p.discount),
-"promoProducts"
-);
-
-renderProducts(
-products.filter(p=>p.discount),
-"offerProducts"
-);
-
-}
-
-
-/* ================= ADD CART ================= */
-
-function addToCartById(id){
-
-const product=
-products.find(p=>p.id===id);
-
-if(!product)return;
-
-addToCart(
-product.name,
-product.price,
-product.image
-);
-
-}
-
-
-function addToCart(name,price,image){
-
-const existing=
-cart.find(item=>item.name===name);
-
-if(existing){
-
-existing.qty++;
-
-}else{
-
-cart.push({
-name:name,
-price:price,
-image:image,
-qty:1
-});
-
-}
-
-updateCartCount();
-
-showToast(
-"🛒 "+name+" added to cart!"
-);
-
-}
-
-
-/* ================= CART ================= */
-
-function updateCartCount(){
-
-const count=
-cart.reduce(
-(sum,item)=>sum+item.qty,
-0
-);
-
-document.getElementById("cartCount")
-.innerText=count;
-
-document.getElementById("sideCart")
-.innerText=count;
-
-}
-
-
-function renderCart(){
-
-const list=
-document.getElementById("cartList");
-
-if(cart.length===0){
-
-list.innerHTML=
-`
-<div style="text-align:center;padding:40px;color:#777">
-🛒<br><br>
-Your cart is empty.
-<br><br>
-<button class="primary"
-onclick="showPage('store')">
-GO TO STORE
-</button>
-</div>
-`;
-
-document.getElementById("cartTotal")
-.innerText="$0.00";
-
-return;
-
-}
-
-let total=0;
-
-list.innerHTML=
-cart.map((item,index)=>{
-
-total+=item.price*item.qty;
-
-return `
-
-<div class="cartItem">
-
-<img src="${item.image}">
-
-<div class="cartItemInfo">
-
-<b>${item.name}</b>
-
-<small>
-$${item.price.toFixed(2)}
-</small>
-
-</div>
-
-<div class="quantity">
-
-<button onclick="changeQty(${index},-1)">
-−
-</button>
-
-<span>
-${item.qty}
-</span>
-
-<button onclick="changeQty(${index},1)">
-+
-</button>
-
-</div>
-
-<button
-class="remove"
-onclick="removeCart(${index})">
-
-REMOVE
-
-</button>
-
-</div>
-
-`;
-
-}).join("");
-
-let finalTotal=
-total*(1-couponDiscount);
-
-document.getElementById("cartTotal")
-.innerText=
-"$"+finalTotal.toFixed(2);
-
-}
-
-
-function changeQty(index,value){
-
-cart[index].qty+=value;
-
-if(cart[index].qty<=0){
-
-cart.splice(index,1);
-
-}
-
-updateCartCount();
-renderCart();
-
-}
-
-
-function removeCart(index){
-
-cart.splice(index,1);
-
-updateCartCount();
-renderCart();
-
-showToast("Product removed.");
-
-}
-
-
-function clearCart(){
-
-cart=[];
-
-updateCartCount();
-renderCart();
-
-showToast("Cart cleared.");
-
-}
-
-
-/* ================= FAVORITES ================= */
-
-function toggleFavorite(id){
-
-if(favorites.includes(id)){
-
-favorites=
-favorites.filter(x=>x!==id);
-
-showToast("Removed from favorites.");
-
-}else{
-
-favorites.push(id);
-
-showToast("❤️ Added to favorites.");
-
-}
-
-updateFavorites();
-
-renderAll();
-
-if(document
-.getElementById("favorites")
-.classList.contains("active")){
-
-renderFavorites();
-
-}
-
-}
-
-
-function updateFavorites(){
-
-document.getElementById("favoriteCount")
-.innerText=favorites.length;
-
-document.getElementById("sideFav")
-.innerText=favorites.length;
-
-}
-
-
-function renderFavorites(){
-
-const list=
-products.filter(p=>favorites.includes(p.id));
-
-renderProducts(
-list,
-"favoriteProducts"
-);
-
-
-/* ================= SEARCH ================= */
-
-}
-
-function searchProducts(){
-
-const value=
-document.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-showPage("store");
-
-const filtered=
-products.filter(p=>
-p.name.toLowerCase().includes(value) ||
-p.category.toLowerCase().includes(value)
-);
-
-renderProducts(
-filtered,
-"storeProducts"
-);
-
-}
-
-
-/* ================= CATEGORY ================= */
-
-function filterCategory(category){
-
-showPage("store");
-
-if(category==="Diamonds"){
-
-showPage("diamonds");
-return;
-
-}
-
-const filtered=
-products.filter(
-p=>p.category===category
-);
-
-renderProducts(
-filtered,
-"storeProducts"
-);
-
-showToast(
-category+" products"
-);
-
-}
-
-
-/* ================= LOGIN ================= */
-
-function openLogin(){
-
-document
-.getElementById("loginModal")
-.classList.add("show");
-
-}
-
-
-function closeLogin(){
-
-document
-.getElementById("loginModal")
-.classList.remove("show");
-
-}
-
-
-function login(){
-
-const email=
-document.getElementById("loginEmail").value.trim();
-
-const password=
-document.getElementById("loginPassword").value;
-
-if(!email||!password){
-
-showToast(
-"Please enter email and password."
-);
-
-return;
-
-}
-
-localStorage.setItem(
-"pinkoUser",
-email
-);
-
-document.getElementById("accountName")
-.innerText=
-email.split("@")[0];
-
-closeLogin();
-
-showToast(
-"✅ Login successful!"
-);
-
-}
-
-
-function register(){
-
-const email=
-document.getElementById("loginEmail").value.trim();
-
-if(!email){
-
-showToast(
-"Enter your email first."
-);
-
-return;
-
-}
-
-localStorage.setItem(
-"pinkoUser",
-email
-);
-
-closeLogin();
-
-showToast(
-"🎉 Account created successfully!"
-);
-
-}
-
-
-/* ================= CHECKOUT ================= */
-
-function checkout(){
-
-if(cart.length===0){
-
-showToast("Your cart is empty.");
-
-return;
-
-}
-
-document
-.getElementById("checkoutModal")
-.classList.add("show");
-
-}
-
-
-function closeCheckout(){
-
-document
-.getElementById("checkoutModal")
-.classList.remove("show");
-
-}
-
-
-function placeOrder(){
-
-const player=
-document.getElementById("playerId")
-.value.trim();
-
-if(!player){
-
-showToast(
-"Please enter Player ID."
-);
-
-return;
-
-}
-
-let total=0;
-
-cart.forEach(item=>{
-total+=item.price*item.qty;
-});
-
-total*=(1-couponDiscount);
-
-orders.push({
-
-id:
-"PK"+Date.now(),
-
-date:
-new Date().toLocaleString(),
-
-total:total,
-
-items:
-cart.map(item=>item.name),
-
-status:
-"Processing"
-
-});
-
-cart=[];
-
-couponDiscount=0;
-
-updateCartCount();
-
-renderCart();
-
-closeCheckout();
-
-showToast(
-"✅ Order placed successfully!"
-);
-
-document.getElementById("accountOrders")
-.innerText=
-orders.length;
-
-}
-
-
-/* ================= ORDERS ================= */
-
-function renderOrders(){
-
-const list=
-document.getElementById("ordersList");
-
-if(orders.length===0){
-
-list.innerHTML=
-`
-<div style="padding:35px;text-align:center;color:#777">
-📋<br><br>
-No orders yet.
-<br><br>
-<button class="primary"
-onclick="showPage('store')">
-START SHOPPING
-</button>
-</div>
-`;
-
-return;
-
-}
-
-list.innerHTML=
-orders.map(order=>`
-
-<div class="accountCard"
-style="margin-bottom:10px">
-
-<h3>
-ORDER #${order.id}
-</h3>
-
-<p style="color:#888;margin:7px 0">
-${order.date}
-</p>
+<h2>🔥 PINK DEVIL MEGA BUNDLE</h2>
 
 <p>
-${order.items.join(", ")}
+Exclusive skin + weapon + emote + character.
 </p>
 
-<p style="color:#4fc3ff;margin-top:7px">
-Total: $${order.total.toFixed(2)}
-</p>
+<div class="timer">
 
-<p style="color:#ff198c;margin-top:7px">
-Status: ${order.status}
-</p>
+<div class="time">
+<b id="hours">03</b>
+<small>HRS</small>
+</div>
+
+<div class="time">
+<b id="minutes">24</b>
+<small>MIN</small>
+</div>
+
+<div class="time">
+<b id="seconds">59</b>
+<small>SEC</small>
+</div>
 
 </div>
 
-`).join("");
+</div>
 
-}
+<button class="primary" onclick="buy('Pink Devil Mega Bundle')">
+BUY NOW
+</button>
 
+</div>
 
-/* ================= COINS ================= */
+</section>
 
-function addCoins(){
+<!-- BEST SELLERS -->
 
-coins+=1000;
+<section class="section" id="bestsellers">
 
-document.getElementById("coinBalance")
-.innerText=
-coins.toLocaleString();
+<div class="section-head">
+<h2>⭐ BEST SELLERS</h2>
+<button class="view" onclick="showAll()">VIEW ALL →</button>
+</div>
 
-document.getElementById("walletCoins")
-.innerText=
-coins.toLocaleString();
+<div class="products">
 
-showToast(
-"🪙 +1,000 PINKO Coins"
-);
+<!-- 1 -->
 
-}
+<div class="product" data-category="bundles" data-name="Pink Devil Bundle">
 
+<div class="product-image">
+<span class="discount">-60%</span>
 
-/* ================= REWARDS ================= */
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=85">
 
-function claimReward(button,value){
+</div>
 
-if(button.disabled){
+<div class="product-body">
 
-return;
+<div class="product-name">Pink Devil Bundle</div>
 
-}
+<div class="rating">★★★★★</div>
 
-button.disabled=true;
+<div class="price">
+$9.99
+<span class="old">$24.99</span>
+</div>
 
-button.innerText="CLAIMED";
+<div class="product-actions">
 
-diamonds+=value;
+<button class="buy" onclick="buy('Pink Devil Bundle')">
+BUY
+</button>
 
-document.getElementById("diamondBalance")
-.innerText=diamonds;
+<button class="favorite" onclick="favorite(this,'Pink Devil Bundle')">
+♡
+</button>
 
-showToast(
-"🎁 +"+value+" Diamonds!"
-);
+</div>
 
-}
+</div>
+</div>
 
+<!-- 2 -->
 
-/* ================= COUPON ================= */
-
-function applyCoupon(){
-
-const code=
-document.getElementById("couponInput")
-.value
-.trim()
-.toUpperCase();
-
-const result=
-document.getElementById("couponResult");
-
-if(code==="PINKO20"){
-
-couponDiscount=.20;
-
-result.innerText=
-"✅ 20% discount applied!";
-
-}else if(code==="PINKO10"){
-
-couponDiscount=.10;
-
-result.innerText=
-"✅ 10% discount applied!";
-
-}else{
-
-couponDiscount=0;
-
-result.innerText=
-"❌ Invalid coupon code.";
-
-}
-
-renderCart();
-
-}
-
-
-/* ================= SUPPORT ================= */
-
-function sendSupport(){
-
-const name=
-document.getElementById("supportName").value.trim();
-
-const email=
-document.getElementById("supportEmail").value.trim();
-
-const message=
-document.getElementById("supportMessage").value.trim();
-
-if(!name||!email||!message){
-
-showToast(
-"Please complete all fields."
-);
-
-return;
-
-}
-
-document.getElementById("supportMessage")
-.value="";
-
-showToast(
-"✅ Support message sent!"
-);
-
-}
-
-
-/* ================= SETTINGS ================= */
-
-function toggleSetting(button){
-
-if(button.innerText==="ON"){
-
-button.innerText="OFF";
-
-showToast(
-"Notifications disabled."
-);
-
-}else{
-
-button.innerText="ON";
-
-showToast(
-"Notifications enabled."
-);
-
-}
-
-}
-
-
-function changeLanguage(language){
-
-showToast(
-"Language selected: "+language
-);
-
-}
-
-
-/* ================= SIDEBAR ================= */
-
-function toggleSidebar(){
-
-document
-.getElementById("sidebar")
-.classList
-.toggle("open");
-
-}
-
-
-/* ================= TOAST ================= */
-
-function showToast(message){
-
-const toast=
-document.getElementById("toast");
-
-toast.innerText=message;
-
-toast.classList.add("show");
-
-setTimeout(()=>{
-toast.classList.remove("show");
-},2200);
-
-}
-
-
-/* ================= TIMER ================= */
-
-let seconds=3*3600+26*60+45;
-
-function updateTimer(){
-
-seconds--;
-
-if(seconds<0){
-
-seconds=
-23*3600+59*60+59;
-
-}
-
-const h=
-Math.floor(seconds/3600);
-
-const m=
-Math.floor((seconds%3600)/60);
-
-const s=
-seconds%60;
-
-const value=
-String(h).padStart(2,"0")+":"+
-String(m).padStart(2,"0")+":"+
-String(s).padStart(2,"0");
-
-document.getElementById("homeTimer")
-.innerText=value;
-
-document.getElementById("flashTimer")
-.innerText=value;
-
-}
-
-setInterval(
-updateTimer,
-1000
-);
-
-
-/* ================= LOAD USER ================= */
-
-window.addEventListener(
-"load",
-()=>{
-
-renderAll();
-
-updateCartCount();
-
-updateFavorites();
-
-const user=
-localStorage.getItem("pinkoUser");
-
-if(user){
-
-document.getElementById("accountName")
-.innerText=
-user.split("@")[0];
-
-}
-
-}
-);
-
-</script>
-
-</body>
-  </html>
+<div class="product" data-category="skins" data-name="
