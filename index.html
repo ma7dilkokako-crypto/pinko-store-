@@ -3,1679 +3,1917 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PINKO STORE - Gaming Store</title>
+<title>PINKO STORE PRO</title>
 
 <style>
-
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  background:#080808;
-  color:white;
+    background:#07080d;
+    color:#fff;
 }
 
-/* HEADER */
+button,input,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+:root{
+    --pink:#ff1687;
+    --pink2:#ff4da6;
+    --dark:#0d0f16;
+    --card:#12141d;
+    --border:#292d39;
+    --muted:#858a99;
+    --blue:#4fc3ff;
+}
+
+/* ================= HEADER ================= */
 
 header{
-  height:70px;
-  background:#111;
-  display:flex;
-  align-items:center;
-  gap:15px;
-  padding:0 25px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid #292929;
+    height:72px;
+    background:#0b0d13;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:0 18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#ff1493;
-  white-space:nowrap;
+    min-width:170px;
+    color:var(--pink);
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-.search{
-  flex:1;
-  max-width:600px;
-  background:#1a1a1a;
-  border:1px solid #333;
-  border-radius:10px;
-  padding:13px 18px;
-  color:white;
-  outline:none;
+.logo small{
+    display:block;
+    color:white;
+    font-size:9px;
+    letter-spacing:5px;
+    text-align:center;
+    margin-top:-3px;
 }
 
-.search:focus{
-  border-color:#ff1493;
+.menuBtn{
+    width:43px;
+    height:43px;
+    border:1px solid var(--border);
+    background:#151821;
+    color:#fff;
+    border-radius:7px;
+    font-size:22px;
 }
 
-.header-btn{
-  background:#1a1a1a;
-  border:1px solid #333;
-  color:white;
-  padding:11px 15px;
-  border-radius:9px;
-  cursor:pointer;
+.searchBox{
+    flex:1;
+    display:flex;
+    max-width:650px;
 }
 
-.header-btn:hover{
-  border-color:#ff1493;
+.searchBox input{
+    width:100%;
+    height:43px;
+    background:#151821;
+    border:1px solid var(--border);
+    color:#fff;
+    padding:0 15px;
+    outline:none;
+    border-radius:7px 0 0 7px;
 }
 
-.account-btn{
-  background:#ff1493;
-  color:white;
-  border:none;
-  font-weight:bold;
+.searchBox input:focus{
+    border-color:var(--pink);
 }
 
-/* SIDE MENU */
-
-.menu{
-  width:240px;
-  background:#0e0e0e;
-  position:fixed;
-  top:70px;
-  left:0;
-  bottom:0;
-  padding:20px 12px;
-  overflow-y:auto;
-  border-right:1px solid #292929;
+.searchBox button{
+    width:48px;
+    border:0;
+    background:var(--pink);
+    color:white;
+    border-radius:0 7px 7px 0;
 }
 
-.menu h3{
-  color:#777;
-  font-size:12px;
-  margin:18px 12px 8px;
-  text-transform:uppercase;
+.headerCoins{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#17111a;
+    border:1px solid #382031;
+    border-radius:7px;
+    padding:7px 9px;
+    min-width:160px;
 }
 
-.menu a{
-  display:block;
-  padding:12px;
-  color:#ccc;
-  text-decoration:none;
-  border-radius:8px;
-  margin-bottom:3px;
-  cursor:pointer;
+.headerCoins b{
+    font-size:13px;
 }
 
-.menu a:hover{
-  background:#21121b;
-  color:#ff1493;
+.headerCoins small{
+    display:block;
+    color:#777;
+    font-size:9px;
 }
 
-/* MAIN */
-
-main{
-  margin-left:240px;
-  padding:30px;
+.plus{
+    margin-left:auto;
+    width:29px;
+    height:29px;
+    border:0;
+    border-radius:5px;
+    background:var(--pink);
+    color:white;
 }
 
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-/* HERO */
-
-.hero{
-  min-height:330px;
-  border-radius:18px;
-  padding:45px;
-  display:flex;
-  align-items:center;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,.92),
-      rgba(0,0,0,.25)
-    ),
-
-    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1400&q=80")
-    center/cover;
-}
-
-.hero h1{
-  font-size:45px;
-  margin-bottom:12px;
-}
-
-.hero p{
-  color:#ccc;
-  max-width:500px;
-  line-height:1.6;
-}
-
-.hero button{
-  margin-top:25px;
-  padding:14px 25px;
-  border:0;
-  border-radius:8px;
-  background:#ff1493;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.hero button:hover{
-  background:#ff4bad;
-}
-
-/* SECTION */
-
-.section{
-  margin-top:35px;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-.section-title h2{
-  font-size:25px;
-}
-
-.view{
-  color:#ff1493;
-  cursor:pointer;
-}
-
-/* CATEGORIES */
-
-.categories{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-}
-
-.category{
-  background:#151515;
-  border:1px solid #292929;
-  padding:20px 10px;
-  text-align:center;
-  border-radius:12px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.category:hover{
-  transform:translateY(-3px);
-  border-color:#ff1493;
-}
-
-.category .icon{
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-/* PRODUCTS */
-
-.products{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fill,minmax(190px,1fr));
-  gap:18px;
-}
-
-.product{
-  background:#151515;
-  border:1px solid #292929;
-  border-radius:14px;
-  overflow:hidden;
-  transition:.2s;
-}
-
-.product:hover{
-  transform:translateY(-5px);
-  border-color:#ff1493;
-}
-
-.product img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-}
-
-.product-info{
-  padding:14px;
-}
-
-.product-name{
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.rating{
-  color:#ff1493;
-  font-size:13px;
-}
-
-.price{
-  margin:10px 0;
-  font-size:19px;
-  font-weight:bold;
-  color:#ff1493;
-}
-
-.old{
-  color:#777;
-  text-decoration:line-through;
-  font-size:13px;
-  margin-left:5px;
-}
-
-.buy{
-  width:100%;
-  padding:10px;
-  border:0;
-  border-radius:7px;
-  background:#ff1493;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.buy:hover{
-  background:#ff4bad;
-}
-
-/* OFFER */
-
-.offer{
-  background:
-    linear-gradient(135deg,#24101b,#151515);
-
-  border:1px solid #51233a;
-  padding:22px;
-  border-radius:14px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  gap:20px;
-}
-
-.offer h2{
-  color:#ff1493;
-  margin:10px 0;
+.headIcon{
+    position:relative;
+    width:40px;
+    height:40px;
+    border:0;
+    background:none;
+    color:white;
+    font-size:22px;
 }
 
 .badge{
-  background:#e91e63;
-  padding:7px 10px;
-  border-radius:6px;
-  font-size:12px;
-  font-weight:bold;
+    position:absolute;
+    top:-1px;
+    right:0;
+    min-width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--pink);
+    color:white;
+    font-size:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-/* FEATURES */
-
-.features{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),#641eff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:2px solid var(--pink);
+    cursor:pointer;
 }
 
-.feature{
-  background:#151515;
-  border:1px solid #292929;
-  padding:22px;
-  border-radius:12px;
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:72px;
+    bottom:0;
+    width:225px;
+    background:#090b11;
+    border-right:1px solid var(--border);
+    padding:14px 10px;
+    overflow-y:auto;
+    z-index:900;
 }
 
-.feature-icon{
-  font-size:30px;
-  margin-bottom:10px;
+.sidebar h4{
+    color:#555c6e;
+    font-size:10px;
+    margin:17px 9px 7px;
+    text-transform:uppercase;
 }
 
-/* EMPTY */
-
-.empty{
-  background:#151515;
-  border:1px solid #292929;
-  border-radius:14px;
-  padding:40px;
-  text-align:center;
-  color:#777;
+.nav{
+    padding:10px 12px;
+    color:#c7cad4;
+    border-radius:6px;
+    margin:2px 0;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-size:13px;
 }
 
-/* CART */
-
-.cart{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-
-  background:#ff1493;
-  color:white;
-
-  width:58px;
-  height:58px;
-
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:23px;
-  cursor:pointer;
-
-  box-shadow:0 5px 25px #000;
-
-  z-index:200;
+.nav:hover{
+    background:#19121a;
+    color:var(--pink);
 }
 
-.cart-count{
-  position:absolute;
-  top:-5px;
-  right:-5px;
-
-  background:#fff;
-  color:#ff1493;
-
-  width:22px;
-  height:22px;
-
-  border-radius:50%;
-
-  font-size:12px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-weight:bold;
+.nav.active{
+    background:linear-gradient(90deg,#b71360,#5b1235);
+    color:white;
 }
 
-.cart-list{
-  display:grid;
-  gap:12px;
+.navCount{
+    margin-left:auto;
+    background:var(--pink);
+    padding:2px 6px;
+    border-radius:10px;
+    font-size:9px;
 }
 
-.cart-item{
-  background:#151515;
-  border:1px solid #292929;
+.loginSide{
+    width:100%;
+    padding:11px;
+    margin-top:15px;
+    background:#180b13;
+    color:var(--pink2);
+    border:1px solid var(--pink);
+    border-radius:6px;
+}
 
-  padding:15px;
+/* ================= MAIN ================= */
 
-  border-radius:10px;
+main{
+    margin-left:225px;
+    padding:18px;
+}
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:315px;
+    border-radius:8px;
+    border:1px solid #342333;
+    overflow:hidden;
+    position:relative;
+    background:
+    linear-gradient(90deg,rgba(4,4,9,.94),rgba(8,5,13,.2)),
+    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1500&q=85")
+    center/cover;
+}
+
+.heroContent{
+    padding:55px;
+}
+
+.heroContent small{
+    color:var(--pink2);
+    letter-spacing:4px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:54px;
+    line-height:.95;
+    margin:13px 0;
+}
+
+.hero h1 span{
+    color:var(--pink);
+}
+
+.hero p{
+    color:#bbb;
+    max-width:500px;
+    line-height:1.5;
+}
+
+.primary{
+    margin-top:22px;
+    padding:12px 25px;
+    background:var(--pink);
+    color:white;
+    border:0;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.primary:hover{
+    background:var(--pink2);
+}
+
+/* ================= QUICK FEATURES ================= */
+
+.quick{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:var(--dark);
+    border:1px solid var(--border);
+    margin-top:15px;
+    border-radius:7px;
+}
+
+.quickItem{
+    padding:16px;
+    text-align:center;
+    border-right:1px solid var(--border);
+}
+
+.quickItem:last-child{
+    border:0;
+}
+
+.quickItem b{
+    display:block;
+    font-size:12px;
+}
+
+.quickItem span{
+    color:var(--pink);
+    font-size:23px;
+    display:block;
+    margin-bottom:5px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    margin-top:16px;
+    background:var(--dark);
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:16px;
+}
+
+.sectionTitle{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:13px;
+}
+
+.sectionTitle h2{
+    color:var(--pink);
+    font-size:18px;
+}
+
+.viewBtn{
+    background:#141720;
+    color:var(--pink);
+    border:1px solid var(--border);
+    padding:7px 12px;
+    border-radius:5px;
+    font-size:10px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:9px;
+}
+
+.category{
+    background:#12141c;
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:14px 5px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.category:hover{
+    border-color:var(--pink);
+    transform:translateY(-2px);
+}
+
+.categoryIcon{
+    font-size:26px;
+    display:block;
+    margin-bottom:7px;
+}
+
+.category span{
+    font-size:9px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.product{
+    background:#11131b;
+    border:1px solid var(--border);
+    border-radius:7px;
+    overflow:hidden;
+    transition:.2s;
+}
+
+.product:hover{
+    border-color:var(--pink);
+    transform:translateY(-2px);
+}
+
+.productImg{
+    height:145px;
+    position:relative;
+}
+
+.productImg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.discount{
+    position:absolute;
+    right:6px;
+    top:6px;
+    background:var(--pink);
+    padding:5px;
+    border-radius:4px;
+    font-size:9px;
+}
+
+.favorite{
+    position:absolute;
+    left:6px;
+    top:6px;
+    width:30px;
+    height:30px;
+    border:0;
+    border-radius:50%;
+    background:rgba(0,0,0,.7);
+    color:white;
+}
+
+.favorite.active{
+    color:var(--pink);
+}
+
+.productInfo{
+    padding:10px;
+}
+
+.productInfo h3{
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.stars{
+    color:#ffc400;
+    font-size:10px;
+}
+
+.price{
+    color:var(--blue);
+    font-size:15px;
+    font-weight:bold;
+    margin:8px 0;
+}
+
+.old{
+    color:#777;
+    text-decoration:line-through;
+    font-size:10px;
+    margin-left:5px;
+}
+
+.buy{
+    width:100%;
+    padding:9px;
+    background:var(--pink);
+    color:white;
+    border:0;
+    border-radius:4px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.buy:hover{
+    background:var(--pink2);
+}
+
+/* ================= DEAL ================= */
+
+.deal{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.dealCard{
+    min-height:160px;
+    padding:25px;
+    border:1px solid #392333;
+    border-radius:7px;
+    background:
+    linear-gradient(90deg,rgba(8,4,10,.95),rgba(8,4,10,.25)),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80")
+    center/cover;
+}
+
+.dealCard h2{
+    color:var(--pink);
+}
+
+.timer{
+    margin:10px 0;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ================= DIAMONDS ================= */
+
+.diamonds{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:10px;
+}
+
+.diamond{
+    background:#10131b;
+    border:1px solid var(--border);
+    padding:16px 8px;
+    text-align:center;
+    border-radius:7px;
+}
+
+.diamond:hover{
+    border-color:var(--pink);
+}
+
+.diamondIcon{
+    font-size:28px;
+}
+
+.diamond h3{
+    margin:7px;
+}
+
+.diamondPrice{
+    color:var(--pink);
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+/* ================= ACCOUNT CARDS ================= */
+
+.accountGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.accountCard{
+    background:#11131b;
+    border:1px solid var(--border);
+    padding:22px;
+    border-radius:7px;
+}
+
+.accountCard h3{
+    color:var(--pink);
+    margin-bottom:8px;
+}
+
+.bigNumber{
+    font-size:27px;
+    font-weight:bold;
+}
+
+/* ================= CART ================= */
+
+.cartItem{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#11131b;
+    border:1px solid var(--border);
+    padding:12px;
+    margin-bottom:8px;
+    border-radius:6px;
+}
+
+.cartItem img{
+    width:75px;
+    height:55px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+.cartItemInfo{
+    flex:1;
+}
+
+.cartItemInfo b{
+    font-size:13px;
+}
+
+.cartItemInfo small{
+    display:block;
+    color:var(--blue);
+    margin-top:5px;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.quantity button{
+    width:25px;
+    height:25px;
+    background:#20232d;
+    border:0;
+    color:white;
+    border-radius:4px;
 }
 
 .remove{
-  background:#e91e63;
-  color:white;
-  border:0;
-  padding:8px 12px;
-  border-radius:6px;
-  cursor:pointer;
+    background:#321322;
+    color:#ff5aaa;
+    border:0;
+    padding:7px;
+    border-radius:4px;
 }
 
-/* ACCOUNT */
+.totalBox{
+    border-top:1px solid var(--border);
+    padding-top:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+}
+
+.totalBox strong{
+    font-size:22px;
+    color:var(--pink);
+}
+
+/* ================= MODAL ================= */
 
 .modal{
-  display:none;
-
-  position:fixed;
-  inset:0;
-
-  background:rgba(0,0,0,.85);
-
-  z-index:999;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    z-index:5000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-.modal.active{
-  display:flex;
+.modal.show{
+    display:flex;
 }
 
-.login-box{
-  width:100%;
-  max-width:420px;
-
-  background:#111;
-
-  border:1px solid #333;
-
-  border-radius:18px;
-
-  padding:30px;
-
-  box-shadow:0 20px 60px #000;
-}
-
-.login-box h2{
-  text-align:center;
-  color:#ff1493;
-  margin-bottom:8px;
-}
-
-.login-subtitle{
-  text-align:center;
-  color:#777;
-  margin-bottom:25px;
+.modalBox{
+    width:100%;
+    max-width:420px;
+    background:#0e1017;
+    border:1px solid var(--pink);
+    border-radius:8px;
+    padding:25px;
 }
 
 .close{
-  float:right;
-  cursor:pointer;
-  color:#aaa;
-  font-size:22px;
+    float:right;
+    color:#aaa;
+    font-size:25px;
+    cursor:pointer;
 }
 
-.input-group{
-  margin-bottom:15px;
+.modalBox h2{
+    text-align:center;
+    color:var(--pink);
+    margin-bottom:7px;
 }
 
-.input-group label{
-  display:block;
-  margin-bottom:7px;
-  color:#ccc;
+.modalBox p{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    margin-bottom:18px;
 }
 
-.input-group input{
-  width:100%;
-
-  padding:13px;
-
-  background:#1a1a1a;
-
-  border:1px solid #333;
-
-  border-radius:8px;
-
-  color:white;
-
-  outline:none;
+.input{
+    width:100%;
+    padding:12px;
+    background:#171922;
+    border:1px solid var(--border);
+    color:white;
+    border-radius:5px;
+    outline:none;
+    margin-bottom:10px;
 }
 
-.input-group input:focus{
-  border-color:#ff1493;
+.full{
+    width:100%;
+    padding:12px;
+    background:var(--pink);
+    color:white;
+    border:0;
+    border-radius:5px;
+    font-weight:bold;
 }
 
-.login-submit{
-  width:100%;
-
-  padding:13px;
-
-  background:#ff1493;
-
-  color:white;
-
-  border:none;
-
-  border-radius:8px;
-
-  font-weight:bold;
-
-  cursor:pointer;
+.modalLink{
+    color:var(--pink);
+    cursor:pointer;
 }
 
-.login-submit:hover{
-  background:#ff4bad;
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#15121a;
+    border:1px solid var(--pink);
+    padding:13px 18px;
+    border-radius:6px;
+    transform:translateX(150%);
+    transition:.3s;
+    z-index:7000;
 }
 
-.switch{
-  text-align:center;
-  margin-top:18px;
-  color:#777;
+.toast.show{
+    transform:translateX(0);
 }
 
-.switch span{
-  color:#ff1493;
-  cursor:pointer;
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+    .products{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .categories{
+        grid-template-columns:repeat(6,1fr);
+    }
+
+    .diamonds{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .headerCoins{
+        display:none;
+    }
 }
-
-.message{
-  text-align:center;
-  margin-top:10px;
-  color:#ff5555;
-  font-size:14px;
-}
-
-.account-card{
-  text-align:center;
-}
-
-.account-avatar{
-  width:75px;
-  height:75px;
-
-  border-radius:50%;
-
-  background:#ff1493;
-
-  color:white;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  margin:0 auto 15px;
-
-  font-size:35px;
-}
-
-.logout{
-  margin-top:20px;
-
-  width:100%;
-
-  padding:12px;
-
-  border:1px solid #e91e63;
-
-  background:transparent;
-
-  color:#ff4d91;
-
-  border-radius:8px;
-
-  cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-  margin-left:240px;
-
-  margin-top:60px;
-
-  padding:35px;
-
-  background:#0e0e0e;
-
-  border-top:1px solid #292929;
-
-  text-align:center;
-
-  color:#777;
-}
-
-/* MOBILE */
 
 @media(max-width:800px){
 
-  header{
-    padding:0 12px;
-  }
+    header{
+        padding:0 8px;
+    }
 
-  .logo{
-    font-size:18px;
-  }
+    .logo{
+        min-width:auto;
+        font-size:18px;
+    }
 
-  .menu{
-    display:none;
-  }
+    .logo small{
+        font-size:6px;
+    }
 
-  main{
-    margin-left:0;
-    padding:15px;
-  }
+    .headIcon{
+        display:none;
+    }
 
-  footer{
-    margin-left:0;
-  }
+    .sidebar{
+        left:-240px;
+        transition:.3s;
+    }
 
-  .hero{
-    padding:25px;
-    min-height:280px;
-  }
+    .sidebar.open{
+        left:0;
+    }
 
-  .hero h1{
-    font-size:31px;
-  }
+    main{
+        margin-left:0;
+        padding:10px;
+    }
 
-  .header-btn:not(.account-btn){
-    display:none;
-  }
+    .heroContent{
+        padding:35px 25px;
+    }
 
-  .account-btn{
-    display:block;
-  }
+    .hero h1{
+        font-size:39px;
+    }
 
-  .search{
-    max-width:none;
-  }
+    .quick{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-  .offer{
-    flex-direction:column;
-    align-items:flex-start;
-  }
+    .quickItem{
+        border-bottom:1px solid var(--border);
+    }
 
+    .categories{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .diamonds{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .deal{
+        grid-template-columns:1fr;
+    }
+
+    .accountGrid{
+        grid-template-columns:1fr;
+    }
 }
 
+@media(max-width:450px){
+
+    .searchBox{
+        max-width:150px;
+    }
+
+    .searchBox input{
+        font-size:10px;
+    }
+
+    .searchBox button{
+        width:35px;
+    }
+
+    .avatar{
+        width:36px;
+        height:36px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .productImg{
+        height:120px;
+    }
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
-  <div class="logo">
-    PINKO STORE
-  </div>
+<button class="menuBtn" onclick="toggleSidebar()">☰</button>
 
-  <input
-    class="search"
-    id="search"
-    type="text"
-    placeholder="Search products..."
-    onkeyup="searchProducts()"
-  >
+<div class="logo">
+PINKO
+<small>STORE</small>
+</div>
 
-  <button class="header-btn">
-    🔔
-  </button>
+<div class="searchBox">
+<input
+id="searchInput"
+type="text"
+placeholder="Search products..."
+oninput="searchProducts()">
+<button onclick="searchProducts()">🔍</button>
+</div>
 
-  <button
-    class="header-btn account-btn"
-    id="accountButton"
-    onclick="openAccount()">
+<div class="headerCoins">
+<span>💎</span>
+<div>
+<small>PINKO COINS</small>
+<b id="coinBalance">12,450</b>
+</div>
+<button class="plus" onclick="addCoins()">+</button>
+</div>
 
-    👤 Login
+<button class="headIcon" onclick="showPage('notifications')">
+🔔
+<span class="badge">3</span>
+</button>
 
-  </button>
+<button class="headIcon" onclick="showPage('favorites')">
+❤️
+<span class="badge" id="favoriteCount">0</span>
+</button>
+
+<button class="headIcon" onclick="showPage('cart')">
+🛒
+<span class="badge" id="cartCount">0</span>
+</button>
+
+<div class="avatar" onclick="openLogin()">
+👤
+</div>
 
 </header>
 
 
-<!-- MENU -->
+<!-- ================= SIDEBAR ================= -->
 
-<nav class="menu">
+<aside class="sidebar" id="sidebar">
 
-  <h3>Main</h3>
+<h4>Main</h4>
 
-  <a onclick="showPage('home')">
-    🏠 Home
-  </a>
+<div class="nav active" onclick="showPage('home')">
+🏠 Home
+</div>
 
-  <a onclick="showPage('store')">
-    🛍️ Store
-  </a>
+<div class="nav" onclick="showPage('store')">
+🛒 Store
+</div>
 
-  <a onclick="showPage('diamonds')">
-    💎 Diamonds
-  </a>
+<div class="nav" onclick="showPage('diamonds')">
+💎 Diamonds
+</div>
 
-  <a onclick="showPage('promotions')">
-    🔥 Promotions
-  </a>
+<div class="nav" onclick="showPage('promotions')">
+🔥 Promotions
+</div>
 
-  <a onclick="showPage('offers')">
-    🎁 Special Offers
-  </a>
-
-
-  <h3>Products</h3>
-
-  <a onclick="showPage('skins')">
-    👕 Skins
-  </a>
-
-  <a onclick="showPage('weapons')">
-    🔫 Weapon Skins
-  </a>
-
-  <a onclick="showPage('characters')">
-    🧑 Characters
-  </a>
-
-  <a onclick="showPage('emotes')">
-    💃 Emotes
-  </a>
-
-  <a onclick="showPage('vehicles')">
-    🚗 Vehicles
-  </a>
-
-  <a onclick="showPage('backpacks')">
-    🎒 Backpacks
-  </a>
-
-  <a onclick="showPage('bundles')">
-    📦 Bundles
-  </a>
-
-  <a onclick="showPage('codes')">
-    🎟️ Gift Codes
-  </a>
-
-  <a onclick="showPage('rewards')">
-    🎁 Rewards
-  </a>
+<div class="nav" onclick="showPage('offers')">
+🎁 Special Offers
+</div>
 
 
-  <h3>Discover</h3>
+<h4>Products</h4>
 
-  <a onclick="showPage('best')">
-    ⭐ Best Sellers
-  </a>
+<div class="nav" onclick="filterCategory('Skins')">
+👕 Skins
+</div>
 
-  <a onclick="showPage('new')">
-    🆕 New Arrivals
-  </a>
+<div class="nav" onclick="filterCategory('Weapons')">
+🔫 Weapons
+</div>
 
-  <a onclick="showPage('lucky')">
-    🎰 Lucky Draw
-  </a>
+<div class="nav" onclick="filterCategory('Characters')">
+🧑 Characters
+</div>
 
-  <a onclick="showPage('chests')">
-    🎁 Chests
-  </a>
+<div class="nav" onclick="filterCategory('Emotes')">
+💃 Emotes
+</div>
 
-  <a onclick="showPage('events')">
-    🏆 Events
-  </a>
+<div class="nav" onclick="filterCategory('Vehicles')">
+🚗 Vehicles
+</div>
 
+<div class="nav" onclick="filterCategory('Bundles')">
+📦 Bundles
+</div>
 
-  <h3>Account</h3>
-
-  <a onclick="openAccount()">
-    👤 My Account
-  </a>
-
-  <a onclick="showPage('favorites')">
-    ❤️ Favorites
-  </a>
-
-  <a onclick="showCart()">
-    🛒 My Cart
-  </a>
-
-  <a onclick="showPage('orders')">
-    📋 My Orders
-  </a>
-
-  <a onclick="showPage('payment')">
-    💳 Payment
-  </a>
-
-  <a onclick="showPage('coupons')">
-    🎟️ Coupons
-  </a>
+<div class="nav" onclick="filterCategory('Codes')">
+🎟️ Gift Codes
+</div>
 
 
-  <h3>Help</h3>
+<h4>Discover</h4>
 
-  <a onclick="showPage('support')">
-    💬 Support
-  </a>
+<div class="nav" onclick="showPage('best')">
+⭐ Best Sellers
+</div>
 
-  <a onclick="showPage('faq')">
-    ❓ FAQ
-  </a>
+<div class="nav" onclick="showPage('new')">
+🆕 New Arrivals
+</div>
 
-  <a onclick="showPage('contact')">
-    📞 Contact
-  </a>
+<div class="nav" onclick="showPage('flash')">
+⚡ Flash Deals
+</div>
 
-  <a onclick="showPage('settings')">
-    ⚙️ Settings
-  </a>
+<div class="nav" onclick="showPage('rewards')">
+🎁 Daily Rewards
+</div>
 
-</nav>
+<div class="nav" onclick="showPage('events')">
+🏆 Events
+</div>
 
 
-<!-- MAIN -->
+<h4>Account</h4>
+
+<div class="nav" onclick="showPage('account')">
+👤 My Account
+</div>
+
+<div class="nav" onclick="showPage('favorites')">
+❤️ Favorites
+<span class="navCount" id="sideFav">0</span>
+</div>
+
+<div class="nav" onclick="showPage('cart')">
+🛒 My Cart
+<span class="navCount" id="sideCart">0</span>
+</div>
+
+<div class="nav" onclick="showPage('orders')">
+📋 My Orders
+</div>
+
+<div class="nav" onclick="showPage('wallet')">
+💰 My Wallet
+</div>
+
+<div class="nav" onclick="showPage('coupons')">
+🎟️ Coupons
+</div>
+
+
+<h4>Help</h4>
+
+<div class="nav" onclick="showPage('support')">
+💬 Support
+</div>
+
+<div class="nav" onclick="showPage('faq')">
+❓ FAQ
+</div>
+
+<div class="nav" onclick="showPage('contact')">
+📞 Contact
+</div>
+
+<div class="nav" onclick="showPage('settings')">
+⚙️ Settings
+</div>
+
+<button class="loginSide" onclick="openLogin()">
+👤 LOGIN / REGISTER
+</button>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
 
 <main>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section id="home" class="page active">
 
-  <section class="hero">
+<div class="hero">
 
-    <div>
+<div class="heroContent">
 
-      <h1>
-        Welcome to PINKO STORE
-      </h1>
+<small>WELCOME TO PINKO STORE</small>
 
-      <p>
-        Discover premium gaming items,
-        diamonds, skins, bundles, rewards
-        and exclusive special offers.
-      </p>
+<h1>
+LEVEL UP<br>
+<span>YOUR GAME</span>
+</h1>
 
-      <button onclick="showPage('store')">
-        Explore Store
-      </button>
+<p>
+Premium gaming items, diamonds, skins,
+bundles, exclusive rewards and special offers.
+</p>
 
-    </div>
+<button class="primary" onclick="showPage('store')">
+SHOP NOW →
+</button>
 
-  </section>
+</div>
 
+</div>
 
-  <section class="section">
 
-    <div class="section-title">
+<div class="quick">
 
-      <h2>
-        Shop by Category
-      </h2>
+<div class="quickItem">
+<span>⚡</span>
+<b>INSTANT DELIVERY</b>
+<small>Fast digital delivery</small>
+</div>
 
-    </div>
+<div class="quickItem">
+<span>🔒</span>
+<b>SECURE PAYMENT</b>
+<small>Safe checkout</small>
+</div>
 
+<div class="quickItem">
+<span>💎</span>
+<b>BEST PRICES</b>
+<small>Great gaming deals</small>
+</div>
 
-    <div class="categories">
+<div class="quickItem">
+<span>💬</span>
+<b>24/7 SUPPORT</b>
+<small>We are here to help</small>
+</div>
 
-      <div
-        class="category"
-        onclick="showPage('diamonds')">
+</div>
 
-        <div class="icon">💎</div>
-        Diamonds
 
-      </div>
+<div class="section">
 
+<div class="sectionTitle">
+<h2>🎮 SHOP BY CATEGORY</h2>
+<button class="viewBtn" onclick="showPage('store')">
+VIEW ALL
+</button>
+</div>
 
-      <div
-        class="category"
-        onclick="showPage('skins')">
+<div class="categories">
 
-        <div class="icon">👕</div>
-        Skins
+<div class="category" onclick="filterCategory('Diamonds')">
+<span class="categoryIcon">💎</span>
+<span>DIAMONDS</span>
+</div>
 
-      </div>
+<div class="category" onclick="filterCategory('Skins')">
+<span class="categoryIcon">👕</span>
+<span>SKINS</span>
+</div>
 
+<div class="category" onclick="filterCategory('Weapons')">
+<span class="categoryIcon">🔫</span>
+<span>WEAPONS</span>
+</div>
 
-      <div
-        class="category"
-        onclick="showPage('weapons')">
+<div class="category" onclick="filterCategory('Bundles')">
+<span class="categoryIcon">📦</span>
+<span>BUNDLES</span>
+</div>
 
-        <div class="icon">🔫</div>
-        Weapons
+<div class="category" onclick="filterCategory('Emotes')">
+<span class="categoryIcon">💃</span>
+<span>EMOTES</span>
+</div>
 
-      </div>
+<div class="category" onclick="filterCategory('Characters')">
+<span class="categoryIcon">🧑</span>
+<span>CHARACTERS</span>
+</div>
 
+<div class="category" onclick="filterCategory('Vehicles')">
+<span class="categoryIcon">🚗</span>
+<span>VEHICLES</span>
+</div>
 
-      <div
-        class="category"
-        onclick="showPage('characters')">
+<div class="category" onclick="filterCategory('Codes')">
+<span class="categoryIcon">🎟️</span>
+<span>CODES</span>
+</div>
 
-        <div class="icon">🧑</div>
-        Characters
+</div>
+</div>
 
-      </div>
 
+<div class="section">
 
-      <div
-        class="category"
-        onclick="showPage('emotes')">
+<div class="sectionTitle">
+<h2>🔥 SPECIAL OFFERS</h2>
+<button class="viewBtn" onclick="showPage('offers')">
+VIEW ALL
+</button>
+</div>
 
-        <div class="icon">💃</div>
-        Emotes
+<div class="deal">
 
-      </div>
+<div class="dealCard">
 
+<h2>⚡ FLASH DEAL</h2>
 
-      <div
-        class="category"
-        onclick="showPage('bundles')">
+<p>Limited time offer</p>
 
-        <div class="icon">📦</div>
-        Bundles
+<div class="timer" id="homeTimer">
+03:26:45
+</div>
 
-      </div>
+<button class="primary"
+onclick="showPage('flash')">
+GET DEAL
+</button>
 
+</div>
 
-      <div
-        class="category"
-        onclick="showPage('codes')">
+<div class="dealCard">
 
-        <div class="icon">🎟️</div>
-        Codes
+<h2>🎁 DAILY REWARD</h2>
 
-      </div>
+<p>Claim your daily free reward.</p>
 
+<button class="primary"
+onclick="showPage('rewards')">
+CLAIM REWARD
+</button>
 
-      <div
-        class="category"
-        onclick="showPage('rewards')">
+</div>
 
-        <div class="icon">🎁</div>
-        Rewards
+</div>
 
-      </div>
+</div>
 
-    </div>
 
-  </section>
+<div class="section">
 
+<div class="sectionTitle">
+<h2>⭐ BEST SELLERS</h2>
+<button class="viewBtn" onclick="showPage('best')">
+VIEW ALL
+</button>
+</div>
 
-  <section class="section">
+<div class="products" id="homeProducts"></div>
 
-    <div class="offer">
-
-      <div>
-
-        <span class="badge">
-          LIMITED OFFER
-        </span>
-
-        <h2>
-          🔥 Mega Gaming Bundle
-        </h2>
-
-        <p>
-          Get exclusive items with a huge discount.
-        </p>
-
-      </div>
-
-
-      <button
-        class="buy"
-        style="max-width:150px"
-        onclick="showPage('offers')">
-
-        Get Offer
-
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-title">
-
-      <h2>
-        Why Choose PINKO STORE?
-      </h2>
-
-    </div>
-
-
-    <div class="features">
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          ⚡
-        </div>
-
-        <h3>
-          Fast Delivery
-        </h3>
-
-        <p>
-          Receive your digital items quickly.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          🔒
-        </div>
-
-        <h3>
-          Secure Payment
-        </h3>
-
-        <p>
-          Your transactions are protected.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          💬
-        </div>
-
-        <h3>
-          24/7 Support
-        </h3>
-
-        <p>
-          Our support team is ready to help.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          🎁
-        </div>
-
-        <h3>
-          Exclusive Rewards
-        </h3>
-
-        <p>
-          Get special rewards and promotions.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
+</div>
 
 </section>
 
 
-<!-- STORE -->
+<!-- ================= STORE ================= -->
 
 <section id="store" class="page">
 
-  <div class="section-title">
-    <h2>🛍️ PINKO STORE</h2>
-  </div>
+<div class="section">
 
+<div class="sectionTitle">
+<h2>🛒 PINKO STORE</h2>
+<button class="viewBtn" onclick="showPage('cart')">
+OPEN CART
+</button>
+</div>
 
-  <div class="products">
+<div id="storeProducts" class="products"></div>
 
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Premium Bundle
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $4.99
-          <span class="old">
-            $9.99
-          </span>
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Premium Bundle',4.99)">
-
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Elite Weapon Skin
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $6.49
-          <span class="old">
-            $11.99
-          </span>
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Elite Weapon Skin',6.49)">
-
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Diamond Pack
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $2.99
-          <span class="old">
-            $5.99
-          </span>
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Diamond Pack',2.99)">
-
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Legendary Skin
-        </div>
-
-        <div class="rating">
-          ★★★★★
-        </div>
-
-        <div class="price">
-          $7.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('Legendary Skin',7.99)">
-
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- DIAMONDS -->
+<!-- ================= DIAMONDS ================= -->
 
 <section id="diamonds" class="page">
 
-  <div class="section-title">
-    <h2>💎 Diamonds</h2>
-  </div>
+<div class="section">
 
+<div class="sectionTitle">
+<h2>💎 TOP UP DIAMONDS</h2>
+</div>
 
-  <div class="products">
+<div class="diamonds">
 
+<div class="diamond">
+<div class="diamondIcon">💎</div>
+<h3>100</h3>
+<div class="diamondPrice">$1.00</div>
+<button class="buy" onclick="addToCart('100 Diamonds',1,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
+BUY
+</button>
+</div>
 
-    <div class="product">
+<div class="diamond">
+<div class="diamondIcon">💎</div>
+<h3>310</h3>
+<div class="diamondPrice">$3.00</div>
+<button class="buy" onclick="addToCart('310 Diamonds',3,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
+BUY
+</button>
+</div>
 
-      <div class="product-info">
+<div class="diamond">
+<div class="diamondIcon">💎</div>
+<h3>520</h3>
+<div class="diamondPrice">$5.00</div>
+<button class="buy" onclick="addToCart('520 Diamonds',5,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
+BUY
+</button>
+</div>
 
-        <div class="product-name">
-          100 Diamonds
-        </div>
+<div class="diamond">
+<div class="diamondIcon">💎</div>
+<h3>1060</h3>
+<div class="diamondPrice">$10.00</div>
+<button class="buy" onclick="addToCart('1060 Diamonds',10,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
+BUY
+</button>
+</div>
 
-        <div class="price">
-          $1.99
-        </div>
+<div class="diamond">
+<div class="diamondIcon">💎</div>
+<h3>2180</h3>
+<div class="diamondPrice">$20.00</div>
+<button class="buy" onclick="addToCart('2180 Diamonds',20,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
+BUY
+</button>
+</div>
 
-        <button
-          class="buy"
-          onclick="addCart('100 Diamonds',1.99)">
+<div class="diamond">
+<div class="diamondIcon">💎</div>
+<h3>5600</h3>
+<div class="diamondPrice">$50.00</div>
+<button class="buy" onclick="addToCart('5600 Diamonds',50,'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80')">
+BUY
+</button>
+</div>
 
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          310 Diamonds
-        </div>
-
-        <div class="price">
-          $4.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('310 Diamonds',4.99)">
-
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="product">
-
-      <div class="product-info">
-
-        <div class="product-name">
-          520 Diamonds
-        </div>
-
-        <div class="price">
-          $7.99
-        </div>
-
-        <button
-          class="buy"
-          onclick="addCart('520 Diamonds',7.99)">
-
-          Add to Cart
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-  </div>
+</div>
+</div>
 
 </section>
 
 
-<!-- OTHER PAGES -->
-
-<section id="skins" class="page">
-
-  <div class="section-title">
-    <h2>👕 Skins</h2>
-  </div>
-
-  <div class="empty">
-    Skins collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="weapons" class="page">
-
-  <div class="section-title">
-    <h2>🔫 Weapon Skins</h2>
-  </div>
-
-  <div class="empty">
-    Weapon skins collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="characters" class="page">
-
-  <div class="section-title">
-    <h2>🧑 Characters</h2>
-  </div>
-
-  <div class="empty">
-    Characters collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="emotes" class="page">
-
-  <div class="section-title">
-    <h2>💃 Emotes</h2>
-  </div>
-
-  <div class="empty">
-    Emotes collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="vehicles" class="page">
-
-  <div class="section-title">
-    <h2>🚗 Vehicles</h2>
-  </div>
-
-  <div class="empty">
-    Vehicles collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="backpacks" class="page">
-
-  <div class="section-title">
-    <h2>🎒 Backpacks</h2>
-  </div>
-
-  <div class="empty">
-    Backpacks collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="bundles" class="page">
-
-  <div class="section-title">
-    <h2>📦 Bundles</h2>
-  </div>
-
-  <div class="empty">
-    Bundles collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="codes" class="page">
-
-  <div class="section-title">
-    <h2>🎟️ Gift Codes</h2>
-  </div>
-
-  <div class="empty">
-    Gift Codes collection will appear here.
-  </div>
-
-</section>
-
-
-<section id="rewards" class="page">
-
-  <div class="section-title">
-    <h2>🎁 Rewards</h2>
-  </div>
-
-  <div class="empty">
-    Rewards will appear here.
-  </div>
-
-</section>
-
-
-<section id="promotions" class="page">
-
-  <div class="section-title">
-    <h2>🔥 Promotions</h2>
-  </div>
-
-  <div class="empty">
-    Current promotions will appear here.
-  </div>
-
-</section>
-
-
-<section id="offers" class="page">
-
-  <div class="section-title">
-    <h2>🎁 Special Offers</h2>
-  </div>
-
-  <div class="empty">
-    Exclusive offers will appear here.
-  </div>
-
-</section>
-
+<!-- ================= GENERIC PRODUCT PAGES ================= -->
 
 <section id="best" class="page">
-
-  <div class="section-title">
-    <h2>⭐ Best Sellers</h2>
-  </div>
-
-  <div class="empty">
-    Best sellers will appear here.
-  </div>
-
+<div class="section">
+<div class="sectionTitle">
+<h2>⭐ BEST SELLERS</h2>
+</div>
+<div id="bestProducts" class="products"></div>
+</div>
 </section>
 
 
 <section id="new" class="page">
+<div class="section">
+<div class="sectionTitle">
+<h2>🆕 NEW ARRIVALS</h2>
+</div>
+<div id="newProducts" class="products"></div>
+</div>
+</section>
 
-  <div class="section-title">
-    <h2>🆕 New Arrivals</h2>
-  </div>
 
-  <div class="empty">
-    New arrivals will appear here.
-  </div>
+<section id="promotions" class="page">
+<div class="section">
+<div class="sectionTitle">
+<h2>🔥 PROMOTIONS</h2>
+</div>
+<div id="promoProducts" class="products"></div>
+</div>
+</section>
+
+
+<section id="offers" class="page">
+<div class="section">
+<div class="sectionTitle">
+<h2>🎁 SPECIAL OFFERS</h2>
+</div>
+<div id="offerProducts" class="products"></div>
+</div>
+</section>
+
+
+<section id="flash" class="page">
+<div class="section">
+<div class="sectionTitle">
+<h2>⚡ FLASH DEALS</h2>
+</div>
+
+<div class="dealCard">
+<h2>🔥 MEGA FLASH SALE</h2>
+<p>Limited time gaming items.</p>
+<div class="timer" id="flashTimer">
+03:26:45
+</div>
+<button class="primary"
+onclick="addToCart('Mega Flash Bundle',4.99,'https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80')">
+BUY NOW
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= REWARDS ================= -->
+
+<section id="rewards" class="page">
+
+<div class="section">
+
+<div class="sectionTitle">
+<h2>🎁 DAILY REWARDS</h2>
+</div>
+
+<div class="accountGrid">
+
+<div class="accountCard">
+<h3>DAY 1</h3>
+<div class="bigNumber">💎 100</div>
+<button class="primary" onclick="claimReward(this,100)">
+CLAIM
+</button>
+</div>
+
+<div class="accountCard">
+<h3>DAY 2</h3>
+<div class="bigNumber">💎 200</div>
+<button class="primary" onclick="claimReward(this,200)">
+CLAIM
+</button>
+</div>
+
+<div class="accountCard">
+<h3>DAY 3</h3>
+<div class="bigNumber">💎 300</div>
+<button class="primary" onclick="claimReward(this,300)">
+CLAIM
+</button>
+</div>
+
+<div class="accountCard">
+<h3>DAY 4</h3>
+<div class="bigNumber">💎 500</div>
+<button class="primary" onclick="claimReward(this,500)">
+CLAIM
+</button>
+</div>
+
+<div class="accountCard">
+<h3>DAY 5</h3>
+<div class="bigNumber">💎 700</div>
+<button class="primary" onclick="claimReward(this,700)">
+CLAIM
+</button>
+</div>
+
+<div class="accountCard">
+<h3>DAY 7</h3>
+<div class="bigNumber">💎 1000</div>
+<button class="primary" onclick="claimReward(this,1000)">
+CLAIM
+</button>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<section id="lucky" class="page">
+<!-- ================= CART ================= -->
 
-  <div class="section-title">
-    <h2>🎰 Lucky Draw</h2>
-  </div>
+<section id="cart" class="page">
 
-  <div class="empty">
-    Lucky Draw will appear here.
-  </div>
+<div class="section">
 
-</section>
+<div class="sectionTitle">
+<h2>🛒 MY CART</h2>
+<button class="viewBtn" onclick="clearCart()">
+CLEAR CART
+</button>
+</div>
 
+<div id="cartList"></div>
 
-<section id="chests" class="page">
+<div class="totalBox">
 
-  <div class="section-title">
-    <h2>🎁 Chests</h2>
-  </div>
+<div>
+TOTAL
+</div>
 
-  <div class="empty">
-    Chests will appear here.
-  </div>
+<strong id="cartTotal">$0.00</strong>
 
-</section>
+<button class="primary"
+onclick="checkout()">
+CHECKOUT
+</button>
 
+</div>
 
-<section id="events" class="page">
-
-  <div class="section-title">
-    <h2>🏆 Events</h2>
-  </div>
-
-  <div class="empty">
-    Events will appear here.
-  </div>
+</div>
 
 </section>
 
+
+<!-- ================= FAVORITES ================= -->
 
 <section id="favorites" class="page">
 
-  <div class="section-title">
-    <h2>❤️ Favorites</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    Your favorite products will appear here.
-  </div>
+<div class="sectionTitle">
+<h2>❤️ MY FAVORITES</h2>
+</div>
+
+<div id="favoriteProducts" class="products"></div>
+
+</div>
 
 </section>
 
+
+<!-- ================= ORDERS ================= -->
 
 <section id="orders" class="page">
 
-  <div class="section-title">
-    <h2>📋 My Orders</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    Your orders will appear here.
-  </div>
+<div class="sectionTitle">
+<h2>📋 MY ORDERS</h2>
+</div>
+
+<div id="ordersList"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= WALLET ================= -->
+
+<section id="wallet" class="page">
+
+<div class="section">
+
+<div class="sectionTitle">
+<h2>💰 MY WALLET</h2>
+</div>
+
+<div class="accountGrid">
+
+<div class="accountCard">
+<h3>💎 Diamonds</h3>
+<div class="bigNumber" id="diamondBalance">
+0
+</div>
+</div>
+
+<div class="accountCard">
+<h3>🪙 PINKO Coins</h3>
+<div class="bigNumber" id="walletCoins">
+12,450
+</div>
+</div>
+
+<div class="accountCard">
+<h3>🎁 Rewards</h3>
+<div class="bigNumber">7</div>
+</div>
+
+</div>
+
+<button class="primary"
+onclick="addCoins()">
++ ADD 1,000 COINS
+</button>
+
+</div>
 
 </section>
 
 
-<section id="payment" class="page">
-
-  <div class="section-title">
-    <h2>💳 Payment</h2>
-  </div>
-
-  <div class="empty">
-    Payment options will appear here.
-  </div>
-
-</section>
-
+<!-- ================= COUPONS ================= -->
 
 <section id="coupons" class="page">
 
-  <div class="section-title">
-    <h2>🎟️ Coupons</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    Your coupons will appear here.
-  </div>
+<div class="sectionTitle">
+<h2>🎟️ COUPONS</h2>
+</div>
+
+<p style="color:#888;margin-bottom:15px">
+Enter your coupon code below.
+</p>
+
+<input
+class="input"
+id="couponInput"
+placeholder="Example: PINKO20">
+
+<button
+class="primary"
+onclick="applyCoupon()">
+APPLY COUPON
+</button>
+
+<div id="couponResult"
+style="margin-top:15px;color:#ff4da6">
+</div>
+
+</div>
 
 </section>
 
+
+<!-- ================= ACCOUNT ================= -->
+
+<section id="account" class="page">
+
+<div class="section">
+
+<div class="sectionTitle">
+<h2>👤 MY ACCOUNT</h2>
+</div>
+
+<div class="accountGrid">
+
+<div class="accountCard">
+<h3>Profile</h3>
+<p id="accountName">Guest User</p>
+<br>
+<button class="primary" onclick="openLogin()">
+LOGIN
+</button>
+</div>
+
+<div class="accountCard">
+<h3>Level</h3>
+<div class="bigNumber">25</div>
+</div>
+
+<div class="accountCard">
+<h3>Orders</h3>
+<div class="bigNumber" id="accountOrders">0</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= NOTIFICATIONS ================= -->
+
+<section id="notifications" class="page">
+
+<div class="section">
+
+<div class="sectionTitle">
+<h2>🔔 NOTIFICATIONS</h2>
+</div>
+
+<div class="accountCard">
+<h3>🔥 New Offer</h3>
+<p style="color:#888;margin-top:7px">
+Mega Bundle is now 60% OFF.
+</p>
+</div>
+
+<br>
+
+<div class="accountCard">
+<h3>🎁 Daily Reward</h3>
+<p style="color:#888;margin-top:7px">
+Your daily reward is ready.
+</p>
+</div>
+
+<br>
+
+<div class="accountCard">
+<h3>🆕 New Product</h3>
+<p style="color:#888;margin-top:7px">
+New gaming items have arrived.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EVENTS ================= -->
+
+<section id="events" class="page">
+
+<div class="section">
+
+<div class="sectionTitle">
+<h2>🏆 EVENTS</h2>
+</div>
+
+<div class="accountGrid">
+
+<div class="accountCard">
+<h3>🔥 Weekend Event</h3>
+<p style="color:#888">
+Get extra rewards this weekend.
+</p>
+<button class="primary"
+onclick="showToast('You joined the event!')">
+JOIN EVENT
+</button>
+</div>
+
+<div class="accountCard">
+<h3>🎁 Lucky Event</h3>
+<p style="color:#888">
+Try your luck and win rewards.
+</p>
+<button class="primary"
+onclick="showToast('Event opened!')">
+OPEN
+</button>
+</div>
+
+<div class="accountCard">
+<h3>👑 VIP Event</h3>
+<p style="color:#888">
+Exclusive VIP rewards.
+</p>
+<button class="primary"
+onclick="showToast('VIP event selected!')">
+VIEW
+</button>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SUPPORT ================= -->
 
 <section id="support" class="page">
 
-  <div class="section-title">
-    <h2>💬 Support</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    PINKO STORE Support is available here.
-  </div>
+<div class="sectionTitle">
+<h2>💬 SUPPORT</h2>
+</div>
+
+<input
+class="input"
+id="supportName"
+placeholder="Your name">
+
+<input
+class="input"
+id="supportEmail"
+placeholder="Your email">
+
+<textarea
+class="input"
+id="supportMessage"
+placeholder="How can we help?"
+style="height:120px;resize:none">
+</textarea>
+
+<button class="primary"
+onclick="sendSupport()">
+SEND MESSAGE
+</button>
+
+</div>
 
 </section>
 
+
+<!-- ================= FAQ ================= -->
 
 <section id="faq" class="page">
 
-  <div class="section-title">
-    <h2>❓ FAQ</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    Frequently Asked Questions will appear here.
-  </div>
+<div class="sectionTitle">
+<h2>❓ FAQ</h2>
+</div>
+
+<div class="accountCard">
+<h3>How fast is delivery?</h3>
+<p style="color:#888;margin-top:7px">
+Digital products are delivered after the order is processed.
+</p>
+</div>
+
+<br>
+
+<div class="accountCard">
+<h3>How can I contact support?</h3>
+<p style="color:#888;margin-top:7px">
+Open the Support section and send us a message.
+</p>
+</div>
+
+<br>
+
+<div class="accountCard">
+<h3>Can I use coupons?</h3>
+<p style="color:#888;margin-top:7px">
+Yes. Enter an active coupon in the Coupons section.
+</p>
+</div>
+
+</div>
 
 </section>
 
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact" class="page">
 
-  <div class="section-title">
-    <h2>📞 Contact</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    Contact PINKO STORE here.
-  </div>
+<div class="sectionTitle">
+<h2>📞 CONTACT</h2>
+</div>
+
+<div class="accountGrid">
+
+<div class="accountCard">
+<h3>💬 Live Support</h3>
+<p style="color:#888">Available 24/7</p>
+<button class="primary"
+onclick="showPage('support')">
+CONTACT
+</button>
+</div>
+
+<div class="accountCard">
+<h3>📧 Email</h3>
+<p style="color:#888">support@pinkostore.example</p>
+</div>
+
+<div class="accountCard">
+<h3>🌐 Social</h3>
+<p style="color:#888">Follow PINKO STORE</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
+
+<!-- ================= SETTINGS ================= -->
 
 <section id="settings" class="page">
 
-  <div class="section-title">
-    <h2>⚙️ Settings</h2>
-  </div>
+<div class="section">
 
-  <div class="empty">
-    Store settings will appear here.
-  </div>
+<div class="sectionTitle">
+<h2>⚙️ SETTINGS</h2>
+</div>
 
-</section>
+<div class="accountCard">
 
+<h3>Notifications</h3>
 
-<!-- CART PAGE -->
+<button class="primary"
+onclick="toggleSetting(this)">
+ON
+</button>
 
-<section id="cartPage" class="page">
+</div>
 
-  <div class="section-title">
+<br>
 
-    <h2>
-      🛒 My Cart
-    </h2>
+<div class="accountCard">
 
-  </div>
+<h3>Dark Mode</h3>
 
-  <div
-    id="cartItems"
-    class="cart-list">
-  </div>
+<button class="primary"
+onclick="showToast('Dark mode is already enabled')">
+ENABLED
+</button>
+
+</div>
+
+<br>
+
+<div class="accountCard">
+
+<h3>Language</h3>
+
+<select class="input"
+onchange="changeLanguage(this.value)">
+
+<option value="English">English</option>
+<option value="French">French</option>
+<option value="Arabic">Arabic</option>
+
+</select>
+
+</div>
+
+</div>
 
 </section>
 
@@ -1683,780 +1921,1164 @@ footer{
 </main>
 
 
-<!-- FLOATING CART -->
+<!-- ================= LOGIN MODAL ================= -->
 
-<div
-  class="cart"
-  onclick="showCart()">
+<div class="modal" id="loginModal">
 
-  🛒
+<div class="modalBox">
 
-  <span
-    id="cartCount"
-    class="cart-count">
+<span class="close" onclick="closeLogin()">×</span>
 
-    0
+<h2>PINKO STORE</h2>
 
-  </span>
+<p>Login to your account</p>
+
+<input
+class="input"
+id="loginEmail"
+type="email"
+placeholder="Email">
+
+<input
+class="input"
+id="loginPassword"
+type="password"
+placeholder="Password">
+
+<button class="full"
+onclick="login()">
+LOGIN
+</button>
+
+<p style="margin-top:15px">
+Don't have an account?
+<span
+class="modalLink"
+onclick="register()">
+Create Account
+</span>
+</p>
+
+</div>
 
 </div>
 
 
-<!-- FOOTER -->
+<!-- ================= CHECKOUT MODAL ================= -->
 
-<footer>
+<div class="modal" id="checkoutModal">
 
-  © 2026 PINKO STORE.
-  All rights reserved.
+<div class="modalBox">
 
-</footer>
+<span class="close"
+onclick="closeCheckout()">
+×
+</span>
 
+<h2>CHECKOUT</h2>
 
-<!-- LOGIN MODAL -->
+<p>Complete your order</p>
 
-<div
-  class="modal"
-  id="accountModal">
+<input
+class="input"
+id="playerId"
+placeholder="Player ID">
 
-  <div class="login-box">
+<select class="input" id="paymentMethod">
 
-    <span
-      class="close"
-      onclick="closeAccount()">
+<option>Card</option>
+<option>PayPal</option>
+<option>Wallet</option>
+</select>
 
-      ×
-
-    </span>
-
-
-    <!-- LOGIN -->
-
-    <div id="loginForm">
-
-      <h2>
-        Welcome Back
-      </h2>
-
-      <p class="login-subtitle">
-        Login to your PINKO STORE account
-      </p>
-
-
-      <div class="input-group">
-
-        <label>
-          Email
-        </label>
-
-        <input
-          id="loginEmail"
-          type="email"
-          placeholder="Enter your email">
-
-      </div>
-
-
-      <div class="input-group">
-
-        <label>
-          Password
-        </label>
-
-        <input
-          id="loginPassword"
-          type="password"
-          placeholder="Enter your password">
-
-      </div>
-
-
-      <button
-        class="login-submit"
-        onclick="login()">
-
-        Login
-
-      </button>
-
-
-      <div
-        id="loginMessage"
-        class="message">
-      </div>
-
-
-      <div class="switch">
-
-        Don't have an account?
-
-        <span onclick="showSignup()">
-          Create Account
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- SIGN UP -->
-
-    <div
-      id="signupForm"
-      style="display:none">
-
-      <h2>
-        Create Account
-      </h2>
-
-      <p class="login-subtitle">
-        Join PINKO STORE
-      </p>
-
-
-      <div class="input-group">
-
-        <label>
-          Username
-        </label>
-
-        <input
-          id="signupName"
-          type="text"
-          placeholder="Choose a username">
-
-      </div>
-
-
-      <div class="input-group">
-
-        <label>
-          Email
-        </label>
-
-        <input
-          id="signupEmail"
-          type="email"
-          placeholder="Enter your email">
-
-      </div>
-
-
-      <div class="input-group">
-
-        <label>
-          Password
-        </label>
-
-        <input
-          id="signupPassword"
-          type="password"
-          placeholder="Create a password">
-
-      </div>
-
-
-      <button
-        class="login-submit"
-        onclick="signup()">
-
-        Create Account
-
-      </button>
-
-
-      <div
-        id="signupMessage"
-        class="message">
-      </div>
-
-
-      <div class="switch">
-
-        Already have an account?
-
-        <span onclick="showLogin()">
-          Login
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- ACCOUNT -->
-
-    <div
-      id="accountPanel"
-      style="display:none">
-
-      <div class="account-card">
-
-        <div class="account-avatar">
-          👤
-        </div>
-
-        <h2 id="accountName"></h2>
-
-        <p
-          id="accountEmail"
-          style="color:#777;margin-top:7px">
-        </p>
-
-
-        <button
-          class="logout"
-          onclick="logout()">
-
-          Logout
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-  </div>
+<button class="full"
+onclick="placeOrder()">
+PLACE ORDER
+</button>
 
 </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* PAGE SYSTEM */
+/* ================= DATA ================= */
 
-function showPage(pageId){
+const products=[
 
-  document
-    .querySelectorAll(".page")
-    .forEach(page => {
+{
+id:1,
+name:"Pink Devil Bundle",
+category:"Bundles",
+price:4.99,
+old:9.99,
+discount:"-50%",
+best:true,
+new:true,
+image:"https://images.unsplash.com/photo-1605870445919-838d190e8e1b?auto=format&fit=crop&w=600&q=80"
+},
 
-      page.classList.remove("active");
+{
+id:2,
+name:"Legendary Skin",
+category:"Skins",
+price:7.99,
+old:14.99,
+discount:"-45%",
+best:true,
+image:"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
+},
 
-    });
+{
+id:3,
+name:"AK47 Evo Weapon",
+category:"Weapons",
+price:6.99,
+old:12.99,
+discount:"-40%",
+best:true,
+image:"https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:4,
+name:"Elite Character",
+category:"Characters",
+price:8.99,
+old:15.99,
+discount:"-35%",
+new:true,
+image:"https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:5,
+name:"Dance Emote",
+category:"Emotes",
+price:3.99,
+old:6.99,
+discount:"-40%",
+new:true,
+image:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:6,
+name:"Speed Vehicle",
+category:"Vehicles",
+price:5.99,
+old:10.99,
+discount:"-45%",
+image:"https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:7,
+name:"Pro Bundle",
+category:"Bundles",
+price:9.99,
+old:17.99,
+discount:"-44%",
+best:true,
+image:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:8,
+name:"Dragon Skin",
+category:"Skins",
+price:5.49,
+old:9.99,
+discount:"-45%",
+new:true,
+image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:9,
+name:"Mystery Code",
+category:"Codes",
+price:2.99,
+old:5.99,
+discount:"-50%",
+image:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=600&q=80"
+},
+
+{
+id:10,
+name:"Royal Weapon",
+category:"Weapons",
+price:10.99,
+old:18.99,
+discount:"-42%",
+best:true,
+image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
+}
+
+];
+
+let cart=[];
+let favorites=[];
+let orders=[];
+let coins=12450;
+let diamonds=0;
+
+let couponDiscount=0;
 
 
-  const page =
-    document.getElementById(pageId);
+/* ================= PAGE SYSTEM ================= */
 
+function showPage(page){
 
-  if(page){
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
 
-    page.classList.add("active");
+const target=document.getElementById(page);
 
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
+if(target){
+target.classList.add("active");
+}
 
-  }
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+if(page==="cart") renderCart();
+if(page==="favorites") renderFavorites();
+if(page==="orders") renderOrders();
 
 }
 
 
-/* CART SYSTEM */
+/* ================= PRODUCT CARD ================= */
 
-let cart =
-  JSON.parse(
-    localStorage.getItem("pinkoCart")
-  ) || [];
+function productCard(product){
 
+const fav=favorites.includes(product.id);
 
-function saveCart(){
+return `
 
-  localStorage.setItem(
-    "pinkoCart",
-    JSON.stringify(cart)
-  );
+<div class="product">
+
+<div class="productImg">
+
+<img src="${product.image}">
+
+<span class="discount">
+${product.discount}
+</span>
+
+<button
+class="favorite ${fav?'active':''}"
+onclick="toggleFavorite(${product.id})">
+
+${fav?'♥':'♡'}
+
+</button>
+
+</div>
+
+<div class="productInfo">
+
+<h3>${product.name}</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="price">
+$${product.price.toFixed(2)}
+
+<span class="old">
+$${product.old.toFixed(2)}
+</span>
+
+</div>
+
+<button
+class="buy"
+onclick="addToCartById(${product.id})">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+`;
 
 }
 
+
+/* ================= RENDER PRODUCTS ================= */
+
+function renderProducts(list,target){
+
+const box=document.getElementById(target);
+
+if(!box)return;
+
+if(list.length===0){
+
+box.innerHTML=
+`<p style="color:#777">No products found.</p>`;
+
+return;
+
+}
+
+box.innerHTML=
+list.map(productCard).join("");
+
+}
+
+
+/* ================= INITIAL PRODUCTS ================= */
+
+function renderAll(){
+
+renderProducts(
+products.filter(p=>p.best),
+"homeProducts"
+);
+
+renderProducts(
+products,
+"storeProducts"
+);
+
+renderProducts(
+products.filter(p=>p.best),
+"bestProducts"
+);
+
+renderProducts(
+products.filter(p=>p.new),
+"newProducts"
+);
+
+renderProducts(
+products.filter(p=>p.discount),
+"promoProducts"
+);
+
+renderProducts(
+products.filter(p=>p.discount),
+"offerProducts"
+);
+
+}
+
+
+/* ================= ADD CART ================= */
+
+function addToCartById(id){
+
+const product=
+products.find(p=>p.id===id);
+
+if(!product)return;
+
+addToCart(
+product.name,
+product.price,
+product.image
+);
+
+}
+
+
+function addToCart(name,price,image){
+
+const existing=
+cart.find(item=>item.name===name);
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+name:name,
+price:price,
+image:image,
+qty:1
+});
+
+}
+
+updateCartCount();
+
+showToast(
+"🛒 "+name+" added to cart!"
+);
+
+}
+
+
+/* ================= CART ================= */
 
 function updateCartCount(){
 
-  document
-    .getElementById("cartCount")
-    .innerText = cart.length;
+const count=
+cart.reduce(
+(sum,item)=>sum+item.qty,
+0
+);
 
-}
+document.getElementById("cartCount")
+.innerText=count;
 
-
-function addCart(name,price){
-
-  cart.push({
-    name:name,
-    price:price
-  });
-
-
-  saveCart();
-
-  updateCartCount();
-
-  alert(
-    name +
-    " added to your cart!"
-  );
-
-}
-
-
-function showCart(){
-
-  showPage("cartPage");
-
-  renderCart();
+document.getElementById("sideCart")
+.innerText=count;
 
 }
 
 
 function renderCart(){
 
-  const container =
-    document.getElementById("cartItems");
+const list=
+document.getElementById("cartList");
+
+if(cart.length===0){
+
+list.innerHTML=
+`
+<div style="text-align:center;padding:40px;color:#777">
+🛒<br><br>
+Your cart is empty.
+<br><br>
+<button class="primary"
+onclick="showPage('store')">
+GO TO STORE
+</button>
+</div>
+`;
+
+document.getElementById("cartTotal")
+.innerText="$0.00";
+
+return;
+
+}
+
+let total=0;
+
+list.innerHTML=
+cart.map((item,index)=>{
+
+total+=item.price*item.qty;
+
+return `
+
+<div class="cartItem">
+
+<img src="${item.image}">
+
+<div class="cartItemInfo">
+
+<b>${item.name}</b>
+
+<small>
+$${item.price.toFixed(2)}
+</small>
+
+</div>
+
+<div class="quantity">
+
+<button onclick="changeQty(${index},-1)">
+−
+</button>
+
+<span>
+${item.qty}
+</span>
+
+<button onclick="changeQty(${index},1)">
++
+</button>
+
+</div>
+
+<button
+class="remove"
+onclick="removeCart(${index})">
+
+REMOVE
+
+</button>
+
+</div>
+
+`;
+
+}).join("");
+
+let finalTotal=
+total*(1-couponDiscount);
+
+document.getElementById("cartTotal")
+.innerText=
+"$"+finalTotal.toFixed(2);
+
+}
 
 
-  if(cart.length === 0){
+function changeQty(index,value){
 
-    container.innerHTML =
-      '<div class="empty">Your cart is empty.</div>';
+cart[index].qty+=value;
 
-    return;
+if(cart[index].qty<=0){
 
-  }
+cart.splice(index,1);
 
+}
 
-  container.innerHTML = "";
-
-
-  cart.forEach((item,index) => {
-
-    const div =
-      document.createElement("div");
-
-
-    div.className =
-      "cart-item";
-
-
-    div.innerHTML = `
-
-      <div>
-
-        <strong>
-          ${item.name}
-        </strong>
-
-        <br>
-
-        <span style="color:#ff1493">
-          $${item.price}
-        </span>
-
-      </div>
-
-
-      <button
-        class="remove"
-        onclick="removeCart(${index})">
-
-        Remove
-
-      </button>
-
-    `;
-
-
-    container.appendChild(div);
-
-  });
+updateCartCount();
+renderCart();
 
 }
 
 
 function removeCart(index){
 
-  cart.splice(index,1);
+cart.splice(index,1);
 
-  saveCart();
+updateCartCount();
+renderCart();
 
-  updateCartCount();
-
-  renderCart();
+showToast("Product removed.");
 
 }
 
 
-/* SEARCH */
+function clearCart(){
+
+cart=[];
+
+updateCartCount();
+renderCart();
+
+showToast("Cart cleared.");
+
+}
+
+
+/* ================= FAVORITES ================= */
+
+function toggleFavorite(id){
+
+if(favorites.includes(id)){
+
+favorites=
+favorites.filter(x=>x!==id);
+
+showToast("Removed from favorites.");
+
+}else{
+
+favorites.push(id);
+
+showToast("❤️ Added to favorites.");
+
+}
+
+updateFavorites();
+
+renderAll();
+
+if(document
+.getElementById("favorites")
+.classList.contains("active")){
+
+renderFavorites();
+
+}
+
+}
+
+
+function updateFavorites(){
+
+document.getElementById("favoriteCount")
+.innerText=favorites.length;
+
+document.getElementById("sideFav")
+.innerText=favorites.length;
+
+}
+
+
+function renderFavorites(){
+
+const list=
+products.filter(p=>favorites.includes(p.id));
+
+renderProducts(
+list,
+"favoriteProducts"
+);
+
+
+/* ================= SEARCH ================= */
+
+}
 
 function searchProducts(){
 
-  const input =
-    document
-      .getElementById("search")
-      .value
-      .toLowerCase();
+const value=
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
 
+showPage("store");
 
-  const products =
-    document.querySelectorAll(".product");
+const filtered=
+products.filter(p=>
+p.name.toLowerCase().includes(value) ||
+p.category.toLowerCase().includes(value)
+);
 
-
-  products.forEach(product => {
-
-    const name =
-      product
-        .querySelector(".product-name")
-        .innerText
-        .toLowerCase();
-
-
-    product.style.display =
-      name.includes(input)
-      ? ""
-      : "none";
-
-  });
+renderProducts(
+filtered,
+"storeProducts"
+);
 
 }
 
 
-/* ACCOUNT */
+/* ================= CATEGORY ================= */
 
-function openAccount(){
+function filterCategory(category){
 
-  document
-    .getElementById("accountModal")
-    .classList
-    .add("active");
+showPage("store");
 
+if(category==="Diamonds"){
 
-  updateAccount();
+showPage("diamonds");
+return;
+
+}
+
+const filtered=
+products.filter(
+p=>p.category===category
+);
+
+renderProducts(
+filtered,
+"storeProducts"
+);
+
+showToast(
+category+" products"
+);
 
 }
 
 
-function closeAccount(){
+/* ================= LOGIN ================= */
 
-  document
-    .getElementById("accountModal")
-    .classList
-    .remove("active");
+function openLogin(){
 
-}
-
-
-function showSignup(){
-
-  document
-    .getElementById("loginForm")
-    .style.display="none";
-
-
-  document
-    .getElementById("signupForm")
-    .style.display="block";
-
-
-  document
-    .getElementById("accountPanel")
-    .style.display="none";
+document
+.getElementById("loginModal")
+.classList.add("show");
 
 }
 
 
-function showLogin(){
+function closeLogin(){
 
-  document
-    .getElementById("loginForm")
-    .style.display="block";
-
-
-  document
-    .getElementById("signupForm")
-    .style.display="none";
-
-
-  document
-    .getElementById("accountPanel")
-    .style.display="none";
+document
+.getElementById("loginModal")
+.classList.remove("show");
 
 }
 
-
-/* SIGN UP */
-
-function signup(){
-
-  const name =
-    document
-      .getElementById("signupName")
-      .value
-      .trim();
-
-
-  const email =
-    document
-      .getElementById("signupEmail")
-      .value
-      .trim();
-
-
-  const password =
-    document
-      .getElementById("signupPassword")
-      .value;
-
-
-  const message =
-    document.getElementById(
-      "signupMessage"
-    );
-
-
-  if(
-    !name ||
-    !email ||
-    !password
-  ){
-
-    message.innerText =
-      "Please fill in all fields.";
-
-    return;
-
-  }
-
-
-  if(password.length < 6){
-
-    message.innerText =
-      "Password must be at least 6 characters.";
-
-    return;
-
-  }
-
-
-  const user = {
-
-    name:name,
-    email:email,
-    password:password
-
-  };
-
-
-  localStorage.setItem(
-    "pinkoUser",
-    JSON.stringify(user)
-  );
-
-
-  localStorage.setItem(
-    "pinkoLoggedIn",
-    "true"
-  );
-
-
-  message.style.color =
-    "#55ff88";
-
-
-  message.innerText =
-    "Account created successfully!";
-
-
-  setTimeout(
-    updateAccount,
-    500
-  );
-
-}
-
-
-/* LOGIN */
 
 function login(){
 
-  const email =
-    document
-      .getElementById("loginEmail")
-      .value
-      .trim();
+const email=
+document.getElementById("loginEmail").value.trim();
 
+const password=
+document.getElementById("loginPassword").value;
 
-  const password =
-    document
-      .getElementById("loginPassword")
-      .value;
+if(!email||!password){
 
+showToast(
+"Please enter email and password."
+);
 
-  const message =
-    document.getElementById(
-      "loginMessage"
-    );
+return;
 
+}
 
-  const saved =
-    localStorage.getItem(
-      "pinkoUser"
-    );
+localStorage.setItem(
+"pinkoUser",
+email
+);
 
+document.getElementById("accountName")
+.innerText=
+email.split("@")[0];
 
-  if(!saved){
+closeLogin();
 
-    message.innerText =
-      "No account found. Create an account first.";
-
-    return;
-
-  }
-
-
-  const user =
-    JSON.parse(saved);
-
-
-  if(
-    email === user.email &&
-    password === user.password
-  ){
-
-    localStorage.setItem(
-      "pinkoLoggedIn",
-      "true"
-    );
-
-
-    message.style.color =
-      "#55ff88";
-
-
-    message.innerText =
-      "Login successful!";
-
-
-    setTimeout(
-      updateAccount,
-      500
-    );
-
-  }else{
-
-    message.innerText =
-      "Incorrect email or password.";
-
-  }
+showToast(
+"✅ Login successful!"
+);
 
 }
 
 
-/* ACCOUNT STATUS */
+function register(){
 
-function updateAccount(){
+const email=
+document.getElementById("loginEmail").value.trim();
 
-  const loggedIn =
-    localStorage.getItem(
-      "pinkoLoggedIn"
-    );
+if(!email){
 
+showToast(
+"Enter your email first."
+);
 
-  const saved =
-    localStorage.getItem(
-      "pinkoUser"
-    );
+return;
 
+}
 
-  if(
-    loggedIn === "true" &&
-    saved
-  ){
+localStorage.setItem(
+"pinkoUser",
+email
+);
 
-    const user =
-      JSON.parse(saved);
+closeLogin();
 
-
-    document
-      .getElementById("loginForm")
-      .style.display="none";
-
-
-    document
-      .getElementById("signupForm")
-      .style.display="none";
-
-
-    document
-      .getElementById("accountPanel")
-      .style.display="block";
-
-
-    document
-      .getElementById("accountName")
-      .innerText =
-      user.name;
-
-
-    document
-      .getElementById("accountEmail")
-      .innerText =
-      user.email;
-
-
-    document
-      .getElementById("accountButton")
-      .innerText =
-      "👤 " + user.name;
-
-  }else{
-
-    showLogin();
-
-
-    document
-      .getElementById("accountButton")
-      .innerText =
-      "👤 Login";
-
-  }
+showToast(
+"🎉 Account created successfully!"
+);
 
 }
 
 
-/* LOGOUT */
+/* ================= CHECKOUT ================= */
 
-function logout(){
+function checkout(){
 
-  localStorage.setItem(
-    "pinkoLoggedIn",
-    "false"
-  );
+if(cart.length===0){
 
+showToast("Your cart is empty.");
 
-  document
-    .getElementById("accountButton")
-    .innerText =
-    "👤 Login";
+return;
 
+}
 
-  showLogin();
+document
+.getElementById("checkoutModal")
+.classList.add("show");
 
 }
 
 
-/* START */
+function closeCheckout(){
 
-window.onload = function(){
+document
+.getElementById("checkoutModal")
+.classList.remove("show");
 
-  updateCartCount();
+}
 
-  updateAccount();
 
-};
+function placeOrder(){
+
+const player=
+document.getElementById("playerId")
+.value.trim();
+
+if(!player){
+
+showToast(
+"Please enter Player ID."
+);
+
+return;
+
+}
+
+let total=0;
+
+cart.forEach(item=>{
+total+=item.price*item.qty;
+});
+
+total*=(1-couponDiscount);
+
+orders.push({
+
+id:
+"PK"+Date.now(),
+
+date:
+new Date().toLocaleString(),
+
+total:total,
+
+items:
+cart.map(item=>item.name),
+
+status:
+"Processing"
+
+});
+
+cart=[];
+
+couponDiscount=0;
+
+updateCartCount();
+
+renderCart();
+
+closeCheckout();
+
+showToast(
+"✅ Order placed successfully!"
+);
+
+document.getElementById("accountOrders")
+.innerText=
+orders.length;
+
+}
+
+
+/* ================= ORDERS ================= */
+
+function renderOrders(){
+
+const list=
+document.getElementById("ordersList");
+
+if(orders.length===0){
+
+list.innerHTML=
+`
+<div style="padding:35px;text-align:center;color:#777">
+📋<br><br>
+No orders yet.
+<br><br>
+<button class="primary"
+onclick="showPage('store')">
+START SHOPPING
+</button>
+</div>
+`;
+
+return;
+
+}
+
+list.innerHTML=
+orders.map(order=>`
+
+<div class="accountCard"
+style="margin-bottom:10px">
+
+<h3>
+ORDER #${order.id}
+</h3>
+
+<p style="color:#888;margin:7px 0">
+${order.date}
+</p>
+
+<p>
+${order.items.join(", ")}
+</p>
+
+<p style="color:#4fc3ff;margin-top:7px">
+Total: $${order.total.toFixed(2)}
+</p>
+
+<p style="color:#ff198c;margin-top:7px">
+Status: ${order.status}
+</p>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* ================= COINS ================= */
+
+function addCoins(){
+
+coins+=1000;
+
+document.getElementById("coinBalance")
+.innerText=
+coins.toLocaleString();
+
+document.getElementById("walletCoins")
+.innerText=
+coins.toLocaleString();
+
+showToast(
+"🪙 +1,000 PINKO Coins"
+);
+
+}
+
+
+/* ================= REWARDS ================= */
+
+function claimReward(button,value){
+
+if(button.disabled){
+
+return;
+
+}
+
+button.disabled=true;
+
+button.innerText="CLAIMED";
+
+diamonds+=value;
+
+document.getElementById("diamondBalance")
+.innerText=diamonds;
+
+showToast(
+"🎁 +"+value+" Diamonds!"
+);
+
+}
+
+
+/* ================= COUPON ================= */
+
+function applyCoupon(){
+
+const code=
+document.getElementById("couponInput")
+.value
+.trim()
+.toUpperCase();
+
+const result=
+document.getElementById("couponResult");
+
+if(code==="PINKO20"){
+
+couponDiscount=.20;
+
+result.innerText=
+"✅ 20% discount applied!";
+
+}else if(code==="PINKO10"){
+
+couponDiscount=.10;
+
+result.innerText=
+"✅ 10% discount applied!";
+
+}else{
+
+couponDiscount=0;
+
+result.innerText=
+"❌ Invalid coupon code.";
+
+}
+
+renderCart();
+
+}
+
+
+/* ================= SUPPORT ================= */
+
+function sendSupport(){
+
+const name=
+document.getElementById("supportName").value.trim();
+
+const email=
+document.getElementById("supportEmail").value.trim();
+
+const message=
+document.getElementById("supportMessage").value.trim();
+
+if(!name||!email||!message){
+
+showToast(
+"Please complete all fields."
+);
+
+return;
+
+}
+
+document.getElementById("supportMessage")
+.value="";
+
+showToast(
+"✅ Support message sent!"
+);
+
+}
+
+
+/* ================= SETTINGS ================= */
+
+function toggleSetting(button){
+
+if(button.innerText==="ON"){
+
+button.innerText="OFF";
+
+showToast(
+"Notifications disabled."
+);
+
+}else{
+
+button.innerText="ON";
+
+showToast(
+"Notifications enabled."
+);
+
+}
+
+}
+
+
+function changeLanguage(language){
+
+showToast(
+"Language selected: "+language
+);
+
+}
+
+
+/* ================= SIDEBAR ================= */
+
+function toggleSidebar(){
+
+document
+.getElementById("sidebar")
+.classList
+.toggle("open");
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(message){
+
+const toast=
+document.getElementById("toast");
+
+toast.innerText=message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2200);
+
+}
+
+
+/* ================= TIMER ================= */
+
+let seconds=3*3600+26*60+45;
+
+function updateTimer(){
+
+seconds--;
+
+if(seconds<0){
+
+seconds=
+23*3600+59*60+59;
+
+}
+
+const h=
+Math.floor(seconds/3600);
+
+const m=
+Math.floor((seconds%3600)/60);
+
+const s=
+seconds%60;
+
+const value=
+String(h).padStart(2,"0")+":"+
+String(m).padStart(2,"0")+":"+
+String(s).padStart(2,"0");
+
+document.getElementById("homeTimer")
+.innerText=value;
+
+document.getElementById("flashTimer")
+.innerText=value;
+
+}
+
+setInterval(
+updateTimer,
+1000
+);
+
+
+/* ================= LOAD USER ================= */
+
+window.addEventListener(
+"load",
+()=>{
+
+renderAll();
+
+updateCartCount();
+
+updateFavorites();
+
+const user=
+localStorage.getItem("pinkoUser");
+
+if(user){
+
+document.getElementById("accountName")
+.innerText=
+user.split("@")[0];
+
+}
+
+}
+);
 
 </script>
 
 </body>
   </html>
- 
