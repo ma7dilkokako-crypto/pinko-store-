@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinko Store</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b12;
+      color: white;
+    }
+
+    header {
+      background: #151522;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #ff2d75;
+    }
+
+    header h1 {
+      color: #ff2d75;
+      font-size: 32px;
+    }
+
+    header p {
+      color: #bbb;
+      margin-top: 6px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .hero span {
+      color: #ff2d75;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: #171722;
+      border: 1px solid #292936;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #ff2d75;
+    }
+
+    .icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #ff2d75;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .buy {
+      display: inline-block;
+      background: #ff2d75;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .buy:hover {
+      background: #e51f63;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 30px;
+      background: #151522;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🔥 PINKO STORE</h1>
+    <p>Free Fire Store</p>
+  </header>
+
+  <section class="hero">
+    <h2>Bienvenue sur <span>Pinko Store</span></h2>
+    <p>Découvrez nos produits Free Fire</p>
+  </section>
+
+  <section class="products">
+
+    <div class="card">
+      <div class="icon">💎</div>
+      <h3>Diamants</h3>
+      <p>Pack Free Fire</p>
+      <div class="price">10 DH</div>
+      <a class="buy" href="#">Acheter</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">👕</div>
+      <h3>Skin</h3>
+      <p>Skin Free Fire</p>
+      <div class="price">20 DH</div>
+      <a class="buy" href="#">Acheter</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎁</div>
+      <h3>Pack Premium</h3>
+      <p>Offre spéciale</p>
+      <div class="price">30 DH</div>
+      <a class="buy" href="#">Acheter</a>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Pinko Store — Tous droits réservés
+  </footer>
+
+</body>
+</html>
